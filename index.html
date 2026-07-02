@@ -535,7 +535,7 @@ const ASIN_DATA = [
   const conv = +((a.orders / a.clicks)*100).toFixed(2);
   const acos = +((a.spend / a.sales)*100).toFixed(2);
   const roas = +(a.sales / a.spend).toFixed(2);
-  const totalSales = WEEKS[3].sales;
+  const totalSales = WEEKS[WEEKS.length-1].sales;
   const revPct = +((a.sales / totalSales)*100).toFixed(1);
   const growth = +(((a.sales - a.prevSales)/a.prevSales)*100).toFixed(1);
   let status = 'Good';
@@ -564,6 +564,27 @@ function changeClass(val, invert=false){
 // For metrics where lower is better (ACOS, CPC, Spend)
 const INVERT_METRICS = ['acos','cpc','spend'];
 function isInverted(key){ return INVERT_METRICS.includes(key); }
+
+// ============================
+// GLOBAL STATE & CHART TRACKING
+// ============================
+let selectedWeekIdx = 3; // default: WEEKS[3] = W26
+const chartInstances = {};
+
+function destroyChart(id){
+  if(chartInstances[id]){ chartInstances[id].destroy(); delete chartInstances[id]; }
+}
+
+function getSelectedWeek(){ return WEEKS[selectedWeekIdx]; }
+function getPrevWeek(){ return selectedWeekIdx > 0 ? WEEKS[selectedWeekIdx - 1] : null; }
+
+function updateKPIBadge(){
+  const curr = getSelectedWeek();
+  const prev = getPrevWeek();
+  const badge = document.querySelector('#sec-kpi .section-badge');
+  if(badge && prev) badge.textContent = `Week ${curr.week} vs Week ${prev.week}`;
+  else if(badge) badge.textContent = `Week ${curr.week}`;
+}
 
 // ============================
 // NAVIGATION
@@ -604,11 +625,40 @@ document.querySelectorAll('.tab-btn').forEach(btn => {
 });
 
 // ============================
+// FILTER EVENT LISTENERS
+// ============================
+document.getElementById('filterWeek').addEventListener('change', function(){
+  const val = this.value;
+  if(val === 'all') { selectedWeekIdx = 3; }
+  else {
+    const idx = WEEKS.findIndex(w => w.week === parseInt(val));
+    selectedWeekIdx = idx >= 0 ? idx : 3;
+  }
+  refreshDashboard();
+});
+
+function refreshDashboard(){
+  updateKPIBadge();
+  renderKPIs();
+  renderWoW();
+  renderWoWTrendChart();
+  renderWaterfallChart();
+  renderCampaignHealth();
+  renderSalesSpend();
+  renderACOS();
+  renderFunnel();
+  renderInsights();
+  renderForecast();
+  renderAlerts();
+  renderCEOSummary();
+}
+
+// ============================
 // KPI CARDS
 // ============================
 function renderKPIs(){
-  const curr = WEEKS[3]; // W26
-  const prev = WEEKS[2]; // W25
+  const curr = getSelectedWeek();
+  const prev = getPrevWeek() || curr;
 
   const kpis = [
     { label:'Total Sales', key:'sales', format:'cur', val:curr.sales, pVal:prev.sales },
@@ -787,7 +837,8 @@ function renderWoW(){
 // ============================
 function renderWoWTrendChart(){
   const labels = WEEKS.map(w => 'W'+w.week);
-  new Chart(document.getElementById('wowTrendChart'), {
+  destroyChart('wowTrend');
+  chartInstances['wowTrend'] = new Chart(document.getElementById('wowTrendChart'), {
     type:'line',
     data:{
       labels,
@@ -819,7 +870,8 @@ function renderWaterfallChart(){
     salesDiffs.push({ label:`W${WEEKS[i].week} vs W${WEEKS[i-1].week}`, diff:WEEKS[i].sales - WEEKS[i-1].sales });
   }
 
-  new Chart(document.getElementById('waterfallChart'), {
+  destroyChart('waterfall');
+  chartInstances['waterfall'] = new Chart(document.getElementById('waterfallChart'), {
     type:'bar',
     data:{
       labels:salesDiffs.map(d=>d.label),
@@ -848,7 +900,7 @@ function renderWaterfallChart(){
 // CAMPAIGN HEALTH
 // ============================
 function renderCampaignHealth(){
-  const curr = WEEKS[3], prev = WEEKS[2];
+  const curr = getSelectedWeek(), prev = getPrevWeek() || curr;
   // Health score: composite
   const salesGrowth = pctChange(curr.sales, prev.sales);
   const roasScore = Math.min(curr.roas / 5, 1) * 100;
@@ -909,7 +961,8 @@ function renderCampaignHealth(){
   document.getElementById('gaugeValue').style.color = healthColor;
 
   // Radar chart
-  new Chart(document.getElementById('radarChart'), {
+  destroyChart('radar');
+  chartInstances['radar'] = new Chart(document.getElementById('radarChart'), {
     type:'radar',
     data:{
       labels:['Sales Growth','ROAS','ACOS Efficiency','CTR','Conv. Rate','Spend Efficiency'],
@@ -1025,7 +1078,8 @@ function renderASIN(){
   table.innerHTML = html;
 
   // Treemap as horizontal bar (contribution)
-  new Chart(document.getElementById('treemapChart'), {
+  destroyChart('treemap');
+  chartInstances['treemap'] = new Chart(document.getElementById('treemapChart'), {
     type:'bar',
     data:{
       labels:sortedBySales.map(a=>a.name.replace('Playart ','')),
@@ -1045,7 +1099,8 @@ function renderASIN(){
   });
 
   // Scatter: ACOS vs Sales
-  new Chart(document.getElementById('scatterChart'), {
+  destroyChart('scatter');
+  chartInstances['scatter'] = new Chart(document.getElementById('scatterChart'), {
     type:'bubble',
     data:{
       datasets:[{
@@ -1072,7 +1127,8 @@ function renderASIN(){
 // ============================
 function renderSalesSpend(){
   const labels = WEEKS.map(w=>'W'+w.week);
-  new Chart(document.getElementById('salesSpendChart'), {
+  destroyChart('salesSpend');
+  chartInstances['salesSpend'] = new Chart(document.getElementById('salesSpendChart'), {
     type:'bar',
     data:{
       labels,
@@ -1094,7 +1150,7 @@ function renderSalesSpend(){
     }
   });
 
-  const curr = WEEKS[3], prev = WEEKS[2];
+  const curr = getSelectedWeek(), prev = getPrevWeek() || curr;
   document.getElementById('revPerSpend').textContent = '₹' + (curr.sales/curr.spend).toFixed(2);
   const effTrend = pctChange(curr.roas, prev.roas);
   document.getElementById('spendEffTrend').innerHTML = `<span style="color:${effTrend>=0?'var(--green-600)':'var(--red-600)'};">${effTrend>=0?'↑':'↓'} ${Math.abs(effTrend).toFixed(1)}%</span>`;
@@ -1109,7 +1165,8 @@ function renderSalesSpend(){
 // ACOS MONITOR
 // ============================
 function renderACOS(){
-  const curr = WEEKS[3], prev = WEEKS[2];
+  const curr = getSelectedWeek(), prev = getPrevWeek() || curr;
+  destroyChart('acosTrend');
   document.getElementById('currentACOS').textContent = curr.acos.toFixed(2) + '%';
   const acosChg = pctChange(curr.acos, prev.acos);
   const acosImproved = curr.acos < prev.acos;
@@ -1127,7 +1184,7 @@ function renderACOS(){
   document.getElementById('currentACOS').style.color = acosColor;
 
   // Trend chart
-  new Chart(document.getElementById('acosTrendChart'), {
+  chartInstances['acosTrend'] = new Chart(document.getElementById('acosTrendChart'), {
     type:'line',
     data:{
       labels:WEEKS.map(w=>'W'+w.week),
@@ -1178,7 +1235,7 @@ function renderACOS(){
 // FUNNEL
 // ============================
 function renderFunnel(){
-  const w = WEEKS[3];
+  const w = getSelectedWeek();
   const stages = [
     { label:'Impressions', value:w.impressions, color:'linear-gradient(135deg,#2563eb,#3b82f6)', isCount:true },
     { label:'Clicks', value:w.clicks, color:'linear-gradient(135deg,#7c3aed,#8b5cf6)', isCount:true },
@@ -1217,7 +1274,7 @@ function renderFunnel(){
 // INSIGHTS
 // ============================
 function renderInsights(){
-  const curr = WEEKS[3], prev = WEEKS[2];
+  const curr = getSelectedWeek(), prev = getPrevWeek() || curr;
   const salesChg = pctChange(curr.sales, prev.sales);
   const spendChg = pctChange(curr.spend, prev.spend);
   const ordersChg = pctChange(curr.orders, prev.orders);
@@ -1301,14 +1358,15 @@ function renderForecast(){
   const salesLow = [...Array(4).fill(null), salesF.low];
   const salesHigh = [...Array(4).fill(null), salesF.high];
 
-  new Chart(document.getElementById('forecastChart'), {
+  destroyChart('forecast');
+  chartInstances['forecast'] = new Chart(document.getElementById('forecastChart'), {
     type:'line',
     data:{
       labels,
       datasets:[
         { label:'Sales (₹)', data:salesData, borderColor:'#2563eb', backgroundColor:'rgba(37,99,235,.1)', fill:false, tension:.4, borderWidth:2.5, pointRadius:[5,5,5,5,8], pointBackgroundColor:[...Array(4).fill('#2563eb'),'#f97316'], pointBorderColor:[...Array(4).fill('#fff'),'#fff'], pointBorderWidth:2, segment:{ borderDash:ctx=>ctx.p1DataIndex===4?[6,4]:undefined } },
-        { label:'CI Upper', data:[null,null,null,WEEKS[3].sales,salesF.high], borderColor:'rgba(37,99,235,.3)', borderDash:[4,4], borderWidth:1, pointRadius:0, fill:false },
-        { label:'CI Lower', data:[null,null,null,WEEKS[3].sales,salesF.low], borderColor:'rgba(37,99,235,.3)', borderDash:[4,4], borderWidth:1, pointRadius:0, fill:'-1', backgroundColor:'rgba(37,99,235,.08)' },
+        { label:'CI Upper', data:[null,null,null,WEEKS[WEEKS.length-1].sales,salesF.high], borderColor:'rgba(37,99,235,.3)', borderDash:[4,4], borderWidth:1, pointRadius:0, fill:false },
+        { label:'CI Lower', data:[null,null,null,WEEKS[WEEKS.length-1].sales,salesF.low], borderColor:'rgba(37,99,235,.3)', borderDash:[4,4], borderWidth:1, pointRadius:0, fill:'-1', backgroundColor:'rgba(37,99,235,.08)' },
       ]
     },
     options:{
@@ -1326,7 +1384,7 @@ function renderForecast(){
 // ALERTS
 // ============================
 function renderAlerts(){
-  const curr = WEEKS[3], prev = WEEKS[2];
+  const curr = getSelectedWeek(), prev = getPrevWeek() || curr;
   const salesChg = pctChange(curr.sales, prev.sales);
   const ordersChg = pctChange(curr.orders, prev.orders);
   const ctrChg = pctChange(curr.ctr, prev.ctr);
@@ -1348,7 +1406,7 @@ function renderAlerts(){
   if(roasChg > 5) alerts.push({ type:'success', icon:'🚀', title:'ROAS Improvement', desc:`ROAS improved by ${roasChg.toFixed(1)}% — advertising efficiency is increasing.` });
 
   // Overall ACOS trend improvement
-  const acosW23 = WEEKS[0].acos, acosW26 = WEEKS[3].acos;
+  const acosW23 = WEEKS[0].acos, acosW26 = getSelectedWeek().acos;
   if(acosW26 < acosW23) alerts.push({ type:'success', icon:'✅', title:'ACOS 4-Week Improvement', desc:`ACOS improved from ${acosW23}% to ${acosW26}% over 4 weeks — a ${(acosW23-acosW26).toFixed(2)}pp improvement.` });
 
   const spendChg = pctChange(curr.spend, prev.spend);
@@ -1404,7 +1462,7 @@ function renderLeaderboard(){
 // CEO SUMMARY
 // ============================
 function renderCEOSummary(){
-  const curr = WEEKS[3], prev = WEEKS[2], w23 = WEEKS[0];
+  const curr = getSelectedWeek(), prev = getPrevWeek() || curr, w23 = WEEKS[0];
   const salesChg = pctChange(curr.sales, prev.sales);
   const spendChg = pctChange(curr.spend, prev.spend);
   const ordersChg = pctChange(curr.orders, prev.orders);
