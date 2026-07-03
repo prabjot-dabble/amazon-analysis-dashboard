@@ -519,16 +519,26 @@ const WEEKS = WEEKS_RAW.map(w => ({
   aov: +(w.sales / w.orders).toFixed(2)
 }));
 
-// Simulated ASIN data (derived from aggregate proportions)
+// ASIN data from ASINWISE CSV (Week 26 actuals)
 const ASIN_DATA = [
-  { asin:'B0DABBLE01', name:'Playart Racing Car Set', sales:82560, spend:18200, orders:148, clicks:1920, impressions:358000, week:26, prevSales:79800 },
-  { asin:'B0DABBLE02', name:'Playart Construction Kit', sales:64800, spend:15600, orders:118, clicks:1580, impressions:285000, week:26, prevSales:72100 },
-  { asin:'B0DABBLE03', name:'Playart Animal Kingdom', sales:52300, spend:12800, orders:96, clicks:1280, impressions:242000, week:26, prevSales:48500 },
-  { asin:'B0DABBLE04', name:'Playart Space Explorer', sales:38200, spend:9800, orders:72, clicks:920, impressions:178000, week:26, prevSales:41200 },
-  { asin:'B0DABBLE05', name:'Playart Ocean Adventures', sales:28400, spend:6400, orders:48, clicks:640, impressions:118000, week:26, prevSales:30100 },
-  { asin:'B0DABBLE06', name:'Playart Dinosaur World', sales:18200, spend:4200, orders:32, clicks:380, impressions:72000, week:26, prevSales:35500 },
-  { asin:'B0DABBLE07', name:'Playart Farm Friends', sales:10800, spend:2800, orders:18, clicks:220, impressions:38000, week:26, prevSales:18600 },
-  { asin:'B0DABBLE08', name:'Playart City Builder', sales:6810, spend:1769, orders:11, clicks:114, impressions:17808, week:26, prevSales:9917 }
+  { asin:'B0CTHWVRJY', name:'Finger Paint', sales:63877.14, spend:13782.70, orders:127, clicks:1069, impressions:107071, week:26, prevSales:95326.90 },
+  { asin:'B0FMFR1ZVN', name:'Playdough', sales:26454.72, spend:16305.31, orders:36, clicks:843, impressions:69453, week:26, prevSales:42467.67 },
+  { asin:'B07T516S4Y', name:'Crayon', sales:22422.46, spend:4447.67, orders:46, clicks:398, impressions:56580, week:26, prevSales:26351.14 },
+  { asin:'B096WGCRL3', name:'Finger Paint (6-pack)', sales:12766.00, spend:3522.99, orders:19, clicks:219, impressions:52519, week:26, prevSales:11969.46 },
+  { asin:'B07T5252GY', name:'Crayon (Jumbo)', sales:10116.88, spend:1343.65, orders:19, clicks:115, impressions:20731, week:26, prevSales:15955.53 },
+  { asin:'B096WD8RC2', name:'Brush Set', sales:7524.07, spend:1621.14, orders:14, clicks:160, impressions:27103, week:26, prevSales:11762.63 },
+  { asin:'B0CV1653HN', name:'Finger Paint & Brush', sales:7130.96, spend:818.59, orders:13, clicks:52, impressions:12092, week:26, prevSales:9202.21 },
+  { asin:'B07T2W496G', name:'Finger Paint (Washable)', sales:4924.32, spend:1104.83, orders:7, clicks:56, impressions:18631, week:26, prevSales:3644.76 },
+  { asin:'B0FKZ847QQ', name:'Magic Paint Dust (Large)', sales:4785.02, spend:2390.07, orders:7, clicks:139, impressions:15349, week:26, prevSales:13614.07 },
+  { asin:'B0DBVVDN77', name:'All In One Paint Kit', sales:4205.21, spend:314.30, orders:7, clicks:36, impressions:6585, week:26, prevSales:1117.94 },
+  { asin:'B09QYZVZF6', name:'Finger Paint & Brush Kit', sales:2905.49, spend:566.57, orders:4, clicks:61, impressions:12629, week:26, prevSales:1724.78 },
+  { asin:'B0B1DT53X9', name:'Hand & Foot Print Kit', sales:2274.30, spend:679.26, orders:4, clicks:94, impressions:12145, week:26, prevSales:2941.92 },
+  { asin:'B0C5DV73CL', name:'Stamp Kit', sales:2686.57, spend:421.33, orders:6, clicks:25, impressions:4981, week:26, prevSales:2602.86 },
+  { asin:'B0FKZ8TMHC', name:'Magic Paint Dust', sales:1363.84, spend:682.46, orders:3, clicks:61, impressions:6237, week:26, prevSales:4851.60 },
+  { asin:'B09WMGR9M8', name:'Colouring Page', sales:766.10, spend:868.53, orders:1, clicks:65, impressions:16237, week:26, prevSales:6426.26 },
+  { asin:'B0F1YXJ9XR', name:'Magic Bubbles', sales:1588.56, spend:1060.37, orders:4, clicks:105, impressions:5918, week:26, prevSales:1045.72 },
+  { asin:'B0BCG8R1PN', name:'Preschool Art & Craft Kit', sales:1353.39, spend:916.87, orders:3, clicks:80, impressions:14907, week:26, prevSales:10493.80 },
+  { asin:'B0FKZ51ZCM', name:'Sensory Rice Kit', sales:948.00, spend:866.33, orders:1, clicks:74, impressions:9099, week:26, prevSales:1778.88 }
 ].map(a => {
   const ctr = +((a.clicks / a.impressions)*100).toFixed(2);
   const cpc = +(a.spend / a.clicks).toFixed(2);
@@ -1506,9 +1516,9 @@ function renderCEOSummary(){
 
     <h3>🎯 Recommendations for Leadership</h3>
     <ul>
-      <li><strong>Increase budget</strong> on high-ROAS ASINs (Racing Car Set, Animal Kingdom) — these show strong efficiency</li>
+      <li><strong>Increase budget</strong> on high-ROAS ASINs (Finger Paint, Crayon) — these show strong efficiency</li>
       <li><strong>Investigate impressions decline</strong> — review keyword bids, search term reports, and competitive landscape</li>
-      <li><strong>Optimize underperformers</strong> — Dinosaur World (-48.7%) and Farm Friends (-41.9%) need restructuring or pausing</li>
+      <li><strong>Optimize underperformers</strong> — Magic Paint Dust (-71.9%) and Colouring Page (-88.1%) need restructuring or pausing</li>
       <li><strong>A/B test ad creatives</strong> — CTR improvement shows opportunity to further enhance click-through performance</li>
       <li><strong>Review conversion path</strong> — declining orders despite reasonable CTR suggest listing quality, pricing, or inventory issues</li>
       <li><strong>Set ACOS target</strong> of 22% for next quarter, building on the positive 4-week trend</li>
