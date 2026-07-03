@@ -4,12 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dabble Playart — Executive Amazon Advertising Dashboard</title>
-<meta name="description" content="Enterprise-grade Executive Amazon Advertising Analytics Dashboard for CEO, VP Marketing, and business leadership.">
+<meta name="description" content="Executive Amazon Advertising Analytics Dashboard for Dabble Playart — Week 26, 2026.">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
 <style>
-/* ========== RESET & BASE ========== */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
   --blue-50:#eff6ff;--blue-100:#dbeafe;--blue-200:#bfdbfe;--blue-300:#93c5fd;
@@ -34,12 +33,7 @@
 }
 html{scroll-behavior:smooth;font-size:15px}
 body{font-family:var(--font);background:#f5f6fa;color:var(--gray-800);line-height:1.6;-webkit-font-smoothing:antialiased}
-
-/* ========== HEADER ========== */
-.header{
-  background:linear-gradient(135deg,#131921 0%,#1e3a5f 50%,#232f3e 100%);
-  padding:0;position:sticky;top:0;z-index:100;box-shadow:0 2px 20px rgba(0,0,0,.3);
-}
+.header{background:linear-gradient(135deg,#131921 0%,#1e3a5f 50%,#232f3e 100%);padding:0;position:sticky;top:0;z-index:100;box-shadow:0 2px 20px rgba(0,0,0,.3)}
 .header-inner{max-width:1520px;margin:0 auto;padding:16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
 .header-brand{display:flex;align-items:center;gap:14px}
 .header-logo{width:42px;height:42px;background:linear-gradient(135deg,var(--orange-400),var(--orange-500));border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:900;color:#fff;font-size:18px;letter-spacing:-1px}
@@ -50,23 +44,15 @@ body{font-family:var(--font);background:#f5f6fa;color:var(--gray-800);line-heigh
 .header-badge.live{background:rgba(34,197,94,.15);border-color:rgba(34,197,94,.3);color:#86efac}
 .header-badge.live::before{content:'';display:inline-block;width:7px;height:7px;background:#22c55e;border-radius:50%;margin-right:6px;animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
-
-/* ========== NAVIGATION ========== */
 .nav{background:#fff;border-bottom:1px solid var(--gray-200);position:sticky;top:74px;z-index:99}
 .nav-inner{max-width:1520px;margin:0 auto;padding:0 32px;display:flex;gap:0;overflow-x:auto;-ms-overflow-style:none;scrollbar-width:none}
 .nav-inner::-webkit-scrollbar{display:none}
 .nav-item{padding:12px 18px;font-size:.8rem;font-weight:500;color:var(--gray-500);cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;transition:var(--transition)}
 .nav-item:hover{color:var(--blue-600);background:var(--blue-50)}
 .nav-item.active{color:var(--blue-600);border-bottom-color:var(--blue-600);font-weight:600}
-
-/* ========== LAYOUT ========== */
 .container{max-width:1520px;margin:0 auto;padding:24px 32px 60px}
 .section{margin-bottom:32px;animation:fadeInUp .6s ease both}
-.section:nth-child(2){animation-delay:.1s}
-.section:nth-child(3){animation-delay:.15s}
-.section:nth-child(4){animation-delay:.2s}
 @keyframes fadeInUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-
 .section-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:8px}
 .section-title{font-size:1.15rem;font-weight:700;color:var(--gray-900);display:flex;align-items:center;gap:10px}
 .section-title .icon{font-size:1.3rem}
@@ -75,17 +61,13 @@ body{font-family:var(--font);background:#f5f6fa;color:var(--gray-800);line-heigh
 .section-badge.orange{background:var(--orange-50);color:var(--orange-600)}
 .section-badge.green{background:var(--green-50);color:var(--green-600)}
 .section-badge.red{background:var(--red-50);color:var(--red-600)}
-
-/* ========== CARDS ========== */
+.section-badge.yellow{background:var(--yellow-50);color:var(--yellow-600)}
 .card{background:#fff;border-radius:var(--radius-lg);box-shadow:var(--shadow);border:1px solid var(--gray-100);padding:24px;transition:var(--transition);overflow:hidden}
-.card:hover{box-shadow:var(--shadow-lg);transform:translateY(-2px)}
+.card:hover{box-shadow:var(--shadow-lg)}
 .card-grid{display:grid;gap:16px}
 .card-grid-2{grid-template-columns:repeat(2,1fr)}
 .card-grid-3{grid-template-columns:repeat(3,1fr)}
 .card-grid-4{grid-template-columns:repeat(4,1fr)}
-.card-grid-6{grid-template-columns:repeat(6,1fr)}
-
-/* ========== KPI CARDS ========== */
 .kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
 .kpi-card{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);border:1px solid var(--gray-100);padding:18px 20px;transition:var(--transition);position:relative;overflow:hidden;cursor:default}
 .kpi-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-3px)}
@@ -103,12 +85,10 @@ body{font-family:var(--font);background:#f5f6fa;color:var(--gray-800);line-heigh
 .kpi-change.neutral{background:var(--gray-100);color:var(--gray-600)}
 .kpi-sparkline{margin-top:10px;height:32px}
 .kpi-trend{font-size:.65rem;color:var(--gray-400);margin-top:4px;font-weight:500}
-
-/* ========== TABLES ========== */
-.table-wrap{overflow-x:auto;border-radius:var(--radius);border:1px solid var(--gray-200)}
+.table-wrap{overflow-x:auto;border-radius:var(--radius);border:1px solid var(--gray-200);max-height:640px}
 table{width:100%;border-collapse:collapse;font-size:.8rem}
-thead{background:var(--gray-50)}
-th{padding:10px 14px;text-align:left;font-weight:600;color:var(--gray-600);text-transform:uppercase;letter-spacing:.5px;font-size:.68rem;border-bottom:2px solid var(--gray-200);white-space:nowrap}
+thead{background:var(--gray-50);position:sticky;top:0;z-index:2}
+th{padding:10px 14px;text-align:left;font-weight:600;color:var(--gray-600);text-transform:uppercase;letter-spacing:.5px;font-size:.68rem;border-bottom:2px solid var(--gray-200);white-space:nowrap;background:var(--gray-50)}
 td{padding:10px 14px;border-bottom:1px solid var(--gray-100);color:var(--gray-700);white-space:nowrap}
 tr:hover td{background:var(--blue-50)}
 .pill{display:inline-block;padding:2px 10px;border-radius:10px;font-size:.68rem;font-weight:600}
@@ -116,14 +96,10 @@ tr:hover td{background:var(--blue-50)}
 .pill.red{background:var(--red-50);color:var(--red-700)}
 .pill.yellow{background:var(--yellow-50);color:var(--yellow-600)}
 .pill.blue{background:var(--blue-50);color:var(--blue-600)}
-
-/* ========== GAUGE ========== */
+.pill.gray{background:var(--gray-100);color:var(--gray-600)}
 .gauge-wrap{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px}
-.gauge-svg{width:200px;height:120px}
 .gauge-label{font-size:1.8rem;font-weight:800;margin-top:8px}
 .gauge-sub{font-size:.8rem;color:var(--gray-500);font-weight:500}
-
-/* ========== FUNNEL ========== */
 .funnel{display:flex;flex-direction:column;align-items:center;gap:0;padding:30px 0}
 .funnel-step{text-align:center;position:relative;padding:18px 0;width:100%}
 .funnel-bar{margin:0 auto;height:52px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;font-size:.9rem;transition:var(--transition);position:relative}
@@ -131,8 +107,6 @@ tr:hover td{background:var(--blue-50)}
 .funnel-meta{font-size:.72rem;color:var(--gray-500);margin-top:6px}
 .funnel-arrow{color:var(--gray-300);font-size:1.2rem;margin:2px 0}
 .funnel-conv{display:inline-block;background:var(--blue-50);color:var(--blue-600);font-size:.68rem;font-weight:600;padding:2px 10px;border-radius:10px;margin-top:4px}
-
-/* ========== ALERTS ========== */
 .alert-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
 .alert-card{border-radius:var(--radius);padding:16px 20px;display:flex;align-items:flex-start;gap:12px;border-left:4px solid;transition:var(--transition)}
 .alert-card:hover{transform:translateX(4px)}
@@ -144,8 +118,6 @@ tr:hover td{background:var(--blue-50)}
 .alert-content{flex:1}
 .alert-title{font-size:.82rem;font-weight:700;margin-bottom:2px}
 .alert-desc{font-size:.72rem;color:var(--gray-600);line-height:1.5}
-
-/* ========== INSIGHT CARDS ========== */
 .insight-card{background:#fff;border-radius:var(--radius);padding:16px 20px;border:1px solid var(--gray-100);box-shadow:var(--shadow-sm);transition:var(--transition)}
 .insight-card:hover{box-shadow:var(--shadow-md)}
 .insight-card .tag{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px}
@@ -153,8 +125,6 @@ tr:hover td{background:var(--blue-50)}
 .insight-card .tag.risk{color:var(--red-600)}
 .insight-card .tag.action{color:var(--blue-600)}
 .insight-card p{font-size:.82rem;color:var(--gray-700);line-height:1.5}
-
-/* ========== LEADERBOARD ========== */
 .lb-row{display:flex;align-items:center;gap:12px;padding:10px 14px;border-radius:10px;transition:var(--transition)}
 .lb-row:hover{background:var(--gray-50)}
 .lb-rank{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:800;flex-shrink:0}
@@ -163,331 +133,354 @@ tr:hover td{background:var(--blue-50)}
 .lb-rank.bronze{background:linear-gradient(135deg,#fb923c,#ea580c);color:#fff}
 .lb-rank.normal{background:var(--gray-100);color:var(--gray-600)}
 .lb-name{flex:1;font-size:.82rem;font-weight:600;color:var(--gray-800)}
+.lb-sub{font-size:.66rem;color:var(--gray-400);font-weight:500}
 .lb-val{font-size:.82rem;font-weight:700;color:var(--gray-900)}
-
-/* ========== FILTERS ========== */
 .filter-bar{background:#fff;border-radius:var(--radius-lg);box-shadow:var(--shadow);border:1px solid var(--gray-100);padding:16px 24px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:24px}
 .filter-bar label{font-size:.72rem;font-weight:600;color:var(--gray-500);text-transform:uppercase;letter-spacing:.5px}
 .filter-bar select{padding:7px 14px;border:1px solid var(--gray-200);border-radius:8px;font-size:.8rem;font-family:var(--font);color:var(--gray-700);background:#fff;cursor:pointer;transition:var(--transition)}
 .filter-bar select:hover{border-color:var(--blue-400)}
 .filter-bar select:focus{outline:none;border-color:var(--blue-500);box-shadow:0 0 0 3px rgba(59,130,246,.15)}
-
-/* ========== SUMMARY BOX ========== */
+.note{font-size:.7rem;color:var(--gray-400);margin-left:auto;font-weight:500}
 .summary-box{background:linear-gradient(135deg,#1e3a5f 0%,#131921 100%);border-radius:var(--radius-xl);padding:36px 40px;color:#fff}
 .summary-box h2{font-size:1.3rem;font-weight:800;margin-bottom:16px;color:var(--orange-300)}
 .summary-box h3{font-size:.95rem;font-weight:700;margin:18px 0 8px;color:var(--blue-200)}
 .summary-box p,.summary-box li{font-size:.85rem;line-height:1.7;color:rgba(255,255,255,.85)}
 .summary-box ul{list-style:none;padding-left:0}
-.summary-box li::before{content:'→';margin-right:8px;color:var(--orange-400);font-weight:700}
-
-/* ========== CHART CONTAINERS ========== */
+.summary-box li::before{content:'\2192';margin-right:8px;color:var(--orange-400);font-weight:700}
 .chart-container{position:relative;width:100%;padding:10px 0}
 .chart-container canvas{max-height:360px}
-
-/* ========== RESPONSIVE ========== */
-@media(max-width:1200px){.card-grid-4{grid-template-columns:repeat(2,1fr)}.card-grid-6{grid-template-columns:repeat(3,1fr)}}
-@media(max-width:900px){.card-grid-2,.card-grid-3,.card-grid-4,.card-grid-6{grid-template-columns:1fr}.kpi-grid{grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}.container{padding:16px}}
+@media(max-width:1200px){.card-grid-4{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:900px){.card-grid-2,.card-grid-3,.card-grid-4{grid-template-columns:1fr}.kpi-grid{grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}.container{padding:16px}}
 @media(max-width:600px){.header-inner{padding:12px 16px}.kpi-value{font-size:1.3rem}.filter-bar{flex-direction:column;align-items:stretch}}
-
-/* ========== SCROLL TO TOP ========== */
 .scroll-top{position:fixed;bottom:30px;right:30px;width:44px;height:44px;background:var(--blue-600);color:#fff;border:none;border-radius:50%;font-size:1.2rem;cursor:pointer;box-shadow:var(--shadow-lg);transition:var(--transition);opacity:0;pointer-events:none;z-index:200;display:flex;align-items:center;justify-content:center}
 .scroll-top.visible{opacity:1;pointer-events:all}
 .scroll-top:hover{background:var(--orange-500);transform:scale(1.1)}
-
-/* ========== HEALTH SCORE RING ========== */
 .health-ring{width:160px;height:160px;position:relative;margin:0 auto}
 .health-ring svg{transform:rotate(-90deg)}
 .health-ring-label{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
 .health-ring-score{font-size:2.2rem;font-weight:900;line-height:1}
 .health-ring-text{font-size:.72rem;font-weight:600;margin-top:4px}
-
-/* ========== WOW COMPARISON ROWS ========== */
-.wow-row{display:grid;grid-template-columns:140px 1fr 1fr 100px 100px;align-items:center;padding:10px 16px;border-bottom:1px solid var(--gray-100);font-size:.8rem;transition:var(--transition)}
+.wow-row{display:grid;grid-template-columns:130px 1fr 1fr 110px 90px;align-items:center;padding:10px 16px;border-bottom:1px solid var(--gray-100);font-size:.8rem;transition:var(--transition)}
 .wow-row:hover{background:var(--blue-50)}
 .wow-row .metric-name{font-weight:600;color:var(--gray-800)}
 .wow-row .val{font-weight:600;color:var(--gray-700);text-align:right}
 .wow-row .change{font-weight:700;text-align:right;display:flex;align-items:center;justify-content:flex-end;gap:4px}
 .wow-row .change.up{color:var(--green-600)}
 .wow-row .change.down{color:var(--red-600)}
+.wow-row .change.neutral{color:var(--gray-500)}
 .wow-header{font-weight:700;color:var(--gray-500);font-size:.68rem;text-transform:uppercase;letter-spacing:.5px;background:var(--gray-50);border-radius:8px 8px 0 0}
-
-/* ========== FORECAST ========== */
 .forecast-card{text-align:center;padding:24px}
 .forecast-val{font-size:1.8rem;font-weight:800;color:var(--blue-700)}
 .forecast-label{font-size:.72rem;color:var(--gray-500);font-weight:600;text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px}
 .forecast-range{font-size:.68rem;color:var(--gray-400);margin-top:4px}
-
-/* ========== OBSERVATION CHIP ========== */
 .obs-list{display:flex;flex-direction:column;gap:8px}
 .obs-item{display:flex;align-items:flex-start;gap:10px;padding:10px 14px;border-radius:10px;background:var(--gray-50);font-size:.8rem;line-height:1.5;color:var(--gray-700);transition:var(--transition)}
 .obs-item:hover{background:var(--blue-50)}
 .obs-item .obs-icon{flex-shrink:0;font-size:1rem;margin-top:1px}
-.obs-item.positive .obs-icon{color:var(--green-500)}
-.obs-item.negative .obs-icon{color:var(--red-500)}
-.obs-item.neutral .obs-icon{color:var(--yellow-500)}
-
-/* ========== TAB SYSTEM ========== */
-.tabs{display:flex;gap:0;border-bottom:2px solid var(--gray-200);margin-bottom:16px}
-.tab-btn{padding:10px 20px;font-size:.8rem;font-weight:600;color:var(--gray-500);cursor:pointer;border:none;background:none;border-bottom:2px solid transparent;margin-bottom:-2px;transition:var(--transition);font-family:var(--font)}
+.tabs{display:flex;gap:0;border-bottom:2px solid var(--gray-200);margin-bottom:16px;overflow-x:auto}
+.tab-btn{padding:10px 20px;font-size:.8rem;font-weight:600;color:var(--gray-500);cursor:pointer;border:none;background:none;border-bottom:2px solid transparent;margin-bottom:-2px;transition:var(--transition);font-family:var(--font);white-space:nowrap}
 .tab-btn:hover{color:var(--blue-600)}
 .tab-btn.active{color:var(--blue-600);border-bottom-color:var(--blue-600)}
 .tab-content{display:none}
 .tab-content.active{display:block;animation:fadeInUp .3s ease}
+.type-chip{display:inline-flex;align-items:center;gap:6px;font-size:.7rem;font-weight:600;color:var(--gray-600);background:var(--gray-100);padding:3px 10px;border-radius:8px}
+
+.verdict{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:8px}
+@media(max-width:900px){.verdict{grid-template-columns:1fr}}
+.verdict-card{border-radius:var(--radius-lg);padding:22px 24px;color:#fff;position:relative;overflow:hidden;box-shadow:var(--shadow-md)}
+.verdict-card.good{background:linear-gradient(135deg,#15803d,#22c55e)}
+.verdict-card.watch{background:linear-gradient(135deg,#b45309,#f59e0b)}
+.verdict-card.act{background:linear-gradient(135deg,#b91c1c,#ef4444)}
+.verdict-card h3{font-size:.72rem;text-transform:uppercase;letter-spacing:1.2px;opacity:.85;margin-bottom:6px;font-weight:700}
+.verdict-headline{font-size:1.5rem;font-weight:800;line-height:1.1;margin-bottom:10px}
+.verdict-list{list-style:none;padding:0;margin:0}
+.verdict-list li{font-size:.8rem;line-height:1.5;padding:4px 0;border-top:1px solid rgba(255,255,255,.18)}
+.verdict-list li:first-child{border-top:none}
+.verdict-list b{font-weight:700}
+.qbadge{display:inline-block;font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding:3px 10px;border-radius:10px;margin-bottom:8px}
+.qbadge.q1{background:var(--green-50);color:var(--green-700)}
+.qbadge.q2{background:var(--yellow-50);color:var(--yellow-600)}
+.qbadge.q3{background:var(--red-50);color:var(--red-700)}
+.qbadge.q4{background:var(--blue-50);color:var(--blue-600)}
+.answer-q{font-size:1.05rem;font-weight:700;color:var(--gray-900);margin-bottom:2px}
+.answer-sub{font-size:.78rem;color:var(--gray-500);margin-bottom:14px}
+.mini-stat{display:flex;flex-direction:column;gap:2px;padding:12px 14px;background:var(--gray-50);border-radius:10px}
+.mini-stat .v{font-size:1.15rem;font-weight:800;color:var(--gray-900)}
+.mini-stat .l{font-size:.66rem;color:var(--gray-500);text-transform:uppercase;letter-spacing:.5px;font-weight:600}
+.bar-row{display:grid;grid-template-columns:130px 1fr 70px;align-items:center;gap:10px;padding:7px 0;font-size:.78rem}
+.bar-track{background:var(--gray-100);border-radius:6px;height:22px;position:relative;overflow:hidden}
+.bar-fill{height:100%;border-radius:6px;display:flex;align-items:center;padding-left:8px;color:#fff;font-size:.68rem;font-weight:700;min-width:fit-content}
+.bar-lab{font-weight:600;color:var(--gray-700);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bar-val{text-align:right;font-weight:700;color:var(--gray-800)}
+.tag-pill{display:inline-block;font-size:.62rem;font-weight:600;padding:2px 8px;border-radius:8px;background:var(--gray-100);color:var(--gray-600);margin-right:4px}
+.scroll-list{max-height:420px;overflow-y:auto}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:900px){.two-col{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-
-<!-- HEADER -->
 <header class="header">
   <div class="header-inner">
     <div class="header-brand">
       <div class="header-logo">DP</div>
       <div>
         <div class="header-title">Dabble Playart — Executive Dashboard</div>
-        <div class="header-subtitle">Amazon Advertising Analytics</div>
+        <div class="header-subtitle">Amazon Advertising · Sales Performance Review</div>
       </div>
     </div>
     <div class="header-meta">
       <div class="header-badge">📅 Week 26, 2026</div>
-      <div class="header-badge">📊 Dabble Playart</div>
+      <div class="header-badge">📊 4-Week Window (W23–W26)</div>
       <div class="header-badge live">● Live</div>
     </div>
   </div>
 </header>
 
-<!-- NAVIGATION -->
 <nav class="nav" id="mainNav">
   <div class="nav-inner">
-    <div class="nav-item active" data-target="sec-kpi">KPIs</div>
-    <div class="nav-item" data-target="sec-wow">Week over Week</div>
-    <div class="nav-item" data-target="sec-campaign">Campaign Health</div>
-    <div class="nav-item" data-target="sec-asin">ASIN Analysis</div>
-    <div class="nav-item" data-target="sec-salesspend">Sales vs Spend</div>
-    <div class="nav-item" data-target="sec-acos">ACOS Monitor</div>
-    <div class="nav-item" data-target="sec-funnel">Funnel</div>
-    <div class="nav-item" data-target="sec-insights">Insights</div>
-    <div class="nav-item" data-target="sec-forecast">Forecasting</div>
-    <div class="nav-item" data-target="sec-alerts">Alerts</div>
-    <div class="nav-item" data-target="sec-leader">Leaderboard</div>
+    <div class="nav-item active" data-target="sec-verdict">The Verdict</div>
+    <div class="nav-item" data-target="sec-kpi">KPIs</div>
+    <div class="nav-item" data-target="sec-well">What's Working</div>
+    <div class="nav-item" data-target="sec-watch">What to Watch</div>
+    <div class="nav-item" data-target="sec-act">What to Fix</div>
+    <div class="nav-item" data-target="sec-category">By Category</div>
+    <div class="nav-item" data-target="sec-products">By Product</div>
+    <div class="nav-item" data-target="sec-search">Search Terms</div>
+    <div class="nav-item" data-target="sec-where">Where Ads Show</div>
+    <div class="nav-item" data-target="sec-asin">ASIN Table</div>
+    <div class="nav-item" data-target="sec-camps">Campaigns</div>
+    <div class="nav-item" data-target="sec-trend">Trends</div>
+    <div class="nav-item" data-target="sec-forecast">Forecast</div>
     <div class="nav-item" data-target="sec-summary">CEO Summary</div>
   </div>
 </nav>
 
-<!-- MAIN CONTENT -->
 <main class="container">
 
-<!-- FILTER BAR -->
-<div class="filter-bar" id="sec-filters">
-  <label>⚙ Filters</label>
-  <select id="filterWeek">
-    <option value="all">All Weeks</option>
-    <option value="26" selected>Week 26</option>
-    <option value="25">Week 25</option>
-    <option value="24">Week 24</option>
-    <option value="23">Week 23</option>
-  </select>
-  <select id="filterBrand">
-    <option value="all">All Brands</option>
-    <option value="dabble" selected>Dabble Playart</option>
-  </select>
-  <select id="filterView">
-    <option value="executive">Executive View</option>
-    <option value="detailed">Detailed View</option>
-  </select>
-</div>
+<!-- ============ THE VERDICT — answers the 3 questions up top ============ -->
+<section class="section" id="sec-verdict">
+  <div class="section-header">
+    <div class="section-title"><span class="icon">🎯</span> Week 26 at a Glance — The Three Questions</div>
+    <span class="note">Every claim below is computed from the workbook</span>
+  </div>
+  <div class="verdict" id="verdictCards"></div>
+</section>
 
-<!-- ===================== KPI SECTION ===================== -->
+<!-- ============ KPIs ============ -->
 <section class="section" id="sec-kpi">
   <div class="section-header">
-    <div class="section-title"><span class="icon">📈</span> Executive KPIs <span class="section-badge blue">Week 26 vs Week 25</span></div>
+    <div class="section-title"><span class="icon">📈</span> Executive KPIs <span class="section-badge blue">W26 vs W25</span></div>
   </div>
   <div class="kpi-grid" id="kpiGrid"></div>
 </section>
 
-<!-- ===================== WOW SECTION ===================== -->
-<section class="section" id="sec-wow">
+<!-- ============ Q1: WHAT'S PERFORMING WELL ============ -->
+<section class="section" id="sec-well">
   <div class="section-header">
-    <div class="section-title"><span class="icon">📊</span> Week-over-Week Performance <span class="section-badge orange">Last 4 Weeks</span></div>
-  </div>
-
-  <div class="tabs" id="wowTabs">
-    <button class="tab-btn active" data-tab="wow-26-25">W26 vs W25</button>
-    <button class="tab-btn" data-tab="wow-25-24">W25 vs W24</button>
-    <button class="tab-btn" data-tab="wow-24-23">W24 vs W23</button>
-  </div>
-  <div id="wow-26-25" class="tab-content active"></div>
-  <div id="wow-25-24" class="tab-content"></div>
-  <div id="wow-24-23" class="tab-content"></div>
-
-  <div style="margin-top:24px" class="card-grid card-grid-2">
-    <div class="card">
-      <div class="section-title" style="font-size:.95rem;margin-bottom:12px">🟢 Top Positive Changes</div>
-      <div class="obs-list" id="positiveObs"></div>
-    </div>
-    <div class="card">
-      <div class="section-title" style="font-size:.95rem;margin-bottom:12px">🔴 Top Negative Changes</div>
-      <div class="obs-list" id="negativeObs"></div>
+    <div>
+      <span class="qbadge q1">Question 1</span>
+      <div class="answer-q">✅ What is performing well?</div>
+      <div class="answer-sub">Products and channels earning efficiently — protect and scale these.</div>
     </div>
   </div>
-
-  <div class="card" style="margin-top:16px">
-    <div class="section-title" style="font-size:.95rem;margin-bottom:12px">📉 Trend Lines — Key Metrics Over 4 Weeks</div>
-    <div class="chart-container"><canvas id="wowTrendChart"></canvas></div>
-  </div>
-
-  <div class="card" style="margin-top:16px">
-    <div class="section-title" style="font-size:.95rem;margin-bottom:12px">📊 Waterfall — Sales Week-over-Week Changes</div>
-    <div class="chart-container"><canvas id="waterfallChart"></canvas></div>
+  <div class="card-grid card-grid-4" id="wellStats" style="margin-bottom:16px"></div>
+  <div class="two-col">
+    <div class="card">
+      <div class="section-title" style="font-size:.95rem;margin-bottom:12px">🏆 Star Performers <span class="section-badge green">Scale these</span></div>
+      <div id="starList"></div>
+    </div>
+    <div class="card">
+      <div class="section-title" style="font-size:.95rem;margin-bottom:12px">💎 Most Efficient Spend (lowest ACOS, real sales)</div>
+      <div id="efficientList"></div>
+    </div>
   </div>
 </section>
 
-<!-- ===================== CAMPAIGN HEALTH ===================== -->
-<section class="section" id="sec-campaign">
+<!-- ============ Q2: WHAT NEEDS TO BE SEEN / WATCHED ============ -->
+<section class="section" id="sec-watch">
   <div class="section-header">
-    <div class="section-title"><span class="icon">🏥</span> Campaign Health Score <span class="section-badge green" id="healthBadge">—</span></div>
-  </div>
-  <div class="card-grid card-grid-3">
-    <div class="card" style="display:flex;flex-direction:column;align-items:center;justify-content:center">
-      <div class="health-ring" id="healthRing"></div>
-    </div>
-    <div class="card">
-      <div class="section-title" style="font-size:.95rem;margin-bottom:14px">Campaign Metrics</div>
-      <div id="campaignMetrics"></div>
-    </div>
-    <div class="card">
-      <div class="section-title" style="font-size:.95rem;margin-bottom:14px">Efficiency Gauge</div>
-      <div class="gauge-wrap"><canvas id="efficiencyGauge" width="220" height="140"></canvas></div>
-      <div style="text-align:center;margin-top:8px">
-        <div class="gauge-label" id="gaugeValue">—</div>
-        <div class="gauge-sub">Spend Efficiency Score</div>
-      </div>
+    <div>
+      <span class="qbadge q2">Question 2</span>
+      <div class="answer-q">👀 What needs to be seen?</div>
+      <div class="answer-sub">Sales are real but efficiency is slipping — monitor before it becomes a problem.</div>
     </div>
   </div>
-  <div class="card" style="margin-top:16px">
-    <div class="section-title" style="font-size:.95rem;margin-bottom:12px">📈 Campaign Performance Radar</div>
-    <div class="chart-container" style="max-width:500px;margin:0 auto"><canvas id="radarChart"></canvas></div>
+  <div class="card-grid card-grid-4" id="watchStats" style="margin-bottom:16px"></div>
+  <div class="two-col">
+    <div class="card">
+      <div class="section-title" style="font-size:.95rem;margin-bottom:12px">⚠️ High ACOS but Still Selling</div>
+      <div id="watchList"></div>
+    </div>
+    <div class="card">
+      <div class="section-title" style="font-size:.95rem;margin-bottom:12px">📉 Biggest Sales Declines (WoW)</div>
+      <div id="declineList"></div>
+    </div>
   </div>
 </section>
 
-<!-- ===================== ASIN ANALYSIS ===================== -->
+<!-- ============ Q3: WHAT NEEDS TO BE ACTED ON ============ -->
+<section class="section" id="sec-act">
+  <div class="section-header">
+    <div>
+      <span class="qbadge q3">Question 3</span>
+      <div class="answer-q">🔧 What needs action now?</div>
+      <div class="answer-sub">Spend that isn't converting — the fastest money to recover this week.</div>
+    </div>
+  </div>
+  <div class="card-grid card-grid-4" id="actStats" style="margin-bottom:16px"></div>
+  <div class="two-col">
+    <div class="card">
+      <div class="section-title" style="font-size:.95rem;margin-bottom:12px">🕳️ Search Terms Burning Budget <span class="section-badge red">Zero orders</span></div>
+      <div class="answer-sub" style="margin-bottom:8px">Add as negative keywords or reduce bids.</div>
+      <div class="scroll-list" id="wasteTermList"></div>
+    </div>
+    <div class="card">
+      <div class="section-title" style="font-size:.95rem;margin-bottom:12px">🎯 Targets Burning Budget <span class="section-badge red">Zero orders</span></div>
+      <div class="answer-sub" style="margin-bottom:8px">Pause or re-bid these targets.</div>
+      <div class="scroll-list" id="wasteTargetList"></div>
+    </div>
+  </div>
+  <div class="card" style="margin-top:16px">
+    <div class="section-title" style="font-size:.95rem;margin-bottom:12px">📦 ASINs Spending With No Sales</div>
+    <div class="table-wrap" id="zeroSaleAsinWrap"></div>
+  </div>
+</section>
+
+<!-- ============ CATEGORY ============ -->
+<section class="section" id="sec-category">
+  <div class="section-header">
+    <div class="section-title"><span class="icon">🗂️</span> Performance by Category <span class="section-badge blue">ASIN × Master Sheet</span></div>
+  </div>
+  <div class="two-col">
+    <div class="card">
+      <div class="section-title" style="font-size:.95rem;margin-bottom:12px">Sales by Category</div>
+      <div id="catBars"></div>
+    </div>
+    <div class="card">
+      <div class="section-title" style="font-size:.95rem;margin-bottom:12px">Category Efficiency (ACOS)</div>
+      <div class="chart-container"><canvas id="catAcosChart"></canvas></div>
+    </div>
+  </div>
+  <div class="card" style="margin-top:16px">
+    <div class="table-wrap" id="catTableWrap"></div>
+  </div>
+</section>
+
+<!-- ============ PRODUCTS ============ -->
+<section class="section" id="sec-products">
+  <div class="section-header">
+    <div class="section-title"><span class="icon">🧸</span> Performance by Product <span class="section-badge orange">Product Wise Report</span></div>
+  </div>
+  <div class="two-col">
+    <div class="card">
+      <div class="section-title" style="font-size:.95rem;margin-bottom:12px">Product Revenue Share</div>
+      <div class="chart-container"><canvas id="productBar"></canvas></div>
+    </div>
+    <div class="card">
+      <div class="section-title" style="font-size:.95rem;margin-bottom:12px">Product Sales vs Efficiency</div>
+      <div class="chart-container"><canvas id="productScatter"></canvas></div>
+    </div>
+  </div>
+  <div class="card" style="margin-top:16px">
+    <div class="table-wrap" id="productTableWrap"></div>
+  </div>
+</section>
+
+<!-- ============ SEARCH TERMS ============ -->
+<section class="section" id="sec-search">
+  <div class="section-header">
+    <div class="section-title"><span class="icon">🔍</span> Search Term & Keyword Intelligence <span class="section-badge green" id="searchBadge">—</span></div>
+  </div>
+  <div class="card-grid card-grid-4" id="searchStats" style="margin-bottom:16px"></div>
+  <div class="two-col">
+    <div class="card">
+      <div class="section-title" style="font-size:.95rem;margin-bottom:12px">🏅 Top Converting Search Terms</div>
+      <div class="table-wrap" id="topTermWrap"></div>
+    </div>
+    <div class="card">
+      <div class="section-title" style="font-size:.95rem;margin-bottom:12px">Brand vs Generic vs Competitor (KW Type)</div>
+      <div class="chart-container"><canvas id="kwTypeChart"></canvas></div>
+      <div id="kwTypeNote" class="note" style="margin-top:8px"></div>
+    </div>
+  </div>
+  <div class="card" style="margin-top:16px">
+    <div class="section-title" style="font-size:.95rem;margin-bottom:12px">Match Type Efficiency (Broad / Phrase / Exact / Product Targeting)</div>
+    <div class="chart-container"><canvas id="matchChart"></canvas></div>
+  </div>
+</section>
+
+<!-- ============ WHERE ADS SHOW ============ -->
+<section class="section" id="sec-where">
+  <div class="section-header">
+    <div class="section-title"><span class="icon">📍</span> Where Ads Show — Placement & Ad Type</div>
+  </div>
+  <div class="two-col">
+    <div class="card">
+      <div class="section-title" style="font-size:.95rem;margin-bottom:12px">Placement Performance</div>
+      <div class="table-wrap" id="placementWrap"></div>
+    </div>
+    <div class="card">
+      <div class="section-title" style="font-size:.95rem;margin-bottom:12px">Ad Type Mix (Sales Share)</div>
+      <div class="chart-container"><canvas id="typeDoughnut"></canvas></div>
+    </div>
+  </div>
+  <div class="card" style="margin-top:16px">
+    <div class="table-wrap" id="typeTableWrap"></div>
+  </div>
+</section>
+
+<!-- ============ ASIN TABLE ============ -->
 <section class="section" id="sec-asin">
   <div class="section-header">
-    <div class="section-title"><span class="icon">📦</span> ASIN Performance Analysis <span class="section-badge blue">Detailed Breakdown</span></div>
-  </div>
-  <div class="card" style="margin-bottom:16px">
-    <div class="section-title" style="font-size:.95rem;margin-bottom:12px">🏆 ASIN Highlights</div>
-    <div class="kpi-grid" id="asinHighlights"></div>
+    <div class="section-title"><span class="icon">📦</span> Full ASIN Performance <span class="section-badge blue" id="asinCountBadge">—</span></div>
   </div>
   <div class="card">
-    <div class="section-title" style="font-size:.95rem;margin-bottom:12px">ASIN Performance Table</div>
     <div class="table-wrap" id="asinTableWrap"></div>
   </div>
-  <div class="card-grid card-grid-2" style="margin-top:16px">
-    <div class="card">
-      <div class="section-title" style="font-size:.95rem;margin-bottom:12px">Revenue Contribution — Treemap</div>
-      <div class="chart-container"><canvas id="treemapChart"></canvas></div>
-    </div>
-    <div class="card">
-      <div class="section-title" style="font-size:.95rem;margin-bottom:12px">ACOS vs Sales — Scatter</div>
-      <div class="chart-container"><canvas id="scatterChart"></canvas></div>
-    </div>
-  </div>
 </section>
 
-<!-- ===================== SALES VS SPEND ===================== -->
-<section class="section" id="sec-salesspend">
+<!-- ============ CAMPAIGNS ============ -->
+<section class="section" id="sec-camps">
   <div class="section-header">
-    <div class="section-title"><span class="icon">💰</span> Sales vs Spend Analysis <span class="section-badge green">ROI Tracking</span></div>
+    <div class="section-title"><span class="icon">🎬</span> Top Campaigns <span class="section-badge orange" id="campCountBadge">—</span></div>
+  </div>
+  <div class="card"><div class="table-wrap" id="campTableWrap"></div></div>
+</section>
+
+<!-- ============ TRENDS ============ -->
+<section class="section" id="sec-trend">
+  <div class="section-header">
+    <div class="section-title"><span class="icon">📊</span> 4-Week Trends <span class="section-badge blue">W23 → W26</span></div>
   </div>
   <div class="card">
-    <div class="chart-container"><canvas id="salesSpendChart"></canvas></div>
+    <div class="section-title" style="font-size:.95rem;margin-bottom:12px">Sales, Spend & Orders</div>
+    <div class="chart-container"><canvas id="trendChart"></canvas></div>
   </div>
-  <div class="card-grid card-grid-3" style="margin-top:16px">
-    <div class="card" style="text-align:center">
-      <div class="kpi-label">Revenue per ₹1 Spend</div>
-      <div class="kpi-value" id="revPerSpend">—</div>
-    </div>
-    <div class="card" style="text-align:center">
-      <div class="kpi-label">Spend Efficiency Trend</div>
-      <div class="kpi-value" id="spendEffTrend">—</div>
-    </div>
-    <div class="card" style="text-align:center">
-      <div class="kpi-label">Marginal ROAS</div>
-      <div class="kpi-value" id="marginalROAS">—</div>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== ACOS MONITOR ===================== -->
-<section class="section" id="sec-acos">
-  <div class="section-header">
-    <div class="section-title"><span class="icon">🎯</span> ACOS Monitor <span class="section-badge" id="acosBadge">—</span></div>
-  </div>
-  <div class="card-grid card-grid-3">
-    <div class="card" style="text-align:center">
-      <div class="kpi-label">Current ACOS</div>
-      <div class="kpi-value" id="currentACOS">—</div>
-      <div class="kpi-prev" id="prevACOS">—</div>
+  <div class="two-col" style="margin-top:16px">
+    <div class="card">
+      <div class="section-title" style="font-size:.95rem;margin-bottom:12px">ACOS & ROAS Over Time</div>
+      <div class="chart-container"><canvas id="acosRoasChart"></canvas></div>
     </div>
     <div class="card">
-      <div class="section-title" style="font-size:.95rem;margin-bottom:12px">ACOS Trend</div>
-      <div class="chart-container"><canvas id="acosTrendChart"></canvas></div>
-    </div>
-    <div class="card" style="display:flex;flex-direction:column;align-items:center;justify-content:center">
-      <div class="section-title" style="font-size:.95rem;margin-bottom:12px">ACOS Gauge</div>
-      <canvas id="acosGauge" width="200" height="120"></canvas>
-      <div id="acosTrafficLight" style="margin-top:14px;display:flex;gap:8px;align-items:center"></div>
+      <div class="section-title" style="font-size:.95rem;margin-bottom:12px">Sales Change Waterfall</div>
+      <div class="chart-container"><canvas id="waterfallChart"></canvas></div>
     </div>
   </div>
 </section>
 
-<!-- ===================== FUNNEL ===================== -->
-<section class="section" id="sec-funnel">
-  <div class="section-header">
-    <div class="section-title"><span class="icon">🔽</span> Conversion Funnel <span class="section-badge blue">Week 26</span></div>
-  </div>
-  <div class="card">
-    <div class="funnel" id="funnelContainer"></div>
-  </div>
-</section>
-
-<!-- ===================== INSIGHTS ===================== -->
-<section class="section" id="sec-insights">
-  <div class="section-header">
-    <div class="section-title"><span class="icon">🧠</span> Executive AI Insights <span class="section-badge orange">Auto-Generated</span></div>
-  </div>
-  <div class="card-grid card-grid-3" id="insightsGrid"></div>
-</section>
-
-<!-- ===================== FORECASTING ===================== -->
+<!-- ============ FORECAST ============ -->
 <section class="section" id="sec-forecast">
   <div class="section-header">
-    <div class="section-title"><span class="icon">🔮</span> Next Week Forecast <span class="section-badge blue">Week 27 Prediction</span></div>
+    <div class="section-title"><span class="icon">🔮</span> Week 27 Projection <span class="section-badge blue">Linear trend</span></div>
   </div>
   <div class="card-grid card-grid-4" id="forecastGrid"></div>
   <div class="card" style="margin-top:16px">
-    <div class="section-title" style="font-size:.95rem;margin-bottom:12px">Forecast Trend with Confidence Interval</div>
     <div class="chart-container"><canvas id="forecastChart"></canvas></div>
+    <div class="note" style="margin-top:8px">Projected from 4 weeks of history — directional guidance, not a precise target.</div>
   </div>
 </section>
 
-<!-- ===================== ALERTS ===================== -->
-<section class="section" id="sec-alerts">
-  <div class="section-header">
-    <div class="section-title"><span class="icon">🚨</span> Executive Alerts <span class="section-badge red">Action Required</span></div>
-  </div>
-  <div class="alert-grid" id="alertGrid"></div>
-</section>
-
-<!-- ===================== LEADERBOARD ===================== -->
-<section class="section" id="sec-leader">
-  <div class="section-header">
-    <div class="section-title"><span class="icon">🏆</span> Performance Leaderboard <span class="section-badge green">Top Performers</span></div>
-  </div>
-  <div class="card-grid card-grid-2" id="leaderGrid"></div>
-</section>
-
-<!-- ===================== CEO SUMMARY ===================== -->
+<!-- ============ CEO SUMMARY ============ -->
 <section class="section" id="sec-summary">
   <div class="section-header">
     <div class="section-title"><span class="icon">📋</span> CEO Executive Summary</div>
@@ -496,1060 +489,496 @@ tr:hover td{background:var(--blue-50)}
 </section>
 
 </main>
-
-<!-- SCROLL TO TOP -->
 <button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
-
 <script>
-// ============================
-// DATA
-// ============================
-const WEEKS_RAW = [
-  { week:23, impressions:1698218, clicks:9533, ctr:0.56, spend:83232.98, cpc:8.73, orders:559, sales:301176.32, acos:27.64 },
-  { week:24, impressions:1430381, clicks:7864, ctr:0.55, spend:80175.07, cpc:10.20, orders:579, sales:320499.94, acos:25.02 },
-  { week:25, impressions:1460140, clicks:7735, ctr:0.53, spend:76855.84, cpc:9.94, orders:619, sales:335717.87, acos:22.89 },
-  { week:26, impressions:1308808, clicks:7054, ctr:0.54, spend:71568.97, cpc:10.15, orders:543, sales:302070.09, acos:23.69 }
-];
+const WEEKS_RAW=[{"week": 23, "impressions": 1698218.0, "clicks": 9533.0, "ctr": 0.01, "spend": 83232.98, "cpc": 8.73, "orders": 559, "sales": 301176.32, "acos": 28.000000000000004}, {"week": 24, "impressions": 1430381.0, "clicks": 7864.0, "ctr": 0.01, "spend": 80175.07, "cpc": 10.2, "orders": 579, "sales": 320499.94, "acos": 25.0}, {"week": 25, "impressions": 1460140.0, "clicks": 7735.0, "ctr": 0.01, "spend": 76855.84, "cpc": 9.94, "orders": 619, "sales": 335717.87, "acos": 23.0}, {"week": 26, "impressions": 1308808.0, "clicks": 7054.0, "ctr": 0.01, "spend": 71568.97, "cpc": 10.15, "orders": 543, "sales": 302070.09, "acos": 24.0}];
+const ASINS_RAW=[{"asin": "B0CTHWVRJY", "name": "Finger paint", "category": "Art Kit", "impressions": 155498.0, "clicks": 1287, "spend": 15412.75, "orders": 128, "sales": 68464.42, "acos": 23.0, "prevSales": 88328.1}, {"asin": "B0FMFR1ZVN", "name": "Playdough", "category": "Play Dough", "impressions": 124312.0, "clicks": 807, "spend": 9590.12, "orders": 48, "sales": 30772.28, "acos": 31.0, "prevSales": 24774.36}, {"asin": "B07T516S4Y", "name": "Crayon", "category": "Crayons", "impressions": 107855.0, "clicks": 547, "spend": 5932.1, "orders": 48, "sales": 24195.3, "acos": 25.0, "prevSales": 15040.6}, {"asin": "B0B1DT53X9", "name": "Hand and Foot Print Kit", "category": "Art Kit", "impressions": 36602.0, "clicks": 344, "spend": 2576.14, "orders": 15, "sales": 7976.9, "acos": 32.0, "prevSales": 23289.14}, {"asin": "B096WD8RC2", "name": "Brush Set", "category": "Brushes", "impressions": 110571.0, "clicks": 379, "spend": 3526.43, "orders": 41, "sales": 17306.28, "acos": 20.0, "prevSales": 19743.01}, {"asin": "B0FKZ8TMHC", "name": "Magic Paint Dust", "category": "Powder Paints", "impressions": 13933.0, "clicks": 195, "spend": 1899.02, "orders": 11, "sales": 6399.17, "acos": 30.0, "prevSales": 11839.8}, {"asin": "B09WMGR9M8", "name": "Colouring Page", "category": "Colouring Pages", "impressions": 37156.0, "clicks": 290, "spend": 2595.07, "orders": 28, "sales": 13103.03, "acos": 20.0, "prevSales": 12857.92}, {"asin": "B07T2W496G", "name": "Finger paint", "category": "Finger Paints", "impressions": 45081.0, "clicks": 186, "spend": 3175.74, "orders": 20, "sales": 13801.98, "acos": 23.0, "prevSales": 12862.29}, {"asin": "B096WGCRL3", "name": "Finger paint", "category": "Finger Paints", "impressions": 53555.0, "clicks": 197, "spend": 2315.21, "orders": 14, "sales": 9159.98, "acos": 25.0, "prevSales": 8381.63}, {"asin": "B0CV1653HN", "name": "Finger paint and brush", "category": "Combo Kit", "impressions": 36478.0, "clicks": 100, "spend": 996.26, "orders": 10, "sales": 7034.91, "acos": 14.000000000000002, "prevSales": 7318.39}, {"asin": "B0DBVVDN77", "name": "All in one paint kit", "category": "Art Kit", "impressions": 14584.0, "clicks": 177, "spend": 1543.49, "orders": 12, "sales": 6963.79, "acos": 22.0, "prevSales": 5926.65}, {"asin": "B07T5252GY", "name": "Crayon", "category": "Crayons", "impressions": 33952.0, "clicks": 110, "spend": 1478.42, "orders": 8, "sales": 5163.62, "acos": 28.999999999999996, "prevSales": 6787.24}, {"asin": "B0G4DHMPLW", "name": "Dino Stencil", "category": "Uncategorized", "impressions": 24680.0, "clicks": 154, "spend": 1807.83, "orders": 3, "sales": 1703.35, "acos": 106.0, "prevSales": 5208.79}, {"asin": "B0F1YXJ9XR", "name": "Magic Bubbles", "category": "Bubble", "impressions": 39749.0, "clicks": 137, "spend": 1184.23, "orders": 10, "sales": 6534.69, "acos": 18.0, "prevSales": 7240.57}, {"asin": "B0GRV5ZDNR", "name": "Mini Magic Dough lab", "category": "Uncategorized", "impressions": 20831.0, "clicks": 112, "spend": 1122.84, "orders": 4, "sales": 2086.42, "acos": 54.0, "prevSales": 3987.25}, {"asin": "B0B4GZGZ98", "name": "Brush Set", "category": "Brushes", "impressions": 22617.0, "clicks": 57, "spend": 532.54, "orders": 11, "sales": 4849.2, "acos": 11.0, "prevSales": 10902.97}, {"asin": "B0FKZ51ZCM", "name": "Sensory Rice Kit", "category": "Sensory Rice", "impressions": 9485.0, "clicks": 111, "spend": 1098.62, "orders": 9, "sales": 4743.19, "acos": 23.0, "prevSales": 700.85}, {"asin": "B0FKZ847QQ", "name": "Magic Paint Dust", "category": "Combo", "impressions": 3926.0, "clicks": 12, "spend": 153.23, "orders": 2, "sales": 2261.36, "acos": 7.000000000000001, "prevSales": 1613.56}, {"asin": "B0C5DV73CL", "name": "Stamp kit", "category": "Art Kit", "impressions": 7395.0, "clicks": 36, "spend": 466.6, "orders": 4, "sales": 1984.25, "acos": 24.0, "prevSales": 1550.84}, {"asin": "B0CV17BBLG", "name": "Finger paint and brush", "category": "Combo", "impressions": 15803.0, "clicks": 30, "spend": 409.86, "orders": 2, "sales": 1281.36, "acos": 32.0, "prevSales": 1267.52}, {"asin": "B09QYZVZF6", "name": "Finger paint and brush", "category": "Finger Paints", "impressions": 6797.0, "clicks": 17, "spend": 191.01, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 0.0}, {"asin": "B0BCG8R1PN", "name": "Preschool art and craft kit", "category": "Art Kit", "impressions": 17512.0, "clicks": 49, "spend": 465.63, "orders": 2, "sales": 859.05, "acos": 54.0, "prevSales": 0.0}, {"asin": "B0DMKDVJF5", "name": "Colouring Page", "category": "Colouring Books", "impressions": 8780.0, "clicks": 26, "spend": 269.68, "orders": 4, "sales": 2257.8, "acos": 12.0, "prevSales": 0.0}, {"asin": "B0D5CXT963", "name": "Colouring Page", "category": "Combo", "impressions": 8653.0, "clicks": 5, "spend": 60.89, "orders": 1, "sales": 344.07, "acos": 18.0, "prevSales": 2811.19}, {"asin": "B0GV7RRYHZ", "name": "-", "category": "Uncategorized", "impressions": 9520.0, "clicks": 23, "spend": 296.4, "orders": 2, "sales": 1190.17, "acos": 25.0, "prevSales": 1462.5}, {"asin": "B0G4D97SGB", "name": "Unicorn Stencil", "category": "Uncategorized", "impressions": 2766.0, "clicks": 17, "spend": 156.24, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 454.24}, {"asin": "B09F3DTZDF", "name": "Glue", "category": "Glue", "impressions": 11747.0, "clicks": 20, "spend": 101.78, "orders": 6, "sales": 3019.0, "acos": 3.0, "prevSales": 1811.4}, {"asin": "B0DV5NH3PZ", "name": "Flip Flap", "category": "Book", "impressions": 1402.0, "clicks": 10, "spend": 78.46, "orders": 1, "sales": 698.31, "acos": 11.0, "prevSales": 1838.66}, {"asin": "B0GVMZS5JL", "name": "-", "category": "Uncategorized", "impressions": 4071.0, "clicks": 8, "spend": 137.5, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 390.48}, {"asin": "B0DV5ND9T1", "name": "Flip Flap", "category": "Book", "impressions": 3255.0, "clicks": 24, "spend": 279.56, "orders": 1, "sales": 708.47, "acos": 39.0, "prevSales": 700.84}, {"asin": "B0DV8X96W1", "name": "Flip Flap", "category": "Re-Usable Books", "impressions": 6644.0, "clicks": 16, "spend": 115.79, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 0.0}, {"asin": "B0G4R1F6X9", "name": "Unicorn Stencil", "category": "Uncategorized", "impressions": 6363.0, "clicks": 28, "spend": 129.07, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 0.0}, {"asin": "B0DF5DZGG4", "name": "All in one paint kit", "category": "Combo", "impressions": 4816.0, "clicks": 10, "spend": 71.08, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 464.41}, {"asin": "B0B4GZTRGD", "name": "Finger paint and Canvas", "category": "Combo", "impressions": 7893.0, "clicks": 9, "spend": 92.7, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 0.0}, {"asin": "B0BGH64J3D", "name": "Gift combo pack", "category": "Combo", "impressions": 1905.0, "clicks": 4, "spend": 69.18, "orders": 1, "sales": 989.52, "acos": 7.000000000000001, "prevSales": 0.0}, {"asin": "B0FKZ51CBB", "name": "My ABC Trace & Colour Kit", "category": "Art Kit", "impressions": 3881.0, "clicks": 15, "spend": 162.81, "orders": 1, "sales": 883.8, "acos": 18.0, "prevSales": 0.0}, {"asin": "B0D5CZ4J51", "name": "Colouring Page", "category": "Colouring Pages", "impressions": 2371.0, "clicks": 4, "spend": 44.75, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 2641.8}, {"asin": "B0FKZ8JJRT", "name": "My ABC Trace & Colour Kit", "category": "Art Kit", "impressions": 1415.0, "clicks": 7, "spend": 115.2, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 0.0}, {"asin": "B0DYP6RYYL", "name": "My First Puzzle", "category": "Art Kit", "impressions": 2214.0, "clicks": 8, "spend": 102.18, "orders": 1, "sales": 979.0, "acos": 10.0, "prevSales": 808.48}, {"asin": "B0DPJ6GC6H", "name": "Hand and Foot Print Kit", "category": "Art Kit", "impressions": 4045.0, "clicks": 15, "spend": 106.48, "orders": 1, "sales": 559.05, "acos": 19.0, "prevSales": 0.0}, {"asin": "B0DMFH7GXG", "name": "My First Puzzle", "category": "Puzzle", "impressions": 2524.0, "clicks": 10, "spend": 55.72, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 464.41}, {"asin": "B0D8WJ4R8H", "name": "My First Swingin", "category": "Story Card", "impressions": 615.0, "clicks": 3, "spend": 37.09, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 464.41}, {"asin": "B0G4QXQ1MV", "name": "Dino Stencil", "category": "Uncategorized", "impressions": 6323.0, "clicks": 17, "spend": 102.89, "orders": 1, "sales": 1808.57, "acos": 6.0, "prevSales": 0.0}, {"asin": "B0D66PVS91", "name": "Colouring Page", "category": "Art Kit", "impressions": 2041.0, "clicks": 14, "spend": 109.63, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 0.0}, {"asin": "B0CV1RHPTC", "name": "Apron", "category": "Apron", "impressions": 4790.0, "clicks": 19, "spend": 178.87, "orders": 2, "sales": 1648.04, "acos": 11.0, "prevSales": 2797.22}, {"asin": "B0DZD3T5DF", "name": "Gift combo pack", "category": "Gift Set", "impressions": 1770.0, "clicks": 1, "spend": 15.3, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 0.0}, {"asin": "B0GVJ83VYQ", "name": "-", "category": "Uncategorized", "impressions": 3579.0, "clicks": 10, "spend": 141.49, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 0.0}, {"asin": "B0G4QX61YX", "name": "Dino Stencil", "category": "Uncategorized", "impressions": 9294.0, "clicks": 15, "spend": 86.24, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 0.0}, {"asin": "B0831M3XX6", "name": "Gift combo pack", "category": "Gift", "impressions": 742.0, "clicks": 1, "spend": 14.87, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 0.0}, {"asin": "B0DV5JVFTC", "name": "India Map", "category": "Art Kit", "impressions": 334.0, "clicks": 1, "spend": 13.22, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 0.0}, {"asin": "B0DN1SPCQ7", "name": "Gift combo pack", "category": "Colouring Pages", "impressions": 1845.0, "clicks": 1, "spend": 18.26, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 464.41}, {"asin": "B0DV9D6PD8", "name": "Flip Flap", "category": "Flip Books", "impressions": 3424.0, "clicks": 9, "spend": 69.71, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 0.0}, {"asin": "B0D5CXTV3W", "name": "Gift combo pack", "category": "Combo", "impressions": 2844.0, "clicks": 4, "spend": 60.4, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 0.0}, {"asin": "B0D8Z1NFXN", "name": "My First Swingin", "category": "Combo", "impressions": 7434.0, "clicks": 5, "spend": 52.14, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 0.0}, {"asin": "B0D66SH2RK", "name": "Colouring Page", "category": "Art Kit", "impressions": 1570.0, "clicks": 6, "spend": 49.29, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 0.0}, {"asin": "B0DV99J4RG", "name": "Flip Flap", "category": "Book", "impressions": 2896.0, "clicks": 9, "spend": 66.07, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 0.0}, {"asin": "B0GVK7MW7V", "name": "-", "category": "Uncategorized", "impressions": 770.0, "clicks": 6, "spend": 74.45, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 0.0}, {"asin": "B0GRV16JS5", "name": "Mini Dessert Party", "category": "Uncategorized", "impressions": 582.0, "clicks": 11, "spend": 63.83, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 0.0}, {"asin": "B0G4R2ZN5J", "name": "Unicorn Stencil", "category": "Uncategorized", "impressions": 1705.0, "clicks": 2, "spend": 27.32, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 0.0}, {"asin": "B0GRTZPVYG", "name": "Mini Sensory Playdough", "category": "Uncategorized", "impressions": 216.0, "clicks": 3, "spend": 23.0, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 0.0}, {"asin": "B0D8WDSSSG", "name": "My First Swingin", "category": "Story Card", "impressions": 1005.0, "clicks": 3, "spend": 14.31, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 0.0}, {"asin": "B09Z7PNX38", "name": "-", "category": "Uncategorized", "impressions": 46.0, "clicks": 1, "spend": 29.85, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 0.0}];
+const TYPES_RAW=[{"type": "SPM", "impressions": 706378.0, "clicks": 3580, "spend": 41699.15, "orders": 328, "sales": 183016.2, "acos": 23.0}, {"type": "SPT", "impressions": 103186.0, "clicks": 1332, "spend": 15223.18, "orders": 98, "sales": 52889.06, "acos": 28.999999999999996}, {"type": "SBV", "impressions": 84811.0, "clicks": 604, "spend": 5720.31, "orders": 30, "sales": 17404.82, "acos": 33.0}, {"type": "SB", "impressions": 146392.0, "clicks": 761, "spend": 4193.08, "orders": 50, "sales": 27084.42, "acos": 15.0}, {"type": "SPA", "impressions": 116528.0, "clicks": 589, "spend": 3238.33, "orders": 36, "sales": 21285.11, "acos": 15.0}, {"type": "SD", "impressions": 150625.0, "clicks": 185, "spend": 1484.5, "orders": 1, "sales": 390.48, "acos": 380.0}, {"type": "SPCT", "impressions": 888.0, "clicks": 3, "spend": 10.42, "orders": 0, "sales": 0.0, "acos": 0.0}];
+const CAMPAIGNS_RAW=[{"name": "SPT|Finger paint|EV", "impressions": 20676.0, "clicks": 370, "spend": 5431.73, "orders": 31, "sales": 17291.0, "acos": 31.0, "prevSales": 15355.02}, {"name": "SPM|Exact|PlayDough|EV", "impressions": 35353.0, "clicks": 259, "spend": 4900.59, "orders": 21, "sales": 12500.66, "acos": 39.0, "prevSales": 8661.22}, {"name": "SPM||Finger paint|Phrase|EV", "impressions": 20742.0, "clicks": 197, "spend": 3000.26, "orders": 31, "sales": 16337.3, "acos": 18.0, "prevSales": 20513.88}, {"name": "SPM|FingerPaint|NewKW-1|EV", "impressions": 22458.0, "clicks": 194, "spend": 2928.4, "orders": 15, "sales": 11669.19, "acos": 25.0, "prevSales": 12370.74}, {"name": "SPM|PlayDough|EV", "impressions": 71726.0, "clicks": 336, "spend": 2589.39, "orders": 14, "sales": 8665.58, "acos": 30.0, "prevSales": 8775.84}, {"name": "SPM finger Paints KW/Broad Evits", "impressions": 24724.0, "clicks": 168, "spend": 2514.14, "orders": 15, "sales": 8081.43, "acos": 31.0, "prevSales": 9819.61}, {"name": "SB|Banner|FingerPaint|EV", "impressions": 88971.0, "clicks": 404, "spend": 2402.42, "orders": 38, "sales": 19998.81, "acos": 12.0, "prevSales": 23105.59}, {"name": "SPM|Phrase|MixASIN-1|EV", "impressions": 69214.0, "clicks": 193, "spend": 2322.08, "orders": 14, "sales": 8013.98, "acos": 28.999999999999996, "prevSales": 8001.28}, {"name": "SBV | COMP PT | SENSORY PLAYDOUGH | EV", "impressions": 17754.0, "clicks": 146, "spend": 2097.13, "orders": 6, "sales": 2918.46, "acos": 72.0, "prevSales": 4768.7}, {"name": "SBV | DESSERT PAINT | EV", "impressions": 47079.0, "clicks": 278, "spend": 2081.61, "orders": 3, "sales": 2294.91, "acos": 91.0, "prevSales": 775.42}, {"name": "SPA_Loose_Jupiter Sale", "impressions": 59781.0, "clicks": 366, "spend": 2061.45, "orders": 20, "sales": 10227.82, "acos": 20.0, "prevSales": 17386.03}, {"name": "SPM|Crayon|Broad|High|IS|EV", "impressions": 9399.0, "clicks": 135, "spend": 1948.67, "orders": 6, "sales": 2458.7, "acos": 79.0, "prevSales": 780.96}, {"name": "SPT|Self|EV", "impressions": 9697.0, "clicks": 194, "spend": 1781.21, "orders": 17, "sales": 9736.72, "acos": 18.0, "prevSales": 11365.11}, {"name": "SPM|Crayon|Phrase|EV", "impressions": 22258.0, "clicks": 113, "spend": 1778.52, "orders": 20, "sales": 11891.17, "acos": 15.0, "prevSales": 8098.35}, {"name": "SPM | PHRASE | BRUSH | EV", "impressions": 83811.0, "clicks": 179, "spend": 1487.36, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 0.0}, {"name": "SPT|PlayDough|EV", "impressions": 10055.0, "clicks": 141, "spend": 1474.77, "orders": 3, "sales": 1609.33, "acos": 92.0, "prevSales": 2561.86}, {"name": "SPM|Stencil|BrandedKWPhrase|EV", "impressions": 21182.0, "clicks": 120, "spend": 1430.38, "orders": 3, "sales": 1703.35, "acos": 84.0, "prevSales": 2257.35}, {"name": "SPM_Branded_Exact_EV", "impressions": 16405.0, "clicks": 166, "spend": 1414.65, "orders": 24, "sales": 15067.1, "acos": 9.0, "prevSales": 19027.11}, {"name": "SPM|Broad|Brush Set|EV", "impressions": 11755.0, "clicks": 120, "spend": 1221.74, "orders": 37, "sales": 14931.85, "acos": 8.0, "prevSales": 17323.71}, {"name": "SPM|Braod|HighIS|FingerPaint\\EV", "impressions": 23095.0, "clicks": 74, "spend": 1216.78, "orders": 8, "sales": 4810.82, "acos": 25.0, "prevSales": 6406.8}, {"name": "SPT|All in one paint kit|EV", "impressions": 5709.0, "clicks": 122, "spend": 1101.9, "orders": 9, "sales": 5005.58, "acos": 22.0, "prevSales": 3143.22}, {"name": "SPM | Phrase KWs tgrt |--Evits", "impressions": 12362.0, "clicks": 98, "spend": 1047.36, "orders": 18, "sales": 9088.98, "acos": 12.0, "prevSales": 28800.21}, {"name": "SB|PT|EV", "impressions": 18845.0, "clicks": 166, "spend": 967.6, "orders": 9, "sales": 5237.3, "acos": 18.0, "prevSales": 3250.86}, {"name": "SPT|Finger Paints|Comp|EV", "impressions": 6674.0, "clicks": 67, "spend": 949.97, "orders": 7, "sales": 3561.03, "acos": 27.0, "prevSales": 4717.75}, {"name": "SB|Banner|PlayDough|EV", "impressions": 38576.0, "clicks": 191, "spend": 823.06, "orders": 3, "sales": 1848.31, "acos": 45.0, "prevSales": 4366.11}, {"name": "SPM | Phrase | Finger Paint | EV", "impressions": 52214.0, "clicks": 115, "spend": 784.79, "orders": 2, "sales": 1739.65, "acos": 45.0, "prevSales": 5122.69}, {"name": "SPM|Sensory Rice Kit |EV", "impressions": 7047.0, "clicks": 70, "spend": 719.89, "orders": 5, "sales": 2735.78, "acos": 26.0, "prevSales": 0.0}, {"name": "SBV|NewVideo|PlayDough|EV", "impressions": 3867.0, "clicks": 58, "spend": 686.81, "orders": 9, "sales": 5536.79, "acos": 12.0, "prevSales": 2927.12}, {"name": "SPM|Exact|AllASIN|Branded|KW", "impressions": 15485.0, "clicks": 71, "spend": 667.94, "orders": 15, "sales": 6970.35, "acos": 10.0, "prevSales": 390.48}, {"name": "SPA|Low Sessions | Low Conversion|4|EV", "impressions": 24933.0, "clicks": 144, "spend": 661.04, "orders": 7, "sales": 5084.52, "acos": 13.0, "prevSales": 813.93}, {"name": "SPM|Branded|Exact|PlayDough|EV", "impressions": 13612.0, "clicks": 61, "spend": 648.68, "orders": 9, "sales": 6156.67, "acos": 11.0, "prevSales": 2102.55}, {"name": "SPM|Colouring Page|EV", "impressions": 8559.0, "clicks": 46, "spend": 619.92, "orders": 9, "sales": 4108.16, "acos": 15.0, "prevSales": 4129.73}, {"name": "SPT|Bubble|EV", "impressions": 9385.0, "clicks": 56, "spend": 607.06, "orders": 1, "sales": 418.1, "acos": 145.0, "prevSales": 2926.7}, {"name": "SPM | Phrase | Finger Paint | Toddler KW | EV", "impressions": 3360.0, "clicks": 32, "spend": 556.97, "orders": 3, "sales": 1540.61, "acos": 36.0, "prevSales": 2210.18}, {"name": "SPM|Finger|Paints|EV", "impressions": 12397.0, "clicks": 33, "spend": 538.82, "orders": 9, "sales": 4825.12, "acos": 11.0, "prevSales": 4658.07}, {"name": "SPT|B0CTHWVRJY|Market Basket Analysis|EV", "impressions": 1340.0, "clicks": 37, "spend": 519.62, "orders": 3, "sales": 1393.22, "acos": 37.0, "prevSales": 2098.28}, {"name": "SPM | Branded KW | New Launch | EV", "impressions": 9032.0, "clicks": 51, "spend": 497.5, "orders": 3, "sales": 2962.21, "acos": 17.0, "prevSales": 2487.03}, {"name": "SPT COMP | EXACT | CRAYONS FABER | EV", "impressions": 5150.0, "clicks": 52, "spend": 497.49, "orders": 3, "sales": 1171.44, "acos": 42.0, "prevSales": 0.0}, {"name": "SPM|LowImpression|PlayDough|EV", "impressions": 6275.0, "clicks": 49, "spend": 497.19, "orders": 4, "sales": 2086.42, "acos": 24.0, "prevSales": 2016.06}, {"name": "SBV|Starter Painting Fun Pack|EV", "impressions": 8814.0, "clicks": 81, "spend": 467.44, "orders": 8, "sales": 4459.74, "acos": 10.0, "prevSales": 1704.24}, {"name": "SPM|Magic Paint Dust |EV", "impressions": 3864.0, "clicks": 39, "spend": 443.62, "orders": 4, "sales": 1857.63, "acos": 24.0, "prevSales": 6037.67}, {"name": "SD|Audiences likely to be interested in your ad|EV", "impressions": 88091.0, "clicks": 96, "spend": 420.02, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 928.81}, {"name": "SPT | self | asins top | ev", "impressions": 5792.0, "clicks": 36, "spend": 405.42, "orders": 2, "sales": 1633.9, "acos": 25.0, "prevSales": 5007.05}, {"name": "SD|PT|FingerPaints|EV", "impressions": 11225.0, "clicks": 24, "spend": 385.38, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 2881.1}, {"name": "SPM | PHRASE | Hand and Foot Print Kit | EV", "impressions": 7008.0, "clicks": 70, "spend": 370.58, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 2236.2}, {"name": "SPM | KT | Broad | Brand | All Asin | EV", "impressions": 9991.0, "clicks": 37, "spend": 353.47, "orders": 5, "sales": 3166.01, "acos": 11.0, "prevSales": 2281.32}, {"name": "SPT | COMP | Hand and Foot Print Kit | EV", "impressions": 1492.0, "clicks": 49, "spend": 352.2, "orders": 3, "sales": 1677.15, "acos": 21.0, "prevSales": 1118.1}, {"name": "SPM_Branded_Phrase_KW", "impressions": 6219.0, "clicks": 33, "spend": 341.58, "orders": 2, "sales": 1406.78, "acos": 24.0, "prevSales": 1155.08}, {"name": "SD|PT|Self|EV", "impressions": 8194.0, "clicks": 21, "spend": 339.1, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 1393.23}, {"name": "SPM|Phrase|MixASIN|2|EV", "impressions": 8422.0, "clicks": 52, "spend": 321.11, "orders": 5, "sales": 3691.91, "acos": 9.0, "prevSales": 2319.02}, {"name": "SPM | PHRASE | CRAYON | EV", "impressions": 19519.0, "clicks": 50, "spend": 314.83, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 0.0}, {"name": "SPT|Colouring Page|EV", "impressions": 967.0, "clicks": 28, "spend": 304.16, "orders": 2, "sales": 813.93, "acos": 37.0, "prevSales": 464.41}, {"name": "SPM | PHRASE | COLOURING PAGE | EV", "impressions": 8711.0, "clicks": 37, "spend": 295.51, "orders": 2, "sales": 791.42, "acos": 37.0, "prevSales": 3897.63}, {"name": "SPA | Bubble Magic | EV", "impressions": 11404.0, "clicks": 37, "spend": 292.56, "orders": 7, "sales": 5280.39, "acos": 6.0, "prevSales": 1254.3}, {"name": "SPM | Finger Paint Defensive KWs |--Evits", "impressions": 3566.0, "clicks": 19, "spend": 268.35, "orders": 4, "sales": 1857.63, "acos": 14.000000000000002, "prevSales": 2769.23}, {"name": "SPM|My ABC Trace & Colour Kit |Phrase|EV", "impressions": 3435.0, "clicks": 15, "spend": 244.58, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 464.41}, {"name": "SP_CT_Starter_fingerpaints_painting_EV", "impressions": 3703.0, "clicks": 30, "spend": 233.3, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 464.41}, {"name": "SPT|Brush Set||EV", "impressions": 1861.0, "clicks": 26, "spend": 233.13, "orders": 5, "sales": 2702.48, "acos": 9.0, "prevSales": 2428.82}, {"name": "SPM|Phrase|PlayDOughAll|EV", "impressions": 4830.0, "clicks": 22, "spend": 231.11, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 1971.19}, {"name": "SD|Crayon|EV", "impressions": 10929.0, "clicks": 21, "spend": 221.55, "orders": 1, "sales": 390.48, "acos": 56.99999999999999, "prevSales": 464.41}, {"name": "SPT|FingerPaint|BRS-1|EV", "impressions": 2928.0, "clicks": 21, "spend": 199.9, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 0.0}, {"name": "SPT|Sensory Rice Kit |EV", "impressions": 1045.0, "clicks": 16, "spend": 198.17, "orders": 2, "sales": 605.71, "acos": 33.0, "prevSales": 0.0}, {"name": "SPM|Magic Paint Dust |Phrase|EV", "impressions": 2272.0, "clicks": 16, "spend": 196.16, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 0.0}, {"name": "SPT|COMP|Starter Painting Fun Pack|EV", "impressions": 1124.0, "clicks": 12, "spend": 189.13, "orders": 2, "sales": 918.64, "acos": 21.0, "prevSales": 2786.45}, {"name": "SPT | COMP | COLOURING PAGE | EV", "impressions": 2259.0, "clicks": 21, "spend": 182.84, "orders": 2, "sales": 1026.88, "acos": 18.0, "prevSales": 0.0}, {"name": "SPT|Self|Crayon|EV", "impressions": 1668.0, "clicks": 15, "spend": 175.66, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 1171.44}, {"name": "SPM_Crayon (Focused)", "impressions": 4939.0, "clicks": 22, "spend": 174.36, "orders": 1, "sales": 503.81, "acos": 35.0, "prevSales": 0.0}, {"name": "SBV|B0FMFR1ZVN|NewPlayDough|EV", "impressions": 3438.0, "clicks": 16, "spend": 164.81, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 0.0}, {"name": "SPM|Unicorn Flip Flap|EV", "impressions": 1167.0, "clicks": 13, "spend": 163.05, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 0.0}, {"name": "SPM finger Paints KW/Phrase evits", "impressions": 867.0, "clicks": 9, "spend": 162.73, "orders": 1, "sales": 816.95, "acos": 20.0, "prevSales": 0.0}, {"name": "SPM|Exact|B07T516S4Y|EV", "impressions": 751.0, "clicks": 10, "spend": 160.77, "orders": 1, "sales": 390.48, "acos": 41.0, "prevSales": 0.0}, {"name": "SPM|Playdough|Phrase|EV", "impressions": 2181.0, "clicks": 19, "spend": 158.24, "orders": 1, "sales": 454.24, "acos": 35.0, "prevSales": 0.0}, {"name": "SPM|finger paint|B0CTHWVRJY|EV", "impressions": 682.0, "clicks": 7, "spend": 136.27, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 464.4}, {"name": "SPT | COMP | FINGER PAINT | EV", "impressions": 3437.0, "clicks": 17, "spend": 119.58, "orders": 1, "sales": 464.41, "acos": 26.0, "prevSales": 0.0}, {"name": "SPM|Crayon|SearchtermImpressionshare|EV", "impressions": 2600.0, "clicks": 10, "spend": 115.21, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 0.0}, {"name": "SPM|Crayon|ToddlerKW|EV", "impressions": 1040.0, "clicks": 7, "spend": 111.95, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 894.29}, {"name": "SPM|Phrase|Stencil|Ev", "impressions": 831.0, "clicks": 10, "spend": 109.64, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 0.0}, {"name": "SPA|Crayon|AmazonPI|EV", "impressions": 11693.0, "clicks": 20, "spend": 105.98, "orders": 1, "sales": 390.48, "acos": 27.0, "prevSales": 503.81}, {"name": "SPM|Exact|FingerPaint|New|EV", "impressions": 182.0, "clicks": 9, "spend": 105.91, "orders": 1, "sales": 464.41, "acos": 23.0, "prevSales": 0.0}, {"name": "SBV | PT COMP | PLAYDOUGH KIT | EV", "impressions": 3117.0, "clicks": 11, "spend": 99.58, "orders": 1, "sales": 454.24, "acos": 22.0, "prevSales": 454.24}, {"name": "SPM|Phrase|KW|Crayon|EV", "impressions": 2260.0, "clicks": 9, "spend": 97.67, "orders": 2, "sales": 894.29, "acos": 11.0, "prevSales": 1007.62}, {"name": "SPM|Phase|Crayon|EV", "impressions": 147.0, "clicks": 5, "spend": 82.54, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 0.0}, {"name": "SBV|MagicPaint|Test|EV", "impressions": 394.0, "clicks": 6, "spend": 78.09, "orders": 3, "sales": 1740.68, "acos": 4.0, "prevSales": 0.0}, {"name": "SPM|Phrase|My ABC Trace & Colour Kit |EV", "impressions": 230.0, "clicks": 5, "spend": 76.12, "orders": 1, "sales": 883.8, "acos": 9.0, "prevSales": 0.0}, {"name": "SPT - Paint Dust+ABC Trace | EV", "impressions": 1021.0, "clicks": 8, "spend": 75.45, "orders": 2, "sales": 1515.26, "acos": 5.0, "prevSales": 700.85}, {"name": "SPM|MaxCoverage|Finger paint|EV", "impressions": 4016.0, "clicks": 20, "spend": 73.78, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 0.0}, {"name": "SPM|Hand and Foot Print Kit|Phrase|EV", "impressions": 834.0, "clicks": 15, "spend": 70.16, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 1118.09}, {"name": "SPM|Phrase|Bubbles||EV", "impressions": 5341.0, "clicks": 17, "spend": 69.47, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 2177.06}, {"name": "SPM|FingerPaint|NewKW|EV", "impressions": 267.0, "clicks": 4, "spend": 68.59, "orders": 3, "sales": 1745.77, "acos": 4.0, "prevSales": 1002.51}, {"name": "SPM_Non_toxic paints", "impressions": 214.0, "clicks": 6, "spend": 68.09, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 0.0}, {"name": "SPT | COMP | FINGER PAINT AND BRUSH | EV", "impressions": 1119.0, "clicks": 7, "spend": 66.25, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 0.0}, {"name": "SPM | PHRASE | FINGER PAIND AND BRUSH | EV", "impressions": 3423.0, "clicks": 8, "spend": 59.43, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 0.0}, {"name": "SPA | SUBSTITUTE | CRAYONS | EV", "impressions": 3733.0, "clicks": 13, "spend": 59.1, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 0.0}, {"name": "SPM|Crayon|LowImpression|EV", "impressions": 4199.0, "clicks": 5, "spend": 58.51, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 0.0}, {"name": "SPM|Phrase Dabble|B07T516S4Y|EV", "impressions": 339.0, "clicks": 4, "spend": 58.21, "orders": 1, "sales": 464.41, "acos": 13.0, "prevSales": 0.0}, {"name": "SD|PT|TopASIN|EV", "impressions": 1820.0, "clicks": 1, "spend": 57.7, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 0.0}, {"name": "SPT|PlayDough|Lattoland&PepPlay|EV", "impressions": 558.0, "clicks": 6, "spend": 56.8, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 0.0}, {"name": "SD|Low Sessions | High Conversion|EV", "impressions": 17304.0, "clicks": 16, "spend": 55.54, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 0.0}, {"name": "SPPT Low selling Asins on Top selling Asins evits", "impressions": 375.0, "clicks": 5, "spend": 53.07, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 1393.23}, {"name": "SPT|Crayon||EV", "impressions": 2854.0, "clicks": 6, "spend": 47.1, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 0.0}, {"name": "SPM | Phrase | Bubble | EV", "impressions": 1527.0, "clicks": 5, "spend": 45.78, "orders": 1, "sales": 418.1, "acos": 11.0, "prevSales": 0.0}, {"name": "sbv | pt comp | sensory play dough | ev", "impressions": 348.0, "clicks": 8, "spend": 44.84, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 0.0}, {"name": "SPM | PHRASE | Preschool art and craft kit | EV", "impressions": 1016.0, "clicks": 8, "spend": 39.98, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 0.0}, {"name": "SPM|Exact|Crayon|Search Performance|EV", "impressions": 1696.0, "clicks": 3, "spend": 39.93, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 0.0}, {"name": "SPM|FingerPaint|ExactNewKW-2|EV", "impressions": 64.0, "clicks": 2, "spend": 37.95, "orders": 1, "sales": 464.4, "acos": 8.0, "prevSales": 464.41}, {"name": "SPM|Phrase|Bubble|EV", "impressions": 3379.0, "clicks": 7, "spend": 35.97, "orders": 1, "sales": 418.1, "acos": 9.0, "prevSales": 0.0}, {"name": "SPM|Apron|EV", "impressions": 673.0, "clicks": 6, "spend": 35.15, "orders": 2, "sales": 1648.04, "acos": 2.0, "prevSales": 1162.72}, {"name": "SPM|Brush Set|Phrase|EV", "impressions": 135.0, "clicks": 4, "spend": 32.41, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 344.07}, {"name": "SPT|New Launch on Top|EV", "impressions": 1293.0, "clicks": 3, "spend": 32.39, "orders": 1, "sales": 698.31, "acos": 5.0, "prevSales": 464.4}, {"name": "SPA_All In One_EV", "impressions": 1360.0, "clicks": 5, "spend": 31.81, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 0.0}, {"name": "SPM|Dabble|CrayonSEL-MFN-DC08|EV", "impressions": 284.0, "clicks": 3, "spend": 31.1, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 0.0}, {"name": "SPM|Combos|EV", "impressions": 227.0, "clicks": 2, "spend": 29.07, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 0.0}, {"name": "SPPT|Brush|Comp|EV", "impressions": 281.0, "clicks": 3, "spend": 28.21, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 0.0}, {"name": "SPT|FingerPaint|BSR-3|EV", "impressions": 531.0, "clicks": 3, "spend": 28.04, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 0.0}, {"name": "SPA_Non Toxic Glue", "impressions": 3624.0, "clicks": 4, "spend": 26.39, "orders": 1, "sales": 301.9, "acos": 9.0, "prevSales": 905.7}, {"name": "SPM | PHRASE | FLIP FLAP | EV", "impressions": 248.0, "clicks": 3, "spend": 26.25, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 0.0}, {"name": "SPM | phrase | Finger paint  mix | ev", "impressions": 422.0, "clicks": 1, "spend": 25.57, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 0.0}, {"name": "SPM | top asin | exact | ev", "impressions": 300.0, "clicks": 2, "spend": 25.42, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 0.0}, {"name": "SPM|Exact|FingerPaing|EV", "impressions": 718.0, "clicks": 3, "spend": 24.76, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 0.0}, {"name": "SPM|B0CV1653HN|Phrase|EV", "impressions": 353.0, "clicks": 2, "spend": 21.0, "orders": 2, "sales": 1166.47, "acos": 2.0, "prevSales": 0.0}, {"name": "SPM | PHRASE | APRON | EV", "impressions": 189.0, "clicks": 2, "spend": 19.9, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 0.0}, {"name": "SPM|Phrase|Colouring Page|EV", "impressions": 14.0, "clicks": 2, "spend": 17.49, "orders": 1, "sales": 349.52, "acos": 5.0, "prevSales": 0.0}, {"name": "SPM|Broad|Crayons|EV", "impressions": 64.0, "clicks": 2, "spend": 17.24, "orders": 1, "sales": 816.95, "acos": 2.0, "prevSales": 0.0}, {"name": "SPT|All in one paint kit||EV", "impressions": 652.0, "clicks": 1, "spend": 16.96, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 0.0}, {"name": "SPT | COMP | FLIP FLAP | EV", "impressions": 272.0, "clicks": 2, "spend": 16.7, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 0.0}, {"name": "SPM \\ phrase | top asins | ev", "impressions": 846.0, "clicks": 2, "spend": 16.46, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 0.0}, {"name": "SPM|HighIS|Phrase|FingerPaint|EV", "impressions": 43.0, "clicks": 1, "spend": 15.26, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 928.82}, {"name": "SPM|PT|Starter Painting Fun Pack|EV", "impressions": 244.0, "clicks": 1, "spend": 14.87, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 0.0}, {"name": "SPT|B09QYZVZF6|Market Basket Analysis|EV", "impressions": 115.0, "clicks": 1, "spend": 14.02, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 0.0}, {"name": "SPT|FingerPaints|Comp|EV", "impressions": 185.0, "clicks": 1, "spend": 13.07, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 464.4}, {"name": "SPT|Dino|Stencil DIY |EV", "impressions": 12.0, "clicks": 1, "spend": 12.09, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 0.0}, {"name": "SPM|Phrase|B0CTHWVRJY|Dabble|EV", "impressions": 181.0, "clicks": 1, "spend": 10.23, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 0.0}, {"name": "SPT|Brush Set|EV", "impressions": 85.0, "clicks": 1, "spend": 8.9, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 0.0}, {"name": "ST CT | Flip Flap | EV", "impressions": 1757.0, "clicks": 2, "spend": 7.46, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 0.0}, {"name": "SPT | COMP | GLUE | EV", "impressions": 102.0, "clicks": 1, "spend": 7.38, "orders": 1, "sales": 301.9, "acos": 2.0, "prevSales": 0.0}, {"name": "SPM | PHRASE | GLUE | EV", "impressions": 152.0, "clicks": 1, "spend": 7.2, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 0.0}, {"name": "SPT | COMP | BRUSH | EV", "impressions": 103.0, "clicks": 1, "spend": 6.94, "orders": 1, "sales": 344.07, "acos": 2.0, "prevSales": 0.0}, {"name": "SPM | PHRASE | DINO STENCIL | EV", "impressions": 140.0, "clicks": 1, "spend": 6.49, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 0.0}, {"name": "SPCT | Paint Brush | EV", "impressions": 473.0, "clicks": 2, "spend": 5.85, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 0.0}, {"name": "SD|Low Sessions | Low Conversion|EV", "impressions": 12321.0, "clicks": 4, "spend": 4.61, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 0.0}, {"name": "SPCT | Refine | Finger Paint | EV", "impressions": 415.0, "clicks": 1, "spend": 4.57, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 0.0}, {"name": "SPM | BROAD | FINGER PAINT | EV", "impressions": 489.0, "clicks": 1, "spend": 4.16, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 0.0}, {"name": "SPT | COMP | CRAYON | EV", "impressions": 640.0, "clicks": 1, "spend": 1.0, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 0.0}, {"name": "SD|PR|EV", "impressions": 741.0, "clicks": 2, "spend": 0.6, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 0.0}];
+const PLACEMENTS_RAW=[{"name": "Product pages on Amazon", "impressions": 200258.0, "clicks": 336, "spend": 5593.11, "orders": 13, "sales": 6403.31, "acos": 87.0}, {"name": "Rest of search on Amazon", "impressions": 79423.0, "clicks": 281, "spend": 4156.43, "orders": 17, "sales": 9757.29, "acos": 43.0}, {"name": "Top of Search on Amazon", "impressions": 20005.0, "clicks": 291, "spend": 9662.75, "orders": 41, "sales": 21336.04, "acos": 45.0}];
+const KWTYPE_RAW=[{"name": "ASIN", "impressions": 77364.0, "clicks": 1272, "spend": 13595.55, "orders": 95, "sales": 52763.33, "acos": 26.0}, {"name": "Brand", "impressions": 221878.0, "clicks": 1567, "spend": 20380.11, "orders": 201, "sales": 114515.08, "acos": 18.0}, {"name": "Generic", "impressions": 244281.0, "clicks": 2710, "spend": 26706.4, "orders": 155, "sales": 84061.44, "acos": 32.0}];
+const MATCHTYPE_RAW=[{"name": "BROAD", "spend": 8595.07, "orders": 88, "sales": 42580.43, "acos": 20.0}, {"name": "Category Targeting", "spend": 2652.56, "orders": 11, "sales": 6270.37, "acos": 42.0}, {"name": "close-match", "spend": 199.38, "orders": 7, "sales": 5280.39, "acos": 4.0}, {"name": "EXACT", "spend": 8162.87, "orders": 66, "sales": 38922.93, "acos": 21.0}, {"name": "loose-match", "spend": 2276.42, "orders": 21, "sales": 10633.53, "acos": 21.0}, {"name": "PHRASE", "spend": 22592.6, "orders": 155, "sales": 90560.3, "acos": 25.0}, {"name": "Product Targeting", "spend": 15440.63, "orders": 98, "sales": 52983.82, "acos": 28.999999999999996}, {"name": "substitutes", "spend": 760.03, "orders": 7, "sales": 5036.9, "acos": 15.0}];
+const PRODUCTS_RAW=[{"name": "Finger paint", "impressions": 254134.0, "clicks": 1670, "spend": 20903.7, "orders": 162, "sales": 91426.38, "acos": 23.0, "prevSales": 109572.02}, {"name": "Playdough", "impressions": 124312.0, "clicks": 807, "spend": 9590.12, "orders": 48, "sales": 30772.28, "acos": 31.0, "prevSales": 24774.36}, {"name": "Crayon", "impressions": 141807.0, "clicks": 657, "spend": 7410.52, "orders": 56, "sales": 29358.92, "acos": 25.0, "prevSales": 21827.84}, {"name": "Mini Dessert Party", "impressions": 582.0, "clicks": 11, "spend": 63.83, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 0.0}, {"name": "Colouring Page", "impressions": 60571.0, "clicks": 345, "spend": 3129.31, "orders": 33, "sales": 15704.9, "acos": 20.0, "prevSales": 18310.91}, {"name": "Sensory Rice Kit", "impressions": 9485.0, "clicks": 111, "spend": 1098.62, "orders": 9, "sales": 4743.19, "acos": 23.0, "prevSales": 700.85}, {"name": "Magic Paint Dust", "impressions": 17859.0, "clicks": 207, "spend": 2052.25, "orders": 13, "sales": 8660.53, "acos": 24.0, "prevSales": 13453.36}, {"name": "All in one paint kit", "impressions": 19400.0, "clicks": 187, "spend": 1614.57, "orders": 12, "sales": 6963.79, "acos": 23.0, "prevSales": 6391.06}, {"name": "Dino Stencil", "impressions": 40297.0, "clicks": 186, "spend": 1996.96, "orders": 4, "sales": 3511.92, "acos": 56.99999999999999, "prevSales": 5208.79}, {"name": "Brush Set", "impressions": 133188.0, "clicks": 436, "spend": 4058.97, "orders": 52, "sales": 22155.48, "acos": 18.0, "prevSales": 30645.98}, {"name": "Stamp kit", "impressions": 7395.0, "clicks": 36, "spend": 466.6, "orders": 4, "sales": 1984.25, "acos": 24.0, "prevSales": 1550.84}, {"name": "Hand and Foot Print Kit", "impressions": 40647.0, "clicks": 359, "spend": 2682.62, "orders": 16, "sales": 8535.95, "acos": 31.0, "prevSales": 23289.14}, {"name": "Finger paint and brush", "impressions": 59374.0, "clicks": 147, "spend": 1597.13, "orders": 12, "sales": 8316.27, "acos": 19.0, "prevSales": 8585.91}, {"name": "Unicorn Stencil", "impressions": 10834.0, "clicks": 47, "spend": 312.63, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 454.24}, {"name": "Magic Bubbles", "impressions": 39749.0, "clicks": 137, "spend": 1184.23, "orders": 10, "sales": 6534.69, "acos": 18.0, "prevSales": 7240.57}, {"name": "-", "impressions": 17986.0, "clicks": 48, "spend": 679.69, "orders": 2, "sales": 1190.17, "acos": 56.99999999999999, "prevSales": 1852.98}, {"name": "Preschool art and craft kit", "impressions": 17512.0, "clicks": 49, "spend": 465.63, "orders": 2, "sales": 859.05, "acos": 54.0, "prevSales": 0.0}, {"name": "Mini Sensory Playdough", "impressions": 216.0, "clicks": 3, "spend": 23.0, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 0.0}, {"name": "Mini Magic Dough lab", "impressions": 20831.0, "clicks": 112, "spend": 1122.84, "orders": 4, "sales": 2086.42, "acos": 54.0, "prevSales": 3987.25}, {"name": "My ABC Trace & Colour Kit", "impressions": 5296.0, "clicks": 22, "spend": 278.01, "orders": 1, "sales": 883.8, "acos": 31.0, "prevSales": 0.0}, {"name": "Flip Flap", "impressions": 17621.0, "clicks": 68, "spend": 609.59, "orders": 2, "sales": 1406.78, "acos": 43.0, "prevSales": 2539.5}, {"name": "My First Puzzle", "impressions": 2214.0, "clicks": 8, "spend": 102.18, "orders": 1, "sales": 979.0, "acos": 10.0, "prevSales": 808.48}, {"name": "Glue", "impressions": 11747.0, "clicks": 20, "spend": 101.78, "orders": 6, "sales": 3019.0, "acos": 3.0, "prevSales": 1811.4}, {"name": "Gift combo pack", "impressions": 9106.0, "clicks": 11, "spend": 178.01, "orders": 1, "sales": 989.52, "acos": 18.0, "prevSales": 464.41}, {"name": "My First Swingin", "impressions": 9654.0, "clicks": 11, "spend": 103.54, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 464.41}, {"name": "Finger paint and Canvas", "impressions": 7893.0, "clicks": 9, "spend": 92.7, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 0.0}, {"name": "India Map", "impressions": 334.0, "clicks": 1, "spend": 13.22, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 0.0}, {"name": "Apron", "impressions": 4834.0, "clicks": 19, "spend": 178.87, "orders": 2, "sales": 1648.04, "acos": 11.0, "prevSales": 2797.22}, {"name": "My First Puzzle", "impressions": 2524.0, "clicks": 10, "spend": 55.72, "orders": 0, "sales": 0.0, "acos": 0.0, "prevSales": 464.41}];
+const TERMS_TOP_RAW=[{"term": "dabble paints toddlers kit", "impressions": 133043.0, "clicks": 734, "spend": 11172.6, "orders": 60, "sales": 31933.76, "acos": 35.0}, {"term": "b0cthwvrjy", "impressions": 20889.0, "clicks": 424, "spend": 4998.04, "orders": 30, "sales": 16119.46, "acos": 31.0}, {"term": "dabble", "impressions": 20410.0, "clicks": 139, "spend": 1268.12, "orders": 17, "sales": 12887.62, "acos": 10.0}, {"term": "dabble paint", "impressions": 5614.0, "clicks": 59, "spend": 582.31, "orders": 10, "sales": 6323.82, "acos": 9.0}, {"term": "dabble crayons", "impressions": 6202.0, "clicks": 45, "spend": 438.87, "orders": 14, "sales": 6308.9, "acos": 7.000000000000001}, {"term": "dabble art", "impressions": 5880.0, "clicks": 43, "spend": 501.85, "orders": 6, "sales": 6263.33, "acos": 8.0}, {"term": "dabble sensory playdough", "impressions": 361.0, "clicks": 12, "spend": 97.44, "orders": 8, "sales": 5818.54, "acos": 2.0}, {"term": "b07t516s4y", "impressions": 4270.0, "clicks": 101, "spend": 1359.76, "orders": 10, "sales": 5436.42, "acos": 25.0}, {"term": "b0cv1653hn", "impressions": 1439.0, "clicks": 41, "spend": 534.2, "orders": 8, "sales": 5430.9, "acos": 10.0}, {"term": "dabble play art", "impressions": 7126.0, "clicks": 52, "spend": 521.01, "orders": 7, "sales": 4638.7, "acos": 11.0}, {"term": "dabble play dough", "impressions": 8455.0, "clicks": 80, "spend": 1028.25, "orders": 7, "sales": 4613.46, "acos": 22.0}, {"term": "dabble art paint", "impressions": 16757.0, "clicks": 73, "spend": 1285.83, "orders": 6, "sales": 3595.0, "acos": 36.0}, {"term": "dabble paint brush set", "impressions": 42.0, "clicks": 13, "spend": 47.34, "orders": 9, "sales": 3561.04, "acos": 1.0}, {"term": "dabble paint brush", "impressions": 499.0, "clicks": 18, "spend": 109.28, "orders": 8, "sales": 3273.25, "acos": 3.0}, {"term": "b096wd8rc2", "impressions": 338.0, "clicks": 13, "spend": 90.74, "orders": 5, "sales": 3210.36, "acos": 3.0}, {"term": "bubble solution", "impressions": 56.0, "clicks": 2, "spend": 18.67, "orders": 2, "sales": 2909.68, "acos": 1.0}, {"term": "kids paint brushes set", "impressions": 733.0, "clicks": 11, "spend": 111.63, "orders": 5, "sales": 2359.47, "acos": 5.0}, {"term": "b0b1dt53x9", "impressions": 1667.0, "clicks": 54, "spend": 387.41, "orders": 4, "sales": 2141.56, "acos": 18.0}, {"term": "b078gb3784", "impressions": 1422.0, "clicks": 19, "spend": 200.13, "orders": 4, "sales": 2014.34, "acos": 10.0}, {"term": "non toxic paints for toddler", "impressions": 1926.0, "clicks": 34, "spend": 475.44, "orders": 4, "sales": 2005.02, "acos": 24.0}, {"term": "b0fkyzvx8k", "impressions": 9612.0, "clicks": 45, "spend": 506.51, "orders": 4, "sales": 1952.4, "acos": 26.0}, {"term": "dabble non toxic finger paints", "impressions": 777.0, "clicks": 19, "spend": 346.11, "orders": 4, "sales": 1857.63, "acos": 19.0}, {"term": "paint for kids", "impressions": 1337.0, "clicks": 24, "spend": 318.02, "orders": 4, "sales": 1857.63, "acos": 17.0}, {"term": "clay", "impressions": 12455.0, "clicks": 81, "spend": 627.0, "orders": 3, "sales": 1855.94, "acos": 34.0}, {"term": "b0gzy65r93", "impressions": 5.0, "clicks": 1, "spend": 5.18, "orders": 1, "sales": 1808.57, "acos": 0.0}];
+const TERMS_WASTED_RAW=[{"term": "water color paint set", "impressions": 89687.0, "clicks": 182, "spend": 1522.15, "orders": 0, "sales": 0.0, "acos": 0.0}, {"term": "clay for kids 3 to 10 years", "impressions": 11268.0, "clicks": 55, "spend": 415.77, "orders": 0, "sales": 0.0, "acos": 0.0}, {"term": "paint for toddlers non toxic", "impressions": 2484.0, "clicks": 19, "spend": 290.11, "orders": 0, "sales": 0.0, "acos": 0.0}, {"term": "tempera paints for kids", "impressions": 5661.0, "clicks": 31, "spend": 239.62, "orders": 0, "sales": 0.0, "acos": 0.0}, {"term": "dabble art kit", "impressions": 803.0, "clicks": 21, "spend": 226.55, "orders": 0, "sales": 0.0, "acos": 0.0}, {"term": "baby friendly paint colours", "impressions": 101.0, "clicks": 15, "spend": 192.42, "orders": 0, "sales": 0.0, "acos": 0.0}, {"term": "clay dough for kids non toxic", "impressions": 1342.0, "clicks": 11, "spend": 191.97, "orders": 0, "sales": 0.0, "acos": 0.0}, {"term": "dabble playart crayons", "impressions": 3913.0, "clicks": 16, "spend": 185.57, "orders": 0, "sales": 0.0, "acos": 0.0}, {"term": "toykraftt dabble paints toddlers kit", "impressions": 259.0, "clicks": 8, "spend": 169.81, "orders": 0, "sales": 0.0, "acos": 0.0}, {"term": "colors set for kids", "impressions": 9200.0, "clicks": 22, "spend": 168.79, "orders": 0, "sales": 0.0, "acos": 0.0}, {"term": "painting kit for kids", "impressions": 132.0, "clicks": 14, "spend": 154.61, "orders": 0, "sales": 0.0, "acos": 0.0}, {"term": "natural clay for kids", "impressions": 49.0, "clicks": 3, "spend": 150.66, "orders": 0, "sales": 0.0, "acos": 0.0}, {"term": "dabble art crayons", "impressions": 628.0, "clicks": 14, "spend": 145.57, "orders": 0, "sales": 0.0, "acos": 0.0}, {"term": "paint for kids 3 years", "impressions": 16.0, "clicks": 6, "spend": 144.68, "orders": 0, "sales": 0.0, "acos": 0.0}, {"term": "air dry clay for craft", "impressions": 7499.0, "clicks": 27, "spend": 141.21, "orders": 0, "sales": 0.0, "acos": 0.0}, {"term": "b0076l272u", "impressions": 488.0, "clicks": 7, "spend": 136.79, "orders": 0, "sales": 0.0, "acos": 0.0}, {"term": "washable finger paint for toddlers", "impressions": 287.0, "clicks": 7, "spend": 133.85, "orders": 0, "sales": 0.0, "acos": 0.0}, {"term": "b07v9hz8r9", "impressions": 414.0, "clicks": 8, "spend": 131.12, "orders": 0, "sales": 0.0, "acos": 0.0}, {"term": "playdough", "impressions": 1061.0, "clicks": 14, "spend": 130.07, "orders": 0, "sales": 0.0, "acos": 0.0}, {"term": "painting brush cleaner for kids", "impressions": 3624.0, "clicks": 10, "spend": 128.47, "orders": 0, "sales": 0.0, "acos": 0.0}, {"term": "b0cmd7lztp", "impressions": 3228.0, "clicks": 18, "spend": 127.04, "orders": 0, "sales": 0.0, "acos": 0.0}, {"term": "sensory bins for toddlers", "impressions": 430.0, "clicks": 9, "spend": 120.88, "orders": 0, "sales": 0.0, "acos": 0.0}, {"term": "sensory wall panel for kids", "impressions": 1350.0, "clicks": 10, "spend": 113.16, "orders": 0, "sales": 0.0, "acos": 0.0}, {"term": "b072xlg7q1", "impressions": 415.0, "clicks": 10, "spend": 112.59, "orders": 0, "sales": 0.0, "acos": 0.0}, {"term": "b0cz9hcj4h", "impressions": 197.0, "clicks": 8, "spend": 108.61, "orders": 0, "sales": 0.0, "acos": 0.0}];
+const TERM_STATS_RAW={"total": 1534, "wasted_count": 1343, "wasted_spend": 22678.86, "converting": 191};
+const TARGETS_TOP_RAW=[{"target": "dabble", "impressions": 78913.0, "clicks": 369, "spend": 3831.62, "orders": 47, "sales": 30132.12, "acos": 13.0}, {"target": "asin=\"B0CTHWVRJY\"", "impressions": 30870.0, "clicks": 571, "spend": 6780.82, "orders": 37, "sales": 20006.75, "acos": 34.0}, {"target": "dabble paints toddlers kit", "impressions": 64536.0, "clicks": 359, "spend": 6249.0, "orders": 34, "sales": 18439.34, "acos": 34.0}, {"target": "loose-match", "impressions": 76103.0, "clicks": 412, "spend": 2276.42, "orders": 21, "sales": 10633.53, "acos": 21.0}, {"target": "dabbles", "impressions": 15401.0, "clicks": 108, "spend": 1485.67, "orders": 12, "sales": 10384.44, "acos": 14.000000000000002}, {"target": "dabble paints toddlers", "impressions": 19286.0, "clicks": 156, "spend": 2405.03, "orders": 20, "sales": 9767.15, "acos": 25.0}, {"target": "dabble brush", "impressions": 144.0, "clicks": 19, "spend": 57.15, "orders": 15, "sales": 6394.2, "acos": 1.0}, {"target": "asin=\"B07T516S4Y\"", "impressions": 4663.0, "clicks": 103, "spend": 1383.14, "orders": 10, "sales": 5436.42, "acos": 25.0}, {"target": "asin=\"B0CV1653HN\"", "impressions": 2110.0, "clicks": 47, "spend": 625.08, "orders": 8, "sales": 5430.9, "acos": 12.0}, {"target": "dabble crayon", "impressions": 6087.0, "clicks": 38, "spend": 307.29, "orders": 12, "sales": 5414.61, "acos": 6.0}, {"target": "close-match", "impressions": 7458.0, "clicks": 22, "spend": 199.38, "orders": 7, "sales": 5280.39, "acos": 4.0}, {"target": "substitutes", "impressions": 32893.0, "clicks": 154, "spend": 760.03, "orders": 7, "sales": 5036.9, "acos": 15.0}, {"target": "dabble paint", "impressions": 26202.0, "clicks": 158, "spend": 1852.91, "orders": 9, "sales": 4818.34, "acos": 38.0}, {"target": "dabble art", "impressions": 24016.0, "clicks": 89, "spend": 1095.03, "orders": 7, "sales": 4790.19, "acos": 23.0}, {"target": "play dough", "impressions": 15422.0, "clicks": 81, "spend": 786.01, "orders": 8, "sales": 4446.18, "acos": 18.0}, {"target": "keyword-group=\"Keywords related to your product category\"", "impressions": 56583.0, "clicks": 279, "spend": 2107.85, "orders": 7, "sales": 4412.73, "acos": 48.0}, {"target": "dabble sensory playdough", "impressions": 25.0, "clicks": 8, "spend": 50.75, "orders": 6, "sales": 4300.74, "acos": 1.0}, {"target": "dabble play dough", "impressions": 538.0, "clicks": 24, "spend": 236.25, "orders": 6, "sales": 3912.61, "acos": 6.0}, {"target": "asin=\"B096WD8RC2\"", "impressions": 1582.0, "clicks": 14, "spend": 94.68, "orders": 5, "sales": 3210.36, "acos": 3.0}, {"target": "dabble paints", "impressions": 9985.0, "clicks": 43, "spend": 479.11, "orders": 6, "sales": 3136.46, "acos": 15.0}];
+const TARGETS_WASTED_RAW=[{"target": "water color paint set", "impressions": 91289.0, "clicks": 178, "spend": 1482.16, "orders": 0, "sales": 0.0, "acos": 0.0}, {"target": "watercolor painting for toddler", "impressions": 2998.0, "clicks": 16, "spend": 417.14, "orders": 0, "sales": 0.0, "acos": 0.0}, {"target": "paints for kids", "impressions": 6771.0, "clicks": 36, "spend": 354.25, "orders": 0, "sales": 0.0, "acos": 0.0}, {"target": "crayons for 2 year old boy", "impressions": 234.0, "clicks": 23, "spend": 343.03, "orders": 0, "sales": 0.0, "acos": 0.0}, {"target": "crayons", "impressions": 16633.0, "clicks": 44, "spend": 277.02, "orders": 0, "sales": 0.0, "acos": 0.0}, {"target": "brush for painting for kids", "impressions": 941.0, "clicks": 20, "spend": 267.7, "orders": 0, "sales": 0.0, "acos": 0.0}, {"target": "dabble art paint", "impressions": 6386.0, "clicks": 17, "spend": 253.19, "orders": 0, "sales": 0.0, "acos": 0.0}, {"target": "category=\"Finger Paint\"", "impressions": 3703.0, "clicks": 30, "spend": 233.3, "orders": 0, "sales": 0.0, "acos": 0.0}, {"target": "dabble arts", "impressions": 2823.0, "clicks": 12, "spend": 211.32, "orders": 0, "sales": 0.0, "acos": 0.0}, {"target": "colors set for kids", "impressions": 10329.0, "clicks": 25, "spend": 194.56, "orders": 0, "sales": 0.0, "acos": 0.0}, {"target": "dabble playart crayons", "impressions": 4601.0, "clicks": 16, "spend": 185.57, "orders": 0, "sales": 0.0, "acos": 0.0}, {"target": "unicorn gifts for girls", "impressions": 1167.0, "clicks": 13, "spend": 163.05, "orders": 0, "sales": 0.0, "acos": 0.0}, {"target": "finger paint for toddlers", "impressions": 165.0, "clicks": 6, "spend": 160.32, "orders": 0, "sales": 0.0, "acos": 0.0}, {"target": "toddler crayons washable non breakable", "impressions": 1501.0, "clicks": 10, "spend": 152.21, "orders": 0, "sales": 0.0, "acos": 0.0}, {"target": "air dry clay for craft", "impressions": 7555.0, "clicks": 29, "spend": 152.2, "orders": 0, "sales": 0.0, "acos": 0.0}];
+const TGT_STATS_RAW={"total": 877, "wasted_count": 255, "wasted_spend": 11993.09};
+// ========= DERIVE =========
+const WEEKS = WEEKS_RAW.map(w=>({...w,
+  roas:+(w.sales/w.spend).toFixed(2),
+  convRate:+((w.orders/w.clicks)*100).toFixed(2),
+  aov:+(w.sales/w.orders).toFixed(2)}));
+const W26 = WEEKS[WEEKS.length-1], W25 = WEEKS[WEEKS.length-2];
 
-// Derived metrics
-const WEEKS = WEEKS_RAW.map(w => ({
-  ...w,
-  roas: +(w.sales / w.spend).toFixed(2),
-  convRate: +((w.orders / w.clicks) * 100).toFixed(2),
-  aov: +(w.sales / w.orders).toFixed(2)
+const ASINS = ASINS_RAW.map(a=>{
+  const roas=a.spend?+(a.sales/a.spend).toFixed(2):0;
+  const conv=a.clicks?+((a.orders/a.clicks)*100).toFixed(2):0;
+  const ctr=a.impressions?+((a.clicks/a.impressions)*100).toFixed(2):0;
+  const cpc=a.clicks?+(a.spend/a.clicks).toFixed(2):0;
+  const revPct=+((a.sales/W26.sales)*100).toFixed(1);
+  const growth=a.prevSales>0?+(((a.sales-a.prevSales)/a.prevSales)*100).toFixed(1):(a.sales>0?100:0);
+  const label=(!a.name||a.name==='-')?a.asin:a.name;
+  return {...a,acos:+a.acos.toFixed(2),roas,conv,ctr,cpc,revPct,growth,label};
+});
+const ASIN_SELL = ASINS.filter(a=>a.sales>0);
+const ASIN_ZERO = ASINS.filter(a=>a.sales===0&&a.spend>0);
+
+const PRODUCTS = PRODUCTS_RAW.map(p=>({...p,
+  roas:p.spend?+(p.sales/p.spend).toFixed(2):0,
+  revPct:+((p.sales/W26.sales)*100).toFixed(1),
+  growth:p.prevSales>0?+(((p.sales-p.prevSales)/p.prevSales)*100).toFixed(1):(p.sales>0?100:0),
+  name:p.name.trim(),acos:+p.acos.toFixed(2)}));
+
+const TYPE_LABELS={SPM:'Sponsored Products — Manual',SPT:'Sponsored Products — Targeting',SPA:'Sponsored Products — Auto',SB:'Sponsored Brands',SBV:'Sponsored Brands Video',SD:'Sponsored Display',SPCT:'Sponsored Products — Category'};
+const TYPES=TYPES_RAW.filter(t=>t.sales>0||t.spend>0).map(t=>({...t,
+  label:TYPE_LABELS[t.type]||t.type,
+  roas:t.spend?+(t.sales/t.spend).toFixed(2):0,
+  salesShare:+((t.sales/W26.sales)*100).toFixed(1),acos:+t.acos.toFixed(2)})).sort((a,b)=>b.sales-a.sales);
+
+const CAMPS=CAMPAIGNS_RAW.map(c=>({...c,
+  roas:c.spend?+(c.sales/c.spend).toFixed(2):0,
+  growth:c.prevSales>0?+(((c.sales-c.prevSales)/c.prevSales)*100).toFixed(1):(c.sales>0?100:0)}));
+const CAMP_SELL=CAMPS.filter(c=>c.sales>0);
+
+// Category rollup
+const CAT_MAP={};
+ASINS.forEach(a=>{
+  const k=a.category||'Uncategorized';
+  if(!CAT_MAP[k]) CAT_MAP[k]={category:k,sales:0,spend:0,orders:0,clicks:0,impressions:0,prev:0,n:0};
+  const c=CAT_MAP[k];
+  c.sales+=a.sales;c.spend+=a.spend;c.orders+=a.orders;c.clicks+=a.clicks;c.impressions+=a.impressions;c.prev+=a.prevSales;c.n++;
+});
+const CATEGORIES=Object.values(CAT_MAP).map(c=>({...c,
+  acos:c.sales?+((c.spend/c.sales)*100).toFixed(1):0,
+  roas:c.spend?+(c.sales/c.spend).toFixed(2):0,
+  revPct:+((c.sales/W26.sales)*100).toFixed(1),
+  growth:c.prev>0?+(((c.sales-c.prev)/c.prev)*100).toFixed(1):(c.sales>0?100:0)})).filter(c=>c.sales>0).sort((a,b)=>b.sales-a.sales);
+
+// ========= HELPERS =========
+const fmt=(n,d=0)=>Number(n).toLocaleString('en-IN',{minimumFractionDigits:d,maximumFractionDigits:d});
+const fmtCur=n=>'₹'+fmt(n,0);
+const fmtK=n=>'₹'+fmt(n/1000,1)+'K';
+const pctChange=(c,p)=>p===0?(c>0?100:0):((c-p)/p*100);
+function arrow(v){return v>0.5?'↑':v<-0.5?'↓':'→';}
+function changeClass(v,inv=false){if(Math.abs(v)<0.5)return'neutral';if(inv)return v>0?'down':'up';return v>0?'up':'down';}
+const INV=['acos','cpc','spend'];const isInv=k=>INV.includes(k);
+const chartInstances={};
+function destroyChart(id){if(chartInstances[id]){chartInstances[id].destroy();delete chartInstances[id];}}
+function acosPill(a){return a===0?'gray':a<20?'green':a<28?'yellow':'red';}
+function short(s,n=30){return s.length>n?s.slice(0,n-1)+'…':s;}
+const CPAL=['#2563eb','#f97316','#22c55e','#8b5cf6','#eab308','#06b6d4','#ec4899','#14b8a6','#f43f5e','#84cc16'];
+
+// ========= NAV / SCROLL =========
+document.querySelectorAll('.nav-item').forEach(it=>it.addEventListener('click',()=>{
+  document.querySelectorAll('.nav-item').forEach(i=>i.classList.remove('active'));
+  it.classList.add('active');
+  const t=document.getElementById(it.dataset.target);if(t)t.scrollIntoView({behavior:'smooth',block:'start'});
 }));
-
-// ASIN data from ASINWISE CSV (Week 26 actuals)
-const ASIN_DATA = [
-  { asin:'B0CTHWVRJY', name:'Finger Paint', sales:63877.14, spend:13782.70, orders:127, clicks:1069, impressions:107071, week:26, prevSales:95326.90 },
-  { asin:'B0FMFR1ZVN', name:'Playdough', sales:26454.72, spend:16305.31, orders:36, clicks:843, impressions:69453, week:26, prevSales:42467.67 },
-  { asin:'B07T516S4Y', name:'Crayon', sales:22422.46, spend:4447.67, orders:46, clicks:398, impressions:56580, week:26, prevSales:26351.14 },
-  { asin:'B096WGCRL3', name:'Finger Paint (6-pack)', sales:12766.00, spend:3522.99, orders:19, clicks:219, impressions:52519, week:26, prevSales:11969.46 },
-  { asin:'B07T5252GY', name:'Crayon (Jumbo)', sales:10116.88, spend:1343.65, orders:19, clicks:115, impressions:20731, week:26, prevSales:15955.53 },
-  { asin:'B096WD8RC2', name:'Brush Set', sales:7524.07, spend:1621.14, orders:14, clicks:160, impressions:27103, week:26, prevSales:11762.63 },
-  { asin:'B0CV1653HN', name:'Finger Paint & Brush', sales:7130.96, spend:818.59, orders:13, clicks:52, impressions:12092, week:26, prevSales:9202.21 },
-  { asin:'B07T2W496G', name:'Finger Paint (Washable)', sales:4924.32, spend:1104.83, orders:7, clicks:56, impressions:18631, week:26, prevSales:3644.76 },
-  { asin:'B0FKZ847QQ', name:'Magic Paint Dust (Large)', sales:4785.02, spend:2390.07, orders:7, clicks:139, impressions:15349, week:26, prevSales:13614.07 },
-  { asin:'B0DBVVDN77', name:'All In One Paint Kit', sales:4205.21, spend:314.30, orders:7, clicks:36, impressions:6585, week:26, prevSales:1117.94 },
-  { asin:'B09QYZVZF6', name:'Finger Paint & Brush Kit', sales:2905.49, spend:566.57, orders:4, clicks:61, impressions:12629, week:26, prevSales:1724.78 },
-  { asin:'B0B1DT53X9', name:'Hand & Foot Print Kit', sales:2274.30, spend:679.26, orders:4, clicks:94, impressions:12145, week:26, prevSales:2941.92 },
-  { asin:'B0C5DV73CL', name:'Stamp Kit', sales:2686.57, spend:421.33, orders:6, clicks:25, impressions:4981, week:26, prevSales:2602.86 },
-  { asin:'B0FKZ8TMHC', name:'Magic Paint Dust', sales:1363.84, spend:682.46, orders:3, clicks:61, impressions:6237, week:26, prevSales:4851.60 },
-  { asin:'B09WMGR9M8', name:'Colouring Page', sales:766.10, spend:868.53, orders:1, clicks:65, impressions:16237, week:26, prevSales:6426.26 },
-  { asin:'B0F1YXJ9XR', name:'Magic Bubbles', sales:1588.56, spend:1060.37, orders:4, clicks:105, impressions:5918, week:26, prevSales:1045.72 },
-  { asin:'B0BCG8R1PN', name:'Preschool Art & Craft Kit', sales:1353.39, spend:916.87, orders:3, clicks:80, impressions:14907, week:26, prevSales:10493.80 },
-  { asin:'B0FKZ51ZCM', name:'Sensory Rice Kit', sales:948.00, spend:866.33, orders:1, clicks:74, impressions:9099, week:26, prevSales:1778.88 }
-].map(a => {
-  const ctr = +((a.clicks / a.impressions)*100).toFixed(2);
-  const cpc = +(a.spend / a.clicks).toFixed(2);
-  const conv = +((a.orders / a.clicks)*100).toFixed(2);
-  const acos = +((a.spend / a.sales)*100).toFixed(2);
-  const roas = +(a.sales / a.spend).toFixed(2);
-  const totalSales = WEEKS[WEEKS.length-1].sales;
-  const revPct = +((a.sales / totalSales)*100).toFixed(1);
-  const growth = +(((a.sales - a.prevSales)/a.prevSales)*100).toFixed(1);
-  let status = 'Good';
-  if(acos > 30) status = 'Critical';
-  else if(acos > 25) status = 'Needs Attention';
-  else if(acos < 20) status = 'Excellent';
-  return { ...a, ctr, cpc, conv, acos, roas, revPct, growth, status };
+window.addEventListener('scroll',()=>{
+  document.getElementById('scrollTop').classList.toggle('visible',window.scrollY>400);
+  let cur='';document.querySelectorAll('.section').forEach(s=>{if(window.scrollY>=s.offsetTop-160)cur=s.id;});
+  document.querySelectorAll('.nav-item').forEach(n=>n.classList.toggle('active',n.dataset.target===cur));
 });
 
-// ============================
-// HELPERS
-// ============================
-const fmt = (n,d=0) => n.toLocaleString('en-IN',{minimumFractionDigits:d,maximumFractionDigits:d});
-const fmtCur = n => '₹'+fmt(n,0);
-const fmtPct = n => n.toFixed(2)+'%';
-const pctChange = (c,p) => p===0?0:((c-p)/p*100);
-
-function arrow(val){ return val > 0.5 ? '↑' : val < -0.5 ? '↓' : '→'; }
-function changeClass(val, invert=false){
-  const threshold = 0.5;
-  if(Math.abs(val) < threshold) return 'neutral';
-  if(invert) return val > 0 ? 'down' : 'up';
-  return val > 0 ? 'up' : 'down';
+// ========= VERDICT (answers the 3 questions) =========
+function renderVerdict(){
+  const salesChg=pctChange(W26.sales,W25.sales);
+  // Q1 winners
+  const stars=ASIN_SELL.filter(a=>a.sales>3000&&a.acos<24&&a.roas>=4).sort((a,b)=>b.sales-a.sales);
+  const topType=TYPES[0];
+  // Q2 watch
+  const watch=ASIN_SELL.filter(a=>a.sales>2000&&a.acos>30).sort((a,b)=>b.acos-a.acos);
+  const decliners=ASIN_SELL.filter(a=>a.prevSales>0&&a.growth<-30).sort((a,b)=>a.growth-b.growth);
+  // Q3 act
+  const wasteTermSpend=TERM_STATS_RAW.wasted_spend;
+  const wasteTgtSpend=TGT_STATS_RAW.wasted_spend;
+  const zeroAsinSpend=ASIN_ZERO.reduce((s,a)=>s+a.spend,0);
+  const totalRecover=wasteTermSpend+zeroAsinSpend;
+  const cards=[
+    {cls:'good',h:'Performing Well',headline:`${stars.length} star ASINs`,items:[
+      `Top seller <b>${stars[0]?stars[0].label:'—'}</b> — ${stars[0]?fmtCur(stars[0].sales):'—'} at ${stars[0]?stars[0].acos:'—'}% ACOS`,
+      `Best channel <b>${topType.type}</b> drives <b>${topType.salesShare}%</b> of sales at ${topType.roas}x ROAS`,
+      `Brand keywords convert cheapest — protect this moat`]},
+    {cls:'watch',h:'Needs Watching',headline:`ACOS ${W26.acos.toFixed(1)}%`,items:[
+      `Portfolio sales ${salesChg>=0?'up':'down'} <b>${Math.abs(salesChg).toFixed(1)}%</b> WoW — ${salesChg<0?'volume softening':'holding'}`,
+      `${watch.length} selling ASINs above 30% ACOS (e.g. <b>${watch[0]?watch[0].label:'—'}</b> at ${watch[0]?watch[0].acos:'—'}%)`,
+      `${decliners.length} ASINs fell >30% vs last week`]},
+    {cls:'act',h:'Act Now',headline:`${fmtCur(totalRecover)} recoverable`,items:[
+      `<b>${fmtCur(wasteTermSpend)}</b> spent on ${TERM_STATS_RAW.wasted_count} search terms with <b>zero</b> orders`,
+      `<b>${ASIN_ZERO.length} ASINs</b> spent ${fmtCur(zeroAsinSpend)} with no sales`,
+      `<b>${fmtCur(wasteTgtSpend)}</b> on ${TGT_STATS_RAW.wasted_count} non-converting targets`]},
+  ];
+  document.getElementById('verdictCards').innerHTML=cards.map(c=>`
+    <div class="verdict-card ${c.cls}">
+      <h3>${c.h}</h3>
+      <div class="verdict-headline">${c.headline}</div>
+      <ul class="verdict-list">${c.items.map(i=>`<li>${i}</li>`).join('')}</ul>
+    </div>`).join('');
 }
 
-// For metrics where lower is better (ACOS, CPC, Spend)
-const INVERT_METRICS = ['acos','cpc','spend'];
-function isInverted(key){ return INVERT_METRICS.includes(key); }
-
-// ============================
-// GLOBAL STATE & CHART TRACKING
-// ============================
-let selectedWeekIdx = 3; // default: WEEKS[3] = W26
-const chartInstances = {};
-
-function destroyChart(id){
-  if(chartInstances[id]){ chartInstances[id].destroy(); delete chartInstances[id]; }
-}
-
-function getSelectedWeek(){ return WEEKS[selectedWeekIdx]; }
-function getPrevWeek(){ return selectedWeekIdx > 0 ? WEEKS[selectedWeekIdx - 1] : null; }
-
-function updateKPIBadge(){
-  const curr = getSelectedWeek();
-  const prev = getPrevWeek();
-  const badge = document.querySelector('#sec-kpi .section-badge');
-  if(badge && prev) badge.textContent = `Week ${curr.week} vs Week ${prev.week}`;
-  else if(badge) badge.textContent = `Week ${curr.week}`;
-}
-
-// ============================
-// NAVIGATION
-// ============================
-document.querySelectorAll('.nav-item').forEach(item => {
-  item.addEventListener('click', () => {
-    document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
-    item.classList.add('active');
-    const target = document.getElementById(item.dataset.target);
-    if(target) target.scrollIntoView({ behavior:'smooth', block:'start' });
-  });
-});
-
-// Scroll spy
-window.addEventListener('scroll', () => {
-  const scrollBtn = document.getElementById('scrollTop');
-  scrollBtn.classList.toggle('visible', window.scrollY > 400);
-
-  const sections = document.querySelectorAll('.section');
-  let current = '';
-  sections.forEach(s => {
-    if(window.scrollY >= s.offsetTop - 160) current = s.id;
-  });
-  document.querySelectorAll('.nav-item').forEach(n => {
-    n.classList.toggle('active', n.dataset.target === current);
-  });
-});
-
-// Tab system
-document.querySelectorAll('.tab-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const parent = btn.closest('.section') || document;
-    parent.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    parent.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-    btn.classList.add('active');
-    document.getElementById(btn.dataset.tab).classList.add('active');
-  });
-});
-
-// ============================
-// FILTER EVENT LISTENERS
-// ============================
-document.getElementById('filterWeek').addEventListener('change', function(){
-  const val = this.value;
-  if(val === 'all') { selectedWeekIdx = 3; }
-  else {
-    const idx = WEEKS.findIndex(w => w.week === parseInt(val));
-    selectedWeekIdx = idx >= 0 ? idx : 3;
-  }
-  refreshDashboard();
-});
-
-function refreshDashboard(){
-  updateKPIBadge();
-  renderKPIs();
-  renderWoW();
-  renderWoWTrendChart();
-  renderWaterfallChart();
-  renderCampaignHealth();
-  renderSalesSpend();
-  renderACOS();
-  renderFunnel();
-  renderInsights();
-  renderForecast();
-  renderAlerts();
-  renderCEOSummary();
-}
-
-// ============================
-// KPI CARDS
-// ============================
+// ========= KPIs =========
 function renderKPIs(){
-  const curr = getSelectedWeek();
-  const prev = getPrevWeek() || curr;
-
-  const kpis = [
-    { label:'Total Sales', key:'sales', format:'cur', val:curr.sales, pVal:prev.sales },
-    { label:'Total Spend', key:'spend', format:'cur', val:curr.spend, pVal:prev.spend },
-    { label:'Total Orders', key:'orders', format:'num', val:curr.orders, pVal:prev.orders },
-    { label:'Total Clicks', key:'clicks', format:'num', val:curr.clicks, pVal:prev.clicks },
-    { label:'Impressions', key:'impressions', format:'num', val:curr.impressions, pVal:prev.impressions },
-    { label:'CTR', key:'ctr', format:'pct', val:curr.ctr, pVal:prev.ctr },
-    { label:'CPC', key:'cpc', format:'cur2', val:curr.cpc, pVal:prev.cpc },
-    { label:'Conv. Rate', key:'convRate', format:'pct', val:curr.convRate, pVal:prev.convRate },
-    { label:'ACOS', key:'acos', format:'pct', val:curr.acos, pVal:prev.acos },
-    { label:'ROAS', key:'roas', format:'x', val:curr.roas, pVal:prev.roas },
-    { label:'Avg Order Value', key:'aov', format:'cur', val:curr.aov, pVal:prev.aov },
+  const kpis=[
+    {label:'Total Sales',key:'sales',f:'cur'},{label:'Total Spend',key:'spend',f:'cur'},
+    {label:'Orders',key:'orders',f:'num'},{label:'Clicks',key:'clicks',f:'num'},
+    {label:'Impressions',key:'impressions',f:'num'},{label:'CTR',key:'ctr',f:'pct3'},
+    {label:'CPC',key:'cpc',f:'cur2'},{label:'Conv. Rate',key:'convRate',f:'pct'},
+    {label:'ACOS',key:'acos',f:'pct'},{label:'ROAS',key:'roas',f:'x'},{label:'Avg Order Value',key:'aov',f:'cur'},
   ];
-
-  const grid = document.getElementById('kpiGrid');
-  grid.innerHTML = '';
-
-  kpis.forEach(k => {
-    const change = pctChange(k.val, k.pVal);
-    const inv = isInverted(k.key);
-    const cls = changeClass(change, inv);
-    const sparkData = WEEKS.map(w => {
-      if(k.key === 'convRate') return (w.orders/w.clicks)*100;
-      if(k.key === 'roas') return w.sales/w.spend;
-      if(k.key === 'aov') return w.sales/w.orders;
-      return w[k.key];
-    });
-
-    let displayVal, displayPrev;
-    if(k.format==='cur'){ displayVal=fmtCur(k.val); displayPrev=fmtCur(k.pVal); }
-    else if(k.format==='cur2'){ displayVal='₹'+k.val.toFixed(2); displayPrev='₹'+k.pVal.toFixed(2); }
-    else if(k.format==='pct'){ displayVal=k.val.toFixed(2)+'%'; displayPrev=k.pVal.toFixed(2)+'%'; }
-    else if(k.format==='x'){ displayVal=k.val.toFixed(2)+'x'; displayPrev=k.pVal.toFixed(2)+'x'; }
-    else { displayVal=fmt(k.val); displayPrev=fmt(k.pVal); }
-
-    const trendLabel = Math.abs(change) < 0.5 ? 'Stable' : (cls==='up'?'Improving':'Declining');
-
-    const card = document.createElement('div');
-    card.className = `kpi-card ${cls}`;
-    card.innerHTML = `
-      <div class="kpi-label">${k.label}</div>
-      <div class="kpi-value">${displayVal}</div>
-      <div class="kpi-row">
-        <span class="kpi-prev">Prev: ${displayPrev}</span>
-        <span class="kpi-change ${cls}">${arrow(inv?-change:change)} ${Math.abs(change).toFixed(1)}%</span>
-      </div>
-      <canvas class="kpi-sparkline" id="spark-${k.key}" width="200" height="32"></canvas>
-      <div class="kpi-trend">${trendLabel} over 4 weeks</div>
-    `;
-    grid.appendChild(card);
-
-    // Sparkline
-    setTimeout(() => {
-      const canvas = document.getElementById(`spark-${k.key}`);
-      if(!canvas) return;
-      const ctx = canvas.getContext('2d');
-      const w2 = canvas.width, h = canvas.height;
-      const mn = Math.min(...sparkData), mx = Math.max(...sparkData);
-      const range = mx - mn || 1;
-      ctx.clearRect(0,0,w2,h);
-      ctx.beginPath();
-      const color = cls==='up'?'#22c55e':cls==='down'?'#ef4444':'#9ca3af';
-      ctx.strokeStyle = color;
-      ctx.lineWidth = 2;
-      ctx.lineJoin = 'round';
-      sparkData.forEach((v,i) => {
-        const x = (i/(sparkData.length-1))*w2;
-        const y = h - ((v-mn)/range)*(h-8) - 4;
-        if(i===0) ctx.moveTo(x,y); else ctx.lineTo(x,y);
-      });
-      ctx.stroke();
-      // Fill
-      ctx.lineTo(w2, h);
-      ctx.lineTo(0, h);
-      ctx.closePath();
-      ctx.fillStyle = color+'18';
-      ctx.fill();
-    }, 100);
+  const g=document.getElementById('kpiGrid');g.innerHTML='';
+  kpis.forEach(k=>{
+    let val=W26[k.key],pv=W25[k.key];
+    if(k.key==='ctr'){val=W26.ctr*100;pv=W25.ctr*100;}
+    const chg=pctChange(val,pv),inv=isInv(k.key),cls=changeClass(chg,inv);
+    const spark=WEEKS.map(w=>k.key==='ctr'?w.ctr*100:w[k.key]);
+    let dv,dp;
+    if(k.f==='cur'){dv=fmtCur(val);dp=fmtCur(pv);}
+    else if(k.f==='cur2'){dv='₹'+val.toFixed(2);dp='₹'+pv.toFixed(2);}
+    else if(k.f==='pct'){dv=val.toFixed(2)+'%';dp=pv.toFixed(2)+'%';}
+    else if(k.f==='pct3'){dv=val.toFixed(2)+'%';dp=pv.toFixed(2)+'%';}
+    else if(k.f==='x'){dv=val.toFixed(2)+'x';dp=pv.toFixed(2)+'x';}
+    else{dv=fmt(val);dp=fmt(pv);}
+    const tl=Math.abs(chg)<0.5?'Stable':(cls==='up'?'Improving':'Declining');
+    const c=document.createElement('div');c.className=`kpi-card ${cls}`;
+    c.innerHTML=`<div class="kpi-label">${k.label}</div><div class="kpi-value">${dv}</div>
+      <div class="kpi-row"><span class="kpi-prev">Prev: ${dp}</span><span class="kpi-change ${cls}">${arrow(inv?-chg:chg)} ${Math.abs(chg).toFixed(1)}%</span></div>
+      <canvas class="kpi-sparkline" id="sp-${k.key}" width="200" height="32"></canvas><div class="kpi-trend">${tl} over 4 weeks</div>`;
+    g.appendChild(c);
+    setTimeout(()=>{const cv=document.getElementById(`sp-${k.key}`);if(!cv)return;
+      const cx=cv.getContext('2d'),w2=cv.width,h=cv.height,mn=Math.min(...spark),mx=Math.max(...spark),rg=mx-mn||1;
+      cx.clearRect(0,0,w2,h);cx.beginPath();const col=cls==='up'?'#22c55e':cls==='down'?'#ef4444':'#9ca3af';
+      cx.strokeStyle=col;cx.lineWidth=2;cx.lineJoin='round';
+      spark.forEach((v,i)=>{const x=(i/(spark.length-1))*w2,y=h-((v-mn)/rg)*(h-8)-4;i===0?cx.moveTo(x,y):cx.lineTo(x,y);});
+      cx.stroke();cx.lineTo(w2,h);cx.lineTo(0,h);cx.closePath();cx.fillStyle=col+'18';cx.fill();},60);
   });
 }
 
-// ============================
-// WEEK OVER WEEK
-// ============================
-function renderWoW(){
-  const pairs = [
-    { id:'wow-26-25', curr:WEEKS[3], prev:WEEKS[2], label:'Week 26 vs Week 25' },
-    { id:'wow-25-24', curr:WEEKS[2], prev:WEEKS[1], label:'Week 25 vs Week 24' },
-    { id:'wow-24-23', curr:WEEKS[1], prev:WEEKS[0], label:'Week 24 vs Week 23' },
-  ];
+// ========= Q1 WELL =========
+function miniStat(l,v){return `<div class="mini-stat"><div class="v">${v}</div><div class="l">${l}</div></div>`;}
+function renderWell(){
+  const stars=ASIN_SELL.filter(a=>a.sales>3000&&a.acos<24&&a.roas>=4).sort((a,b)=>b.sales-a.sales);
+  const efficient=ASIN_SELL.filter(a=>a.acos>0&&a.sales>1000).sort((a,b)=>a.acos-b.acos).slice(0,6);
+  const winSales=stars.reduce((s,a)=>s+a.sales,0);
+  const topType=TYPES[0];
+  document.getElementById('wellStats').innerHTML=[
+    miniStat('Star ASINs (ROAS≥4, ACOS<24)',stars.length),
+    miniStat('Revenue from stars',fmtCur(winSales)),
+    miniStat('Top channel',topType.type+' · '+topType.salesShare+'%'),
+    miniStat('Portfolio ROAS',W26.roas.toFixed(2)+'x'),
+  ].join('');
+  document.getElementById('starList').innerHTML=stars.slice(0,7).map((a,i)=>`
+    <div class="lb-row"><div class="lb-rank ${i===0?'gold':i===1?'silver':i===2?'bronze':'normal'}">${i+1}</div>
+      <div style="flex:1"><div class="lb-name">${a.label}</div><div class="lb-sub">${a.category} · ${a.asin} · ${a.growth>=0?'+':''}${a.growth}% WoW</div></div>
+      <div style="text-align:right"><div class="lb-val">${fmtCur(a.sales)}</div><div class="lb-sub">${a.acos}% ACOS · ${a.roas}x</div></div></div>`).join('')||'<div class="obs-item">No ASINs cleared the star threshold this week.</div>';
+  document.getElementById('efficientList').innerHTML=efficient.map((a,i)=>`
+    <div class="lb-row"><div class="lb-rank normal">${i+1}</div>
+      <div style="flex:1"><div class="lb-name">${a.label}</div><div class="lb-sub">${a.category}</div></div>
+      <div style="text-align:right"><div class="lb-val" style="color:var(--green-600)">${a.acos}% ACOS</div><div class="lb-sub">${fmtCur(a.sales)} · ${a.roas}x</div></div></div>`).join('');
+}
 
-  const metrics = [
-    { key:'impressions', label:'Impressions', fmt:v=>fmt(v) },
-    { key:'clicks', label:'Clicks', fmt:v=>fmt(v) },
-    { key:'spend', label:'Spend', fmt:v=>fmtCur(v) },
-    { key:'sales', label:'Sales', fmt:v=>fmtCur(v) },
-    { key:'orders', label:'Orders', fmt:v=>fmt(v) },
-    { key:'ctr', label:'CTR', fmt:v=>v.toFixed(2)+'%' },
-    { key:'cpc', label:'CPC', fmt:v=>'₹'+v.toFixed(2) },
-    { key:'acos', label:'ACOS', fmt:v=>v.toFixed(2)+'%' },
-    { key:'roas', label:'ROAS', fmt:v=>v.toFixed(2)+'x' },
-    { key:'convRate', label:'Conv. Rate', fmt:v=>v.toFixed(2)+'%' },
-  ];
+// ========= Q2 WATCH =========
+function renderWatch(){
+  const salesChg=pctChange(W26.sales,W25.sales),ordChg=pctChange(W26.orders,W25.orders);
+  const watch=ASIN_SELL.filter(a=>a.sales>1500&&a.acos>30).sort((a,b)=>b.acos-a.acos);
+  const decline=ASIN_SELL.filter(a=>a.prevSales>0).sort((a,b)=>a.growth-b.growth).slice(0,7);
+  const acosChg=W26.acos-W25.acos;
+  document.getElementById('watchStats').innerHTML=[
+    miniStat('Sales WoW',(salesChg>=0?'+':'')+salesChg.toFixed(1)+'%'),
+    miniStat('Orders WoW',(ordChg>=0?'+':'')+ordChg.toFixed(1)+'%'),
+    miniStat('ACOS shift',(acosChg>=0?'+':'')+acosChg.toFixed(2)+'pp'),
+    miniStat('ASINs >30% ACOS',watch.length),
+  ].join('');
+  document.getElementById('watchList').innerHTML=watch.slice(0,7).map((a,i)=>`
+    <div class="lb-row"><div class="lb-rank normal">${i+1}</div>
+      <div style="flex:1"><div class="lb-name">${a.label}</div><div class="lb-sub">${a.category} · ${fmtCur(a.sales)} sales</div></div>
+      <div style="text-align:right"><div class="lb-val" style="color:var(--red-600)">${a.acos}%</div><div class="lb-sub">${a.roas}x ROAS</div></div></div>`).join('')||'<div class="obs-item">No selling ASINs above 30% ACOS — efficiency looks healthy.</div>';
+  document.getElementById('declineList').innerHTML=decline.map((a,i)=>`
+    <div class="lb-row"><div class="lb-rank normal">${i+1}</div>
+      <div style="flex:1"><div class="lb-name">${a.label}</div><div class="lb-sub">${fmtCur(a.prevSales)} → ${fmtCur(a.sales)}</div></div>
+      <div style="text-align:right"><div class="lb-val" style="color:${a.growth<0?'var(--red-600)':'var(--green-600)'}">${a.growth>=0?'+':''}${a.growth}%</div></div></div>`).join('');
+}
 
-  const allChanges = [];
-
-  pairs.forEach(p => {
-    const container = document.getElementById(p.id);
-    let html = `<div class="card"><div style="font-weight:700;font-size:.85rem;margin-bottom:12px;color:var(--gray-800)">${p.label}</div>`;
-    html += `<div class="wow-row wow-header"><div>Metric</div><div style="text-align:right">Current</div><div style="text-align:right">Previous</div><div style="text-align:right">Diff</div><div style="text-align:right">Growth</div></div>`;
-
-    metrics.forEach(m => {
-      const cVal = p.curr[m.key];
-      const pVal = p.prev[m.key];
-      const diff = cVal - pVal;
-      const chg = pctChange(cVal, pVal);
-      const inv = isInverted(m.key);
-      const cls = changeClass(chg, inv);
-
-      allChanges.push({ metric:m.label, change:chg, inverted:inv, curr:p.curr.week, prev:p.prev.week });
-
-      html += `<div class="wow-row">
-        <div class="metric-name">${m.label}</div>
-        <div class="val">${m.fmt(cVal)}</div>
-        <div class="val">${m.fmt(pVal)}</div>
-        <div class="val" style="color:${diff>=0?'var(--green-600)':'var(--red-600)'}">${diff>=0?'+':''}${m.key==='spend'||m.key==='sales'?fmtCur(diff):m.key==='cpc'?'₹'+diff.toFixed(2):m.key==='ctr'||m.key==='acos'||m.key==='convRate'?diff.toFixed(2)+'pp':m.key==='roas'?diff.toFixed(2)+'x':fmt(diff)}</div>
-        <div class="change ${cls}">${arrow(inv?-chg:chg)} ${Math.abs(chg).toFixed(1)}%</div>
-      </div>`;
-    });
-    html += '</div>';
-    container.innerHTML = html;
+// ========= Q3 ACT =========
+function renderAct(){
+  const zeroAsinSpend=ASIN_ZERO.reduce((s,a)=>s+a.spend,0);
+  document.getElementById('actStats').innerHTML=[
+    miniStat('Recoverable spend',fmtCur(TERM_STATS_RAW.wasted_spend+zeroAsinSpend)),
+    miniStat('Non-converting terms',TERM_STATS_RAW.wasted_count),
+    miniStat('Zero-sale ASINs',ASIN_ZERO.length),
+    miniStat('Non-converting targets',TGT_STATS_RAW.wasted_count),
+  ].join('');
+  document.getElementById('wasteTermList').innerHTML=TERMS_WASTED_RAW.map(t=>`
+    <div class="lb-row"><div style="flex:1"><div class="lb-name">${short(t.term,38)}</div><div class="lb-sub">${fmt(t.clicks)} clicks · ${fmt(t.impressions)} impr</div></div>
+      <div class="lb-val" style="color:var(--red-600)">${fmtCur(t.spend)}</div></div>`).join('');
+  document.getElementById('wasteTargetList').innerHTML=TARGETS_WASTED_RAW.map(t=>`
+    <div class="lb-row"><div style="flex:1"><div class="lb-name">${short(t.target,38)}</div><div class="lb-sub">${fmt(t.clicks)} clicks</div></div>
+      <div class="lb-val" style="color:var(--red-600)">${fmtCur(t.spend)}</div></div>`).join('');
+  let html=`<table><thead><tr><th>ASIN</th><th>Product</th><th>Category</th><th>Spend</th><th>Clicks</th><th>Impressions</th></tr></thead><tbody>`;
+  ASIN_ZERO.sort((a,b)=>b.spend-a.spend).forEach(a=>{
+    html+=`<tr><td style="font-family:monospace;font-size:.72rem">${a.asin}</td><td style="font-weight:600">${a.label}</td><td>${a.category}</td>
+      <td style="color:var(--red-600);font-weight:700">${fmtCur(a.spend)}</td><td>${fmt(a.clicks)}</td><td>${fmt(a.impressions)}</td></tr>`;
   });
+  html+='</tbody></table>';
+  document.getElementById('zeroSaleAsinWrap').innerHTML=html;
+}
 
-  // Observations for latest week
-  const latestChanges = allChanges.filter(c => c.curr === 26);
-  const positives = latestChanges
-    .filter(c => {
-      const effective = c.inverted ? -c.change : c.change;
-      return effective > 0.5;
-    })
-    .sort((a,b) => {
-      const ea = a.inverted ? -a.change : a.change;
-      const eb = b.inverted ? -b.change : b.change;
-      return eb - ea;
-    })
-    .slice(0, 5);
-
-  const negatives = latestChanges
-    .filter(c => {
-      const effective = c.inverted ? -c.change : c.change;
-      return effective < -0.5;
-    })
-    .sort((a,b) => {
-      const ea = a.inverted ? -a.change : a.change;
-      const eb = b.inverted ? -b.change : b.change;
-      return ea - eb;
-    })
-    .slice(0, 5);
-
-  const posContainer = document.getElementById('positiveObs');
-  posContainer.innerHTML = positives.map(p => {
-    const dir = p.change > 0 ? 'increased' : 'decreased';
-    return `<div class="obs-item positive"><span class="obs-icon">✅</span> <span>${p.metric} ${dir} by ${Math.abs(p.change).toFixed(1)}% ${p.inverted ? '(positive trend for this metric)' : ''}</span></div>`;
+// ========= CATEGORY =========
+function renderCategory(){
+  const maxSales=Math.max(...CATEGORIES.map(c=>c.sales));
+  document.getElementById('catBars').innerHTML=CATEGORIES.slice(0,10).map((c,i)=>{
+    const w=(c.sales/maxSales)*100;
+    return `<div class="bar-row"><div class="bar-lab" title="${c.category}">${c.category}</div>
+      <div class="bar-track"><div class="bar-fill" style="width:${Math.max(w,10)}%;background:${CPAL[i%CPAL.length]}">${fmtCur(c.sales)}</div></div>
+      <div class="bar-val">${c.revPct}%</div></div>`;
   }).join('');
-
-  const negContainer = document.getElementById('negativeObs');
-  negContainer.innerHTML = negatives.map(n => {
-    const dir = n.change > 0 ? 'increased' : 'decreased';
-    return `<div class="obs-item negative"><span class="obs-icon">⚠️</span> <span>${n.metric} ${dir} by ${Math.abs(n.change).toFixed(1)}% ${n.inverted ? '(cost increased)' : ''}</span></div>`;
-  }).join('');
-}
-
-// ============================
-// WOW TREND CHART
-// ============================
-function renderWoWTrendChart(){
-  const labels = WEEKS.map(w => 'W'+w.week);
-  destroyChart('wowTrend');
-  chartInstances['wowTrend'] = new Chart(document.getElementById('wowTrendChart'), {
-    type:'line',
-    data:{
-      labels,
-      datasets:[
-        { label:'Sales (₹K)', data:WEEKS.map(w=>w.sales/1000), borderColor:'#2563eb', backgroundColor:'#2563eb18', fill:true, tension:.4, borderWidth:2.5, pointRadius:5, pointBackgroundColor:'#2563eb', yAxisID:'y' },
-        { label:'Spend (₹K)', data:WEEKS.map(w=>w.spend/1000), borderColor:'#f97316', backgroundColor:'#f9731618', fill:true, tension:.4, borderWidth:2.5, pointRadius:5, pointBackgroundColor:'#f97316', yAxisID:'y' },
-        { label:'Orders', data:WEEKS.map(w=>w.orders), borderColor:'#22c55e', tension:.4, borderWidth:2.5, pointRadius:5, pointBackgroundColor:'#22c55e', yAxisID:'y1' },
-      ]
-    },
-    options:{
-      responsive:true, maintainAspectRatio:false,
-      interaction:{ mode:'index', intersect:false },
-      plugins:{ legend:{ position:'top', labels:{ usePointStyle:true, padding:20, font:{ family:'Inter', size:12 } } }, datalabels:{ display:false } },
-      scales:{
-        y:{ position:'left', title:{ display:true, text:'₹ (Thousands)', font:{ family:'Inter' } }, grid:{ color:'#f3f4f6' }, ticks:{ font:{ family:'Inter' } } },
-        y1:{ position:'right', title:{ display:true, text:'Orders', font:{ family:'Inter' } }, grid:{ display:false }, ticks:{ font:{ family:'Inter' } } },
-        x:{ grid:{ display:false }, ticks:{ font:{ family:'Inter', weight:'600' } } }
-      }
-    }
+  const top=CATEGORIES.slice(0,10);
+  destroyChart('catAcos');
+  chartInstances['catAcos']=new Chart(document.getElementById('catAcosChart'),{
+    type:'bar',data:{labels:top.map(c=>c.category),datasets:[{label:'ACOS %',data:top.map(c=>c.acos),
+      backgroundColor:top.map(c=>c.acos<20?'rgba(34,197,94,.75)':c.acos<28?'rgba(234,179,8,.75)':'rgba(239,68,68,.75)'),borderRadius:6}]},
+    options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false},datalabels:{display:true,anchor:'end',align:'end',color:'#374151',font:{family:'Inter',weight:'700',size:10},formatter:v=>v+'%'}},
+      scales:{x:{title:{display:true,text:'ACOS %',font:{family:'Inter'}},grid:{color:'#f3f4f6'}},y:{grid:{display:false},ticks:{font:{family:'Inter',weight:'600',size:10}}}}},plugins:[ChartDataLabels]});
+  let html=`<table><thead><tr><th>Category</th><th>ASINs</th><th>Sales</th><th>Spend</th><th>Orders</th><th>ACOS</th><th>ROAS</th><th>Rev%</th><th>WoW</th></tr></thead><tbody>`;
+  CATEGORIES.forEach(c=>{
+    html+=`<tr><td style="font-weight:600">${c.category}</td><td>${c.n}</td><td style="font-weight:700">${fmtCur(c.sales)}</td>
+      <td>${fmtCur(c.spend)}</td><td>${fmt(c.orders)}</td><td><span class="pill ${acosPill(c.acos)}">${c.acos}%</span></td>
+      <td>${c.roas}x</td><td>${c.revPct}%</td><td><span class="pill ${c.growth>=5?'green':c.growth<=-5?'red':'yellow'}">${c.growth>=0?'+':''}${c.growth}%</span></td></tr>`;
   });
+  html+='</tbody></table>';document.getElementById('catTableWrap').innerHTML=html;
 }
 
-// ============================
-// WATERFALL CHART
-// ============================
-function renderWaterfallChart(){
-  const salesDiffs = [];
-  for(let i=1;i<WEEKS.length;i++){
-    salesDiffs.push({ label:`W${WEEKS[i].week} vs W${WEEKS[i-1].week}`, diff:WEEKS[i].sales - WEEKS[i-1].sales });
-  }
+// ========= PRODUCTS =========
+function renderProducts(){
+  const top=[...PRODUCTS].sort((a,b)=>b.sales-a.sales).slice(0,12);
+  destroyChart('prodBar');
+  chartInstances['prodBar']=new Chart(document.getElementById('productBar'),{
+    type:'bar',data:{labels:top.map(p=>short(p.name,18)),datasets:[{label:'Revenue %',data:top.map(p=>p.revPct),
+      backgroundColor:top.map((_,i)=>CPAL[i%CPAL.length]),borderRadius:6}]},
+    options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false},datalabels:{display:true,anchor:'end',align:'end',color:'#374151',font:{family:'Inter',weight:'700',size:10},formatter:v=>v+'%'},
+        tooltip:{callbacks:{label:ctx=>`${top[ctx.dataIndex].name}: ${fmtCur(top[ctx.dataIndex].sales)}`}}},
+      scales:{x:{grid:{color:'#f3f4f6'}},y:{grid:{display:false},ticks:{font:{family:'Inter',weight:'600',size:10}}}}},plugins:[ChartDataLabels]});
+  destroyChart('prodScatter');
+  chartInstances['prodScatter']=new Chart(document.getElementById('productScatter'),{
+    type:'bubble',data:{datasets:[{label:'Products',data:PRODUCTS.map(p=>({x:p.acos,y:+(p.sales/1000).toFixed(2),r:Math.max(Math.sqrt(p.orders)*2.5,5)})),
+      backgroundColor:PRODUCTS.map(p=>p.acos<22?'rgba(34,197,94,.6)':p.acos<30?'rgba(234,179,8,.6)':'rgba(239,68,68,.6)'),
+      borderColor:PRODUCTS.map(p=>p.acos<22?'#16a34a':p.acos<30?'#ca8a04':'#dc2626'),borderWidth:1.5}]},
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false},datalabels:{display:false},tooltip:{callbacks:{label:ctx=>{const p=PRODUCTS[ctx.dataIndex];return `${p.name}: ACOS ${p.acos}%, ${fmtCur(p.sales)}, ${p.orders} ord`;}}}},
+      scales:{x:{title:{display:true,text:'ACOS %',font:{family:'Inter'}},grid:{color:'#f3f4f6'}},y:{title:{display:true,text:'Sales (₹K)',font:{family:'Inter'}},grid:{color:'#f3f4f6'}}}}});
+  let html=`<table><thead><tr><th>#</th><th>Product</th><th>Sales</th><th>Spend</th><th>Orders</th><th>ACOS</th><th>ROAS</th><th>Rev%</th><th>WoW Growth</th></tr></thead><tbody>`;
+  [...PRODUCTS].sort((a,b)=>b.sales-a.sales).forEach((p,i)=>{
+    const gTxt=p.prevSales<=0?(p.sales>0?'New':'—'):(p.growth>=0?'+':'')+p.growth+'%';
+    html+=`<tr><td style="font-weight:700;color:var(--gray-400)">${i+1}</td><td style="font-weight:600">${p.name}</td>
+      <td style="font-weight:700">${fmtCur(p.sales)}</td><td>${fmtCur(p.spend)}</td><td>${fmt(p.orders)}</td>
+      <td><span class="pill ${acosPill(p.acos)}">${p.acos.toFixed(1)}%</span></td><td>${p.roas}x</td><td>${p.revPct}%</td>
+      <td><span class="pill ${p.prevSales<=0?'gray':p.growth>=5?'green':p.growth<=-5?'red':'yellow'}">${gTxt}</span></td></tr>`;
+  });
+  html+='</tbody></table>';document.getElementById('productTableWrap').innerHTML=html;
+}
 
+// ========= SEARCH TERMS =========
+function renderSearch(){
+  document.getElementById('searchBadge').textContent=`${TERM_STATS_RAW.total} terms tracked`;
+  document.getElementById('searchStats').innerHTML=[
+    miniStat('Search terms',fmt(TERM_STATS_RAW.total)),
+    miniStat('Converting terms',fmt(TERM_STATS_RAW.converting)),
+    miniStat('Zero-order terms',fmt(TERM_STATS_RAW.wasted_count)),
+    miniStat('Wasted on terms',fmtCur(TERM_STATS_RAW.wasted_spend)),
+  ].join('');
+  let html=`<table><thead><tr><th>#</th><th>Search Term</th><th>Sales</th><th>Spend</th><th>Orders</th><th>ACOS</th></tr></thead><tbody>`;
+  TERMS_TOP_RAW.slice(0,15).forEach((t,i)=>{
+    html+=`<tr><td style="color:var(--gray-400);font-weight:700">${i+1}</td><td style="font-weight:600">${short(t.term,36)}</td>
+      <td style="font-weight:700">${fmtCur(t.sales)}</td><td>${fmtCur(t.spend)}</td><td>${fmt(t.orders)}</td>
+      <td><span class="pill ${acosPill(t.acos)}">${t.acos.toFixed(1)}%</span></td></tr>`;
+  });
+  html+='</tbody></table>';document.getElementById('topTermWrap').innerHTML=html;
+  // KW Type doughnut (Brand/Generic/ASIN)
+  const kt=KWTYPE_RAW;
+  destroyChart('kwType');
+  chartInstances['kwType']=new Chart(document.getElementById('kwTypeChart'),{
+    type:'doughnut',data:{labels:kt.map(k=>k.name),datasets:[{data:kt.map(k=>k.sales),backgroundColor:['#2563eb','#f97316','#8b5cf6'],borderWidth:2,borderColor:'#fff'}]},
+    options:{responsive:true,maintainAspectRatio:false,cutout:'58%',
+      plugins:{legend:{position:'right',labels:{font:{family:'Inter',size:11},padding:10}},
+        datalabels:{display:true,color:'#fff',font:{family:'Inter',weight:'700',size:11},formatter:(v,ctx)=>{const k=kt[ctx.dataIndex];const pc=v/W26.sales*100;return pc>=4?pc.toFixed(0)+'%':'';}},
+        tooltip:{callbacks:{label:ctx=>{const k=kt[ctx.dataIndex];return `${k.name}: ${fmtCur(k.sales)} @ ${k.acos.toFixed(1)}% ACOS`;}}}}},plugins:[ChartDataLabels]});
+  const brand=kt.find(k=>k.name==='Brand'),gen=kt.find(k=>k.name==='Generic'),asin=kt.find(k=>k.name==='ASIN');
+  document.getElementById('kwTypeNote').innerHTML=`Brand terms are cheapest at <b>${brand?brand.acos.toFixed(1):'—'}%</b> ACOS; Generic discovery costs <b>${gen?gen.acos.toFixed(1):'—'}%</b>; competitor/ASIN targeting <b>${asin?asin.acos.toFixed(1):'—'}%</b>.`;
+  // Match type
+  const mt=[...MATCHTYPE_RAW].sort((a,b)=>b.sales-a.sales);
+  destroyChart('match');
+  chartInstances['match']=new Chart(document.getElementById('matchChart'),{
+    data:{labels:mt.map(m=>m.name),datasets:[
+      {type:'bar',label:'Sales (₹K)',data:mt.map(m=>+(m.sales/1000).toFixed(1)),backgroundColor:'rgba(37,99,235,.75)',borderRadius:6,yAxisID:'y',order:2},
+      {type:'line',label:'ACOS %',data:mt.map(m=>m.acos),borderColor:'#ef4444',borderWidth:2.5,pointRadius:5,pointBackgroundColor:'#ef4444',tension:.3,yAxisID:'y1',order:1}]},
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{position:'top',labels:{usePointStyle:true,font:{family:'Inter'}}},datalabels:{display:false}},
+      scales:{y:{position:'left',title:{display:true,text:'Sales (₹K)',font:{family:'Inter'}},grid:{color:'#f3f4f6'}},
+        y1:{position:'right',title:{display:true,text:'ACOS %',font:{family:'Inter'}},grid:{display:false}},
+        x:{grid:{display:false},ticks:{font:{family:'Inter',weight:'600',size:10}}}}}});
+}
+
+// ========= WHERE =========
+function renderWhere(){
+  let html=`<table><thead><tr><th>Placement</th><th>Impressions</th><th>Clicks</th><th>Spend</th><th>Orders</th><th>Sales</th><th>ACOS</th></tr></thead><tbody>`;
+  [...PLACEMENTS_RAW].sort((a,b)=>b.sales-a.sales).forEach(p=>{
+    const acos=p.sales?(p.spend/p.sales*100):0;
+    html+=`<tr><td style="font-weight:600">${p.name}</td><td>${fmt(p.impressions)}</td><td>${fmt(p.clicks)}</td>
+      <td>${fmtCur(p.spend)}</td><td>${fmt(p.orders)}</td><td style="font-weight:700">${fmtCur(p.sales)}</td>
+      <td><span class="pill ${acosPill(acos)}">${acos.toFixed(1)}%</span></td></tr>`;
+  });
+  html+='</tbody></table>';document.getElementById('placementWrap').innerHTML=html;
+  destroyChart('typeDoughnut');
+  chartInstances['typeDoughnut']=new Chart(document.getElementById('typeDoughnut'),{
+    type:'doughnut',data:{labels:TYPES.map(t=>t.type),datasets:[{data:TYPES.map(t=>t.sales),backgroundColor:CPAL,borderWidth:2,borderColor:'#fff'}]},
+    options:{responsive:true,maintainAspectRatio:false,cutout:'58%',
+      plugins:{legend:{position:'right',labels:{font:{family:'Inter',size:11},padding:8}},
+        datalabels:{display:true,color:'#fff',font:{family:'Inter',weight:'700',size:11},formatter:(v,ctx)=>{const t=TYPES[ctx.dataIndex];return t.salesShare>=4?t.salesShare+'%':'';}},
+        tooltip:{callbacks:{label:ctx=>{const t=TYPES[ctx.dataIndex];return `${t.label}: ${fmtCur(t.sales)} (${t.salesShare}%)`;}}}}},plugins:[ChartDataLabels]});
+  let th=`<table><thead><tr><th>Type</th><th>Description</th><th>Impr</th><th>Clicks</th><th>Spend</th><th>Orders</th><th>Sales</th><th>ACOS</th><th>ROAS</th><th>Share</th></tr></thead><tbody>`;
+  TYPES.forEach(t=>{
+    th+=`<tr><td><span class="type-chip">${t.type}</span></td><td style="font-weight:600">${t.label}</td><td>${fmt(t.impressions)}</td>
+      <td>${fmt(t.clicks)}</td><td>${fmtCur(t.spend)}</td><td>${fmt(t.orders)}</td><td style="font-weight:700">${fmtCur(t.sales)}</td>
+      <td><span class="pill ${acosPill(t.acos)}">${t.acos.toFixed(1)}%</span></td><td>${t.roas}x</td><td>${t.salesShare}%</td></tr>`;
+  });
+  th+='</tbody></table>';document.getElementById('typeTableWrap').innerHTML=th;
+}
+
+// ========= ASIN TABLE =========
+function renderASINTable(){
+  document.getElementById('asinCountBadge').textContent=`${ASIN_SELL.length} selling · ${ASINS.length} active`;
+  let html=`<table><thead><tr><th>#</th><th>ASIN</th><th>Product</th><th>Category</th><th>Sales</th><th>Spend</th><th>Orders</th><th>Clicks</th><th>CTR</th><th>CPC</th><th>Conv%</th><th>ACOS</th><th>ROAS</th><th>Rev%</th><th>WoW</th></tr></thead><tbody>`;
+  [...ASINS].sort((a,b)=>b.sales-a.sales).forEach((a,i)=>{
+    const gTxt=a.prevSales<=0?(a.sales>0?'New':'—'):(a.growth>=0?'+':'')+a.growth+'%';
+    html+=`<tr><td style="color:var(--gray-400);font-weight:700">${i+1}</td><td style="font-family:monospace;font-size:.72rem">${a.asin}</td>
+      <td style="font-weight:600">${a.label}</td><td>${a.category}</td><td>${fmtCur(a.sales)}</td><td>${fmtCur(a.spend)}</td>
+      <td>${fmt(a.orders)}</td><td>${fmt(a.clicks)}</td><td>${a.ctr}%</td><td>₹${a.cpc}</td><td>${a.conv}%</td>
+      <td><span class="pill ${acosPill(a.acos)}">${a.acos.toFixed(1)}%</span></td><td>${a.roas}x</td><td>${a.revPct}%</td>
+      <td><span class="pill ${a.prevSales<=0?'gray':a.growth>=5?'green':a.growth<=-5?'red':'yellow'}">${gTxt}</span></td></tr>`;
+  });
+  html+='</tbody></table>';document.getElementById('asinTableWrap').innerHTML=html;
+}
+
+// ========= CAMPAIGNS =========
+function renderCampaigns(){
+  document.getElementById('campCountBadge').textContent=`${CAMP_SELL.length} with sales`;
+  const top=[...CAMP_SELL].sort((a,b)=>b.sales-a.sales).slice(0,20);
+  let html=`<table><thead><tr><th>#</th><th>Campaign</th><th>Impr</th><th>Clicks</th><th>Spend</th><th>Orders</th><th>Sales</th><th>ACOS</th><th>ROAS</th></tr></thead><tbody>`;
+  top.forEach((c,i)=>{
+    html+=`<tr><td style="color:var(--gray-400);font-weight:700">${i+1}</td>
+      <td style="font-weight:600;max-width:320px;overflow:hidden;text-overflow:ellipsis" title="${c.name.replace(/"/g,'&quot;')}">${c.name}</td>
+      <td>${fmt(c.impressions)}</td><td>${fmt(c.clicks)}</td><td>${fmtCur(c.spend)}</td><td>${fmt(c.orders)}</td>
+      <td style="font-weight:700">${fmtCur(c.sales)}</td><td><span class="pill ${acosPill(c.acos)}">${c.acos.toFixed(1)}%</span></td><td>${c.roas}x</td></tr>`;
+  });
+  html+='</tbody></table>';document.getElementById('campTableWrap').innerHTML=html;
+}
+
+// ========= TRENDS =========
+function renderTrends(){
+  destroyChart('trend');
+  chartInstances['trend']=new Chart(document.getElementById('trendChart'),{
+    type:'line',data:{labels:WEEKS.map(w=>'W'+w.week),datasets:[
+      {label:'Sales (₹K)',data:WEEKS.map(w=>w.sales/1000),borderColor:'#2563eb',backgroundColor:'#2563eb18',fill:true,tension:.4,borderWidth:2.5,pointRadius:5,pointBackgroundColor:'#2563eb',yAxisID:'y'},
+      {label:'Spend (₹K)',data:WEEKS.map(w=>w.spend/1000),borderColor:'#f97316',backgroundColor:'#f9731618',fill:true,tension:.4,borderWidth:2.5,pointRadius:5,pointBackgroundColor:'#f97316',yAxisID:'y'},
+      {label:'Orders',data:WEEKS.map(w=>w.orders),borderColor:'#22c55e',tension:.4,borderWidth:2.5,pointRadius:5,pointBackgroundColor:'#22c55e',yAxisID:'y1'}]},
+    options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},
+      plugins:{legend:{position:'top',labels:{usePointStyle:true,padding:20,font:{family:'Inter',size:12}}},datalabels:{display:false}},
+      scales:{y:{position:'left',title:{display:true,text:'₹ (Thousands)',font:{family:'Inter'}},grid:{color:'#f3f4f6'}},
+        y1:{position:'right',title:{display:true,text:'Orders',font:{family:'Inter'}},grid:{display:false}},
+        x:{grid:{display:false},ticks:{font:{family:'Inter',weight:'600'}}}}}});
+  destroyChart('acosRoas');
+  chartInstances['acosRoas']=new Chart(document.getElementById('acosRoasChart'),{
+    data:{labels:WEEKS.map(w=>'W'+w.week),datasets:[
+      {type:'line',label:'ACOS %',data:WEEKS.map(w=>w.acos),borderColor:'#f97316',backgroundColor:'rgba(249,115,22,.1)',fill:true,tension:.4,borderWidth:3,pointRadius:6,pointBackgroundColor:'#f97316',yAxisID:'y'},
+      {type:'line',label:'ROAS',data:WEEKS.map(w=>w.roas),borderColor:'#22c55e',borderWidth:3,pointRadius:6,pointBackgroundColor:'#22c55e',tension:.4,yAxisID:'y1'}]},
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{position:'top',labels:{usePointStyle:true,font:{family:'Inter'}},},datalabels:{display:true,color:'#374151',font:{family:'Inter',weight:'700',size:10},formatter:(v,ctx)=>ctx.datasetIndex===0?v.toFixed(1)+'%':v.toFixed(2)+'x'}},
+      scales:{y:{position:'left',title:{display:true,text:'ACOS %',font:{family:'Inter'}},grid:{color:'#f3f4f6'}},y1:{position:'right',title:{display:true,text:'ROAS',font:{family:'Inter'}},grid:{display:false}},x:{grid:{display:false},ticks:{font:{family:'Inter',weight:'600'}}}}},plugins:[ChartDataLabels]});
+  const diffs=[];for(let i=1;i<WEEKS.length;i++)diffs.push({label:`W${WEEKS[i].week} vs W${WEEKS[i-1].week}`,diff:WEEKS[i].sales-WEEKS[i-1].sales});
   destroyChart('waterfall');
-  chartInstances['waterfall'] = new Chart(document.getElementById('waterfallChart'), {
-    type:'bar',
-    data:{
-      labels:salesDiffs.map(d=>d.label),
-      datasets:[{
-        label:'Sales Change (₹)',
-        data:salesDiffs.map(d=>d.diff),
-        backgroundColor:salesDiffs.map(d=>d.diff>=0?'rgba(34,197,94,.7)':'rgba(239,68,68,.7)'),
-        borderColor:salesDiffs.map(d=>d.diff>=0?'#16a34a':'#dc2626'),
-        borderWidth:2,
-        borderRadius:8
-      }]
-    },
-    options:{
-      responsive:true, maintainAspectRatio:false,
-      plugins:{ legend:{ display:false }, datalabels:{ display:true, anchor:'end', align:'top', color:'#374151', font:{ family:'Inter', weight:'700', size:11 }, formatter:v=>(v>=0?'+':'')+'₹'+fmt(Math.abs(v)) } },
-      scales:{
-        y:{ title:{ display:true, text:'₹ Change', font:{ family:'Inter' } }, grid:{ color:'#f3f4f6' }, ticks:{ font:{ family:'Inter' }, callback:v=>'₹'+fmt(v) } },
-        x:{ grid:{ display:false }, ticks:{ font:{ family:'Inter', weight:'600' } } }
-      }
-    },
-    plugins:[ChartDataLabels]
-  });
+  chartInstances['waterfall']=new Chart(document.getElementById('waterfallChart'),{
+    type:'bar',data:{labels:diffs.map(d=>d.label),datasets:[{data:diffs.map(d=>d.diff),
+      backgroundColor:diffs.map(d=>d.diff>=0?'rgba(34,197,94,.7)':'rgba(239,68,68,.7)'),borderColor:diffs.map(d=>d.diff>=0?'#16a34a':'#dc2626'),borderWidth:2,borderRadius:8}]},
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false},datalabels:{display:true,anchor:'end',align:'top',color:'#374151',font:{family:'Inter',weight:'700',size:11},formatter:v=>(v>=0?'+':'-')+'₹'+fmt(Math.abs(v))}},
+      scales:{y:{title:{display:true,text:'₹ Change',font:{family:'Inter'}},grid:{color:'#f3f4f6'},ticks:{callback:v=>'₹'+fmt(v)}},x:{grid:{display:false},ticks:{font:{family:'Inter',weight:'600'}}}}},plugins:[ChartDataLabels]});
 }
 
-// ============================
-// CAMPAIGN HEALTH
-// ============================
-function renderCampaignHealth(){
-  const curr = getSelectedWeek(), prev = getPrevWeek() || curr;
-  // Health score: composite
-  const salesGrowth = pctChange(curr.sales, prev.sales);
-  const roasScore = Math.min(curr.roas / 5, 1) * 100;
-  const acosScore = Math.max(0, 100 - curr.acos * 2.5);
-  const ctrScore = Math.min(curr.ctr / 1, 1) * 100;
-  const convScore = Math.min(curr.convRate / 10, 1) * 100;
-  const effScore = Math.min((curr.sales / curr.spend) / 5, 1) * 100;
-
-  const healthScore = Math.round((roasScore*0.25 + acosScore*0.25 + ctrScore*0.15 + convScore*0.2 + effScore*0.15 + Math.max(0,salesGrowth)*0.1) / 1.1);
-  let healthLabel, healthColor;
-  if(healthScore >= 80){ healthLabel='Excellent'; healthColor='var(--green-500)'; }
-  else if(healthScore >= 60){ healthLabel='Good'; healthColor='var(--blue-500)'; }
-  else if(healthScore >= 40){ healthLabel='Needs Attention'; healthColor='var(--yellow-500)'; }
-  else { healthLabel='Critical'; healthColor='var(--red-500)'; }
-
-  document.getElementById('healthBadge').textContent = healthLabel;
-  document.getElementById('healthBadge').className = 'section-badge ' + (healthScore>=80?'green':healthScore>=60?'blue':healthScore>=40?'yellow':'red');
-
-  // Ring
-  const ringEl = document.getElementById('healthRing');
-  const circumference = 2 * Math.PI * 60;
-  const dashOffset = circumference - (healthScore / 100) * circumference;
-  ringEl.innerHTML = `
-    <svg width="160" height="160" viewBox="0 0 160 160">
-      <circle cx="80" cy="80" r="60" fill="none" stroke="#f3f4f6" stroke-width="12"/>
-      <circle cx="80" cy="80" r="60" fill="none" stroke="${healthColor}" stroke-width="12"
-        stroke-dasharray="${circumference}" stroke-dashoffset="${dashOffset}"
-        stroke-linecap="round" style="transition:stroke-dashoffset 1.5s ease"/>
-    </svg>
-    <div class="health-ring-label">
-      <div class="health-ring-score" style="color:${healthColor}">${healthScore}</div>
-      <div class="health-ring-text" style="color:${healthColor}">${healthLabel}</div>
-    </div>
-  `;
-
-  // Campaign metrics
-  const metricsEl = document.getElementById('campaignMetrics');
-  const campaignMetrics = [
-    { label:'Total Campaign Spend', val:fmtCur(curr.spend) },
-    { label:'Total Revenue', val:fmtCur(curr.sales) },
-    { label:'Total Orders', val:fmt(curr.orders) },
-    { label:'Average CPC', val:'₹'+curr.cpc.toFixed(2) },
-    { label:'Average CTR', val:curr.ctr.toFixed(2)+'%' },
-    { label:'Average ACOS', val:curr.acos.toFixed(2)+'%' },
-    { label:'ROAS', val:curr.roas.toFixed(2)+'x' },
-  ];
-  metricsEl.innerHTML = campaignMetrics.map(m => `
-    <div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--gray-100)">
-      <span style="font-size:.78rem;color:var(--gray-500);font-weight:500">${m.label}</span>
-      <span style="font-size:.82rem;font-weight:700;color:var(--gray-800)">${m.val}</span>
-    </div>
-  `).join('');
-
-  // Efficiency Gauge
-  const effCanvas = document.getElementById('efficiencyGauge');
-  drawGauge(effCanvas, healthScore, healthColor);
-  document.getElementById('gaugeValue').textContent = healthScore + '/100';
-  document.getElementById('gaugeValue').style.color = healthColor;
-
-  // Radar chart
-  destroyChart('radar');
-  chartInstances['radar'] = new Chart(document.getElementById('radarChart'), {
-    type:'radar',
-    data:{
-      labels:['Sales Growth','ROAS','ACOS Efficiency','CTR','Conv. Rate','Spend Efficiency'],
-      datasets:[{
-        label:'Week 26',
-        data:[Math.max(0, 50+salesGrowth*2), roasScore, acosScore, ctrScore, convScore, effScore],
-        backgroundColor:'rgba(37,99,235,.15)',
-        borderColor:'#2563eb',
-        borderWidth:2,
-        pointBackgroundColor:'#2563eb'
-      }]
-    },
-    options:{
-      responsive:true, maintainAspectRatio:true,
-      plugins:{ legend:{ display:false }, datalabels:{ display:false } },
-      scales:{ r:{ beginAtZero:true, max:100, ticks:{ stepSize:20, font:{ family:'Inter', size:10 } }, pointLabels:{ font:{ family:'Inter', size:11, weight:'600' } }, grid:{ color:'#e5e7eb' } } }
-    }
-  });
-}
-
-function drawGauge(canvas, value, color){
-  const ctx = canvas.getContext('2d');
-  const cx = canvas.width/2, cy = canvas.height - 10;
-  const radius = 80;
-  ctx.clearRect(0,0,canvas.width,canvas.height);
-  // Background arc
-  ctx.beginPath();
-  ctx.arc(cx,cy,radius,Math.PI,0,false);
-  ctx.lineWidth = 16;
-  ctx.strokeStyle = '#f3f4f6';
-  ctx.lineCap = 'round';
-  ctx.stroke();
-  // Value arc
-  const angle = Math.PI + (value/100)*Math.PI;
-  ctx.beginPath();
-  ctx.arc(cx,cy,radius,Math.PI,angle,false);
-  ctx.lineWidth = 16;
-  ctx.strokeStyle = color;
-  ctx.lineCap = 'round';
-  ctx.stroke();
-  // Needle
-  const needleAngle = Math.PI + (value/100)*Math.PI;
-  ctx.beginPath();
-  ctx.moveTo(cx,cy);
-  ctx.lineTo(cx + Math.cos(needleAngle)*(radius-25), cy + Math.sin(needleAngle)*(radius-25));
-  ctx.lineWidth = 3;
-  ctx.strokeStyle = '#374151';
-  ctx.stroke();
-  // Center dot
-  ctx.beginPath();
-  ctx.arc(cx,cy,5,0,2*Math.PI);
-  ctx.fillStyle = '#374151';
-  ctx.fill();
-}
-
-// ============================
-// ASIN ANALYSIS
-// ============================
-function renderASIN(){
-  // Highlights
-  const sorted = [...ASIN_DATA];
-  const highlights = [
-    { label:'Highest Revenue', asin:sorted.sort((a,b)=>b.sales-a.sales)[0], val:fmtCur(sorted[0].sales), color:'blue' },
-    { label:'Best ROAS', asin:[...ASIN_DATA].sort((a,b)=>b.roas-a.roas)[0], val:null, color:'green' },
-    { label:'Lowest ACOS', asin:[...ASIN_DATA].sort((a,b)=>a.acos-b.acos)[0], val:null, color:'green' },
-    { label:'Highest Growth', asin:[...ASIN_DATA].sort((a,b)=>b.growth-a.growth)[0], val:null, color:'blue' },
-    { label:'Highest ACOS ⚠️', asin:[...ASIN_DATA].sort((a,b)=>b.acos-a.acos)[0], val:null, color:'red' },
-    { label:'Most Declining ⚠️', asin:[...ASIN_DATA].sort((a,b)=>a.growth-b.growth)[0], val:null, color:'red' },
-  ];
-
-  const hlContainer = document.getElementById('asinHighlights');
-  hlContainer.innerHTML = highlights.map(h => `
-    <div class="kpi-card neutral" style="padding:14px 16px">
-      <div class="kpi-label">${h.label}</div>
-      <div style="font-size:.82rem;font-weight:700;color:var(--gray-900);margin-top:4px">${h.asin.name}</div>
-      <div style="font-size:.72rem;color:var(--gray-500);margin-top:2px">${h.asin.asin}</div>
-      <div style="font-size:.72rem;margin-top:4px">
-        <span class="pill ${h.color}">${h.asin.status}</span>
-        <span style="margin-left:6px;font-weight:600;color:${h.asin.growth>=0?'var(--green-600)':'var(--red-600)'}">${h.asin.growth>=0?'+':''}${h.asin.growth}%</span>
-      </div>
-    </div>
-  `).join('');
-
-  // Table
-  const table = document.getElementById('asinTableWrap');
-  let html = `<table>
-    <thead><tr>
-      <th>#</th><th>ASIN</th><th>Product</th><th>Sales</th><th>Spend</th><th>Orders</th><th>Clicks</th><th>CTR</th><th>CPC</th><th>Conv%</th><th>ACOS</th><th>ROAS</th><th>Rev%</th><th>Growth</th><th>Status</th>
-    </tr></thead><tbody>`;
-  const sortedBySales = [...ASIN_DATA].sort((a,b)=>b.sales-a.sales);
-  sortedBySales.forEach((a,i) => {
-    const statusCls = a.status==='Excellent'?'green':a.status==='Good'?'blue':a.status==='Needs Attention'?'yellow':'red';
-    const growthCls = a.growth >= 5 ? 'green' : a.growth <= -5 ? 'red' : 'yellow';
-    html += `<tr>
-      <td style="font-weight:700;color:var(--gray-400)">${i+1}</td>
-      <td style="font-family:monospace;font-size:.72rem">${a.asin}</td>
-      <td style="font-weight:600">${a.name}</td>
-      <td>${fmtCur(a.sales)}</td>
-      <td>${fmtCur(a.spend)}</td>
-      <td>${fmt(a.orders)}</td>
-      <td>${fmt(a.clicks)}</td>
-      <td>${a.ctr}%</td>
-      <td>₹${a.cpc}</td>
-      <td>${a.conv}%</td>
-      <td><span class="pill ${a.acos<22?'green':a.acos<28?'yellow':'red'}">${a.acos}%</span></td>
-      <td>${a.roas}x</td>
-      <td>${a.revPct}%</td>
-      <td><span class="pill ${growthCls}">${a.growth>=0?'+':''}${a.growth}%</span></td>
-      <td><span class="pill ${statusCls}">${a.status}</span></td>
-    </tr>`;
-  });
-  html += '</tbody></table>';
-  table.innerHTML = html;
-
-  // Treemap as horizontal bar (contribution)
-  destroyChart('treemap');
-  chartInstances['treemap'] = new Chart(document.getElementById('treemapChart'), {
-    type:'bar',
-    data:{
-      labels:sortedBySales.map(a=>a.name.replace('Playart ','')),
-      datasets:[{
-        label:'Revenue Contribution %',
-        data:sortedBySales.map(a=>a.revPct),
-        backgroundColor:['#2563eb','#3b82f6','#60a5fa','#93c5fd','#f97316','#fb923c','#fdba74','#fed7aa'],
-        borderRadius:6
-      }]
-    },
-    options:{
-      indexAxis:'y', responsive:true, maintainAspectRatio:false,
-      plugins:{ legend:{ display:false }, datalabels:{ display:true, anchor:'end', align:'end', color:'#374151', font:{ family:'Inter', weight:'700', size:11 }, formatter:v=>v+'%' } },
-      scales:{ x:{ title:{ display:true, text:'Revenue %', font:{ family:'Inter' } }, grid:{ color:'#f3f4f6' } }, y:{ grid:{ display:false }, ticks:{ font:{ family:'Inter', weight:'600', size:11 } } } }
-    },
-    plugins:[ChartDataLabels]
-  });
-
-  // Scatter: ACOS vs Sales
-  destroyChart('scatter');
-  chartInstances['scatter'] = new Chart(document.getElementById('scatterChart'), {
-    type:'bubble',
-    data:{
-      datasets:[{
-        label:'ASINs',
-        data:ASIN_DATA.map(a=>({ x:a.acos, y:a.sales/1000, r:Math.max(a.orders/10, 5) })),
-        backgroundColor:ASIN_DATA.map(a=>a.acos<22?'rgba(34,197,94,.6)':a.acos<28?'rgba(234,179,8,.6)':'rgba(239,68,68,.6)'),
-        borderColor:ASIN_DATA.map(a=>a.acos<22?'#16a34a':a.acos<28?'#ca8a04':'#dc2626'),
-        borderWidth:1.5
-      }]
-    },
-    options:{
-      responsive:true, maintainAspectRatio:false,
-      plugins:{ legend:{ display:false }, datalabels:{ display:false }, tooltip:{ callbacks:{ label:function(ctx){ const a=ASIN_DATA[ctx.dataIndex]; return `${a.name}: ACOS ${a.acos}%, Sales ₹${fmt(a.sales)}`; } } } },
-      scales:{
-        x:{ title:{ display:true, text:'ACOS %', font:{ family:'Inter' } }, grid:{ color:'#f3f4f6' } },
-        y:{ title:{ display:true, text:'Sales (₹K)', font:{ family:'Inter' } }, grid:{ color:'#f3f4f6' } }
-      }
-    }
-  });
-}
-
-// ============================
-// SALES VS SPEND
-// ============================
-function renderSalesSpend(){
-  const labels = WEEKS.map(w=>'W'+w.week);
-  destroyChart('salesSpend');
-  chartInstances['salesSpend'] = new Chart(document.getElementById('salesSpendChart'), {
-    type:'bar',
-    data:{
-      labels,
-      datasets:[
-        { type:'bar', label:'Spend (₹K)', data:WEEKS.map(w=>w.spend/1000), backgroundColor:'rgba(249,115,22,.2)', borderColor:'#f97316', borderWidth:2, borderRadius:8, yAxisID:'y', order:2 },
-        { type:'bar', label:'Sales (₹K)', data:WEEKS.map(w=>w.sales/1000), backgroundColor:'rgba(37,99,235,.2)', borderColor:'#2563eb', borderWidth:2, borderRadius:8, yAxisID:'y', order:1 },
-        { type:'line', label:'ROAS', data:WEEKS.map(w=>w.roas), borderColor:'#22c55e', borderWidth:3, pointRadius:6, pointBackgroundColor:'#22c55e', tension:.4, yAxisID:'y1', order:0 },
-      ]
-    },
-    options:{
-      responsive:true, maintainAspectRatio:false,
-      interaction:{ mode:'index', intersect:false },
-      plugins:{ legend:{ position:'top', labels:{ usePointStyle:true, padding:20, font:{ family:'Inter', size:12 } } }, datalabels:{ display:false } },
-      scales:{
-        y:{ position:'left', title:{ display:true, text:'₹ (Thousands)', font:{ family:'Inter' } }, grid:{ color:'#f3f4f6' }, ticks:{ font:{ family:'Inter' } } },
-        y1:{ position:'right', title:{ display:true, text:'ROAS', font:{ family:'Inter' } }, grid:{ display:false }, min:2, ticks:{ font:{ family:'Inter' } } },
-        x:{ grid:{ display:false }, ticks:{ font:{ family:'Inter', weight:'600' } } }
-      }
-    }
-  });
-
-  const curr = getSelectedWeek(), prev = getPrevWeek() || curr;
-  document.getElementById('revPerSpend').textContent = '₹' + (curr.sales/curr.spend).toFixed(2);
-  const effTrend = pctChange(curr.roas, prev.roas);
-  document.getElementById('spendEffTrend').innerHTML = `<span style="color:${effTrend>=0?'var(--green-600)':'var(--red-600)'};">${effTrend>=0?'↑':'↓'} ${Math.abs(effTrend).toFixed(1)}%</span>`;
-  // Marginal ROAS (change in sales / change in spend)
-  const dSales = curr.sales - prev.sales;
-  const dSpend = curr.spend - prev.spend;
-  const mROAS = dSpend !== 0 ? (dSales / dSpend).toFixed(2) : '—';
-  document.getElementById('marginalROAS').textContent = mROAS + 'x';
-}
-
-// ============================
-// ACOS MONITOR
-// ============================
-function renderACOS(){
-  const curr = getSelectedWeek(), prev = getPrevWeek() || curr;
-  destroyChart('acosTrend');
-  document.getElementById('currentACOS').textContent = curr.acos.toFixed(2) + '%';
-  const acosChg = pctChange(curr.acos, prev.acos);
-  const acosImproved = curr.acos < prev.acos;
-  document.getElementById('prevACOS').innerHTML = `Previous: ${prev.acos.toFixed(2)}% | <span style="color:${acosImproved?'var(--green-600)':'var(--red-600)'};">${acosImproved?'↓ Improved':'↑ Worsened'} ${Math.abs(acosChg).toFixed(1)}%</span>`;
-
-  // Classification
-  let acosLabel, acosColor, acosCls;
-  if(curr.acos < 20){ acosLabel='Excellent'; acosColor='var(--green-500)'; acosCls='green'; }
-  else if(curr.acos < 25){ acosLabel='Healthy'; acosColor='var(--blue-500)'; acosCls='blue'; }
-  else if(curr.acos < 30){ acosLabel='Warning'; acosColor='var(--yellow-500)'; acosCls='yellow'; }
-  else { acosLabel='Critical'; acosColor='var(--red-500)'; acosCls='red'; }
-
-  document.getElementById('acosBadge').textContent = acosLabel;
-  document.getElementById('acosBadge').className = `section-badge ${acosCls}`;
-  document.getElementById('currentACOS').style.color = acosColor;
-
-  // Trend chart
-  chartInstances['acosTrend'] = new Chart(document.getElementById('acosTrendChart'), {
-    type:'line',
-    data:{
-      labels:WEEKS.map(w=>'W'+w.week),
-      datasets:[{
-        label:'ACOS %',
-        data:WEEKS.map(w=>w.acos),
-        borderColor:'#f97316',
-        backgroundColor:'rgba(249,115,22,.1)',
-        fill:true,
-        tension:.4,
-        borderWidth:3,
-        pointRadius:6,
-        pointBackgroundColor:WEEKS.map(w=>w.acos<20?'#22c55e':w.acos<25?'#3b82f6':w.acos<30?'#eab308':'#ef4444'),
-        pointBorderColor:'#fff',
-        pointBorderWidth:2
-      }]
-    },
-    options:{
-      responsive:true, maintainAspectRatio:false,
-      plugins:{ legend:{ display:false }, datalabels:{ display:true, anchor:'top', align:'top', color:'#374151', font:{ family:'Inter', weight:'700', size:12 }, formatter:v=>v.toFixed(1)+'%' } },
-      scales:{ y:{ title:{ display:true, text:'ACOS %', font:{ family:'Inter' } }, grid:{ color:'#f3f4f6' }, suggestedMin:18, suggestedMax:32 }, x:{ grid:{ display:false }, ticks:{ font:{ family:'Inter', weight:'600' } } } }
-    },
-    plugins:[ChartDataLabels]
-  });
-
-  // ACOS Gauge
-  const acosCanvas = document.getElementById('acosGauge');
-  const acosNorm = Math.min(curr.acos / 40, 1) * 100;
-  drawGauge(acosCanvas, acosNorm, acosColor);
-
-  // Traffic light
-  const tlEl = document.getElementById('acosTrafficLight');
-  const lights = [
-    { label:'Excellent', color:'#22c55e', active:curr.acos<20 },
-    { label:'Healthy', color:'#3b82f6', active:curr.acos>=20&&curr.acos<25 },
-    { label:'Warning', color:'#eab308', active:curr.acos>=25&&curr.acos<30 },
-    { label:'Critical', color:'#ef4444', active:curr.acos>=30 },
-  ];
-  tlEl.innerHTML = lights.map(l => `
-    <div style="display:flex;flex-direction:column;align-items:center;gap:4px">
-      <div style="width:20px;height:20px;border-radius:50%;background:${l.active?l.color:'#e5e7eb'};box-shadow:${l.active?'0 0 10px '+l.color:'none'};transition:all .3s"></div>
-      <span style="font-size:.6rem;font-weight:600;color:${l.active?l.color:'var(--gray-400)'}">${l.label}</span>
-    </div>
-  `).join('');
-}
-
-// ============================
-// FUNNEL
-// ============================
-function renderFunnel(){
-  const w = getSelectedWeek();
-  const stages = [
-    { label:'Impressions', value:w.impressions, color:'linear-gradient(135deg,#2563eb,#3b82f6)', isCount:true },
-    { label:'Clicks', value:w.clicks, color:'linear-gradient(135deg,#7c3aed,#8b5cf6)', isCount:true },
-    { label:'Orders', value:w.orders, color:'linear-gradient(135deg,#f97316,#fb923c)', isCount:true },
-    { label:'Revenue', value:w.sales, color:'linear-gradient(135deg,#22c55e,#34d399)', isCount:false },
-  ];
-
-  const container = document.getElementById('funnelContainer');
-  const maxWidth = 90;
-  container.innerHTML = stages.map((s,i) => {
-    const width = maxWidth - (i * 18);
-    let convPctStr = '';
-    let convLabel = '';
-    if(i > 0 && i <= 2) {
-      const convPct = (stages[i].value / stages[i-1].value) * 100;
-      convPctStr = convPct.toFixed(2) + '%';
-      convLabel = `${convPctStr} conversion from ${stages[i-1].label}`;
-    } else if(i === 3) {
-      const aov = w.sales / w.orders;
-      convPctStr = '₹' + aov.toFixed(0) + ' AOV';
-      convLabel = `Average Order Value: ₹${aov.toFixed(2)} per order`;
-    }
-    return `
-      ${i > 0 ? `<div class="funnel-arrow">▼</div><div class="funnel-conv">${convPctStr} → ${s.label}</div>` : ''}
-      <div class="funnel-step">
-        <div class="funnel-bar" style="width:${width}%;background:${s.color}">
-          ${s.label}: ${s.isCount ? fmt(s.value) : fmtCur(s.value)}
-        </div>
-        ${convLabel ? `<div class="funnel-meta">${convLabel}</div>` : ''}
-      </div>
-    `;
-  }).join('');
-}
-
-// ============================
-// INSIGHTS
-// ============================
-function renderInsights(){
-  const curr = getSelectedWeek(), prev = getPrevWeek() || curr;
-  const salesChg = pctChange(curr.sales, prev.sales);
-  const spendChg = pctChange(curr.spend, prev.spend);
-  const ordersChg = pctChange(curr.orders, prev.orders);
-  const ctrChg = pctChange(curr.ctr, prev.ctr);
-  const cpcChg = pctChange(curr.cpc, prev.cpc);
-  const acosChg = pctChange(curr.acos, prev.acos);
-  const impressionsChg = pctChange(curr.impressions, prev.impressions);
-  const convChg = pctChange(curr.convRate, prev.convRate);
-
-  const topASINs = [...ASIN_DATA].sort((a,b)=>b.sales-a.sales).slice(0,3);
-  const topRevPct = topASINs.reduce((s,a)=>s+a.revPct,0).toFixed(0);
-
-  const insights = [
-    { type:'win', text:`Spend decreased by ${Math.abs(spendChg).toFixed(1)}% while maintaining comparable revenue — improved cost efficiency.` },
-    { type:'win', text:`CTR improved from ${prev.ctr}% to ${curr.ctr}%, indicating better ad relevance and creative quality.` },
-    { type:'win', text:`ACOS trend shows significant improvement from 27.64% (W23) to 23.69% (W26), a 3.95pp improvement over 4 weeks.` },
-    { type:'risk', text:`Sales declined by ${Math.abs(salesChg).toFixed(1)}% and Orders dropped by ${Math.abs(ordersChg).toFixed(1)}% versus last week.` },
-    { type:'risk', text:`Impressions dropped ${Math.abs(impressionsChg).toFixed(1)}% — potential visibility or bid competitiveness issue.` },
-    { type:'risk', text:`CPC increased by ${cpcChg.toFixed(1)}% to ₹${curr.cpc.toFixed(2)}, suggesting rising competition for keywords.` },
-    { type:'action', text:`Top 3 ASINs generate ${topRevPct}% of total revenue — monitor concentration risk and diversify.` },
-    { type:'action', text:`Increase budget for ASINs with ROAS > 4x and ACOS < 22% to maximize profitable scale.` },
-    { type:'action', text:`Investigate the 10.4% drop in impressions — check keyword bids, budget caps, and search term relevance.` },
-    { type:'win', text:`ROAS improved from 3.62x (W23) to 4.22x (W26), demonstrating stronger return on advertising investment.` },
-    { type:'risk', text:`Conversion rate declined from ${prev.convRate}% to ${curr.convRate}%, suggesting listing or pricing issues.` },
-    { type:'action', text:`Review underperforming ASINs (Dinosaur World, Farm Friends) — consider pausing or restructuring campaigns.` },
-  ];
-
-  const grid = document.getElementById('insightsGrid');
-  grid.innerHTML = insights.map(i => `
-    <div class="insight-card">
-      <div class="tag ${i.type}">${i.type==='win'?'🏆 WIN':i.type==='risk'?'⚠️ RISK':'🎯 ACTION'}</div>
-      <p>${i.text}</p>
-    </div>
-  `).join('');
-}
-
-// ============================
-// FORECASTING
-// ============================
+// ========= FORECAST =========
 function renderForecast(){
-  // Simple linear regression forecast
-  function forecast(values){
-    const n = values.length;
-    const xMean = (n-1)/2;
-    const yMean = values.reduce((s,v)=>s+v,0)/n;
-    let num=0, den=0;
-    values.forEach((v,i) => { num+=(i-xMean)*(v-yMean); den+=(i-xMean)*(i-xMean); });
-    const slope = den!==0?num/den:0;
-    const intercept = yMean - slope*xMean;
-    const predicted = slope*n + intercept;
-    const residuals = values.map((v,i) => Math.abs(v - (slope*i+intercept)));
-    const avgResidual = residuals.reduce((s,r)=>s+r,0)/n;
-    return { predicted, low:predicted-avgResidual*1.5, high:predicted+avgResidual*1.5 };
-  }
-
-  const salesF = forecast(WEEKS.map(w=>w.sales));
-  const ordersF = forecast(WEEKS.map(w=>w.orders));
-  const spendF = forecast(WEEKS.map(w=>w.spend));
-  const acosF = forecast(WEEKS.map(w=>w.acos));
-  const roasF = forecast(WEEKS.map(w=>w.roas));
-
-  const forecasts = [
-    { label:'Expected Sales', val:fmtCur(Math.max(0,salesF.predicted)), range:`${fmtCur(Math.max(0,salesF.low))} — ${fmtCur(salesF.high)}`, color:'var(--blue-700)' },
-    { label:'Expected Orders', val:fmt(Math.max(0,Math.round(ordersF.predicted))), range:`${fmt(Math.max(0,Math.round(ordersF.low)))} — ${fmt(Math.round(ordersF.high))}`, color:'var(--green-700)' },
-    { label:'Expected Spend', val:fmtCur(Math.max(0,spendF.predicted)), range:`${fmtCur(Math.max(0,spendF.low))} — ${fmtCur(spendF.high)}`, color:'var(--orange-600)' },
-    { label:'Expected ACOS', val:Math.max(0,acosF.predicted).toFixed(2)+'%', range:`${Math.max(0,acosF.low).toFixed(1)}% — ${acosF.high.toFixed(1)}%`, color:'var(--red-600)' },
+  function fc(vals){const n=vals.length,xM=(n-1)/2,yM=vals.reduce((s,v)=>s+v,0)/n;let num=0,den=0;
+    vals.forEach((v,i)=>{num+=(i-xM)*(v-yM);den+=(i-xM)*(i-xM);});const sl=den?num/den:0,it=yM-sl*xM,pr=sl*n+it;
+    const res=vals.map((v,i)=>Math.abs(v-(sl*i+it))),avg=res.reduce((s,r)=>s+r,0)/n;return{p:pr,lo:pr-avg*1.5,hi:pr+avg*1.5};}
+  const sF=fc(WEEKS.map(w=>w.sales)),oF=fc(WEEKS.map(w=>w.orders)),spF=fc(WEEKS.map(w=>w.spend)),aF=fc(WEEKS.map(w=>w.acos));
+  const cards=[
+    {l:'Expected Sales',v:fmtCur(Math.max(0,sF.p)),r:`${fmtCur(Math.max(0,sF.lo))} — ${fmtCur(sF.hi)}`,c:'var(--blue-700)'},
+    {l:'Expected Orders',v:fmt(Math.max(0,Math.round(oF.p))),r:`${fmt(Math.max(0,Math.round(oF.lo)))} — ${fmt(Math.round(oF.hi))}`,c:'var(--green-700)'},
+    {l:'Expected Spend',v:fmtCur(Math.max(0,spF.p)),r:`${fmtCur(Math.max(0,spF.lo))} — ${fmtCur(spF.hi)}`,c:'var(--orange-600)'},
+    {l:'Expected ACOS',v:Math.max(0,aF.p).toFixed(2)+'%',r:`${Math.max(0,aF.lo).toFixed(1)}% — ${aF.hi.toFixed(1)}%`,c:'var(--red-600)'},
   ];
-
-  const grid = document.getElementById('forecastGrid');
-  grid.innerHTML = forecasts.map(f => `
-    <div class="card forecast-card">
-      <div class="forecast-label">${f.label}</div>
-      <div class="forecast-val" style="color:${f.color}">${f.val}</div>
-      <div class="forecast-range">CI: ${f.range}</div>
-    </div>
-  `).join('');
-
-  // Forecast chart
-  const labels = [...WEEKS.map(w=>'W'+w.week), 'W27 (Forecast)'];
-  const salesData = [...WEEKS.map(w=>w.sales), salesF.predicted];
-  const salesLow = [...Array(4).fill(null), salesF.low];
-  const salesHigh = [...Array(4).fill(null), salesF.high];
-
+  document.getElementById('forecastGrid').innerHTML=cards.map(f=>`<div class="card forecast-card"><div class="forecast-label">${f.l}</div><div class="forecast-val" style="color:${f.c}">${f.v}</div><div class="forecast-range">CI: ${f.r}</div></div>`).join('');
+  const last=WEEKS[WEEKS.length-1].sales;
   destroyChart('forecast');
-  chartInstances['forecast'] = new Chart(document.getElementById('forecastChart'), {
-    type:'line',
-    data:{
-      labels,
-      datasets:[
-        { label:'Sales (₹)', data:salesData, borderColor:'#2563eb', backgroundColor:'rgba(37,99,235,.1)', fill:false, tension:.4, borderWidth:2.5, pointRadius:[5,5,5,5,8], pointBackgroundColor:[...Array(4).fill('#2563eb'),'#f97316'], pointBorderColor:[...Array(4).fill('#fff'),'#fff'], pointBorderWidth:2, segment:{ borderDash:ctx=>ctx.p1DataIndex===4?[6,4]:undefined } },
-        { label:'CI Upper', data:[null,null,null,WEEKS[WEEKS.length-1].sales,salesF.high], borderColor:'rgba(37,99,235,.3)', borderDash:[4,4], borderWidth:1, pointRadius:0, fill:false },
-        { label:'CI Lower', data:[null,null,null,WEEKS[WEEKS.length-1].sales,salesF.low], borderColor:'rgba(37,99,235,.3)', borderDash:[4,4], borderWidth:1, pointRadius:0, fill:'-1', backgroundColor:'rgba(37,99,235,.08)' },
-      ]
-    },
-    options:{
-      responsive:true, maintainAspectRatio:false,
-      plugins:{ legend:{ position:'top', labels:{ usePointStyle:true, padding:16, font:{ family:'Inter', size:11 } } }, datalabels:{ display:false } },
-      scales:{
-        y:{ title:{ display:true, text:'Sales (₹)', font:{ family:'Inter' } }, grid:{ color:'#f3f4f6' }, ticks:{ font:{ family:'Inter' }, callback:v=>'₹'+fmt(v) } },
-        x:{ grid:{ display:false }, ticks:{ font:{ family:'Inter', weight:'600' } } }
-      }
-    }
-  });
+  chartInstances['forecast']=new Chart(document.getElementById('forecastChart'),{
+    type:'line',data:{labels:[...WEEKS.map(w=>'W'+w.week),'W27 (Fcst)'],datasets:[
+      {label:'Sales (₹)',data:[...WEEKS.map(w=>w.sales),sF.p],borderColor:'#2563eb',backgroundColor:'rgba(37,99,235,.1)',fill:false,tension:.4,borderWidth:2.5,pointRadius:[5,5,5,5,8],pointBackgroundColor:[...Array(4).fill('#2563eb'),'#f97316'],pointBorderColor:'#fff',pointBorderWidth:2,segment:{borderDash:ctx=>ctx.p1DataIndex===4?[6,4]:undefined}},
+      {label:'CI Upper',data:[null,null,null,last,sF.hi],borderColor:'rgba(37,99,235,.3)',borderDash:[4,4],borderWidth:1,pointRadius:0,fill:false},
+      {label:'CI Lower',data:[null,null,null,last,sF.lo],borderColor:'rgba(37,99,235,.3)',borderDash:[4,4],borderWidth:1,pointRadius:0,fill:'-1',backgroundColor:'rgba(37,99,235,.08)'}]},
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{position:'top',labels:{usePointStyle:true,padding:16,font:{family:'Inter',size:11}}},datalabels:{display:false}},
+      scales:{y:{title:{display:true,text:'Sales (₹)',font:{family:'Inter'}},grid:{color:'#f3f4f6'},ticks:{callback:v=>'₹'+fmt(v)}},x:{grid:{display:false},ticks:{font:{family:'Inter',weight:'600'}}}}}});
 }
 
-// ============================
-// ALERTS
-// ============================
-function renderAlerts(){
-  const curr = getSelectedWeek(), prev = getPrevWeek() || curr;
-  const salesChg = pctChange(curr.sales, prev.sales);
-  const ordersChg = pctChange(curr.orders, prev.orders);
-  const ctrChg = pctChange(curr.ctr, prev.ctr);
-  const impressionsChg = pctChange(curr.impressions, prev.impressions);
-  const acosChg = pctChange(curr.acos, prev.acos);
-  const roasChg = pctChange(curr.roas, prev.roas);
-  const cpcChg = pctChange(curr.cpc, prev.cpc);
-  const convChg = pctChange(curr.convRate, prev.convRate);
-
-  const alerts = [];
-
-  if(salesChg < -5) alerts.push({ type:'critical', icon:'📉', title:'Sales Decline Alert', desc:`Sales dropped ${Math.abs(salesChg).toFixed(1)}% vs last week (₹${fmt(curr.sales)} vs ₹${fmt(prev.sales)}).` });
-  if(ordersChg < -5) alerts.push({ type:'critical', icon:'📦', title:'Orders Drop Alert', desc:`Orders declined ${Math.abs(ordersChg).toFixed(1)}% — from ${prev.orders} to ${curr.orders} orders.` });
-  if(curr.acos > 25) alerts.push({ type:'warning', icon:'🎯', title:'ACOS Warning', desc:`Current ACOS at ${curr.acos}% — monitor closely, approaching high range.` });
-  if(acosChg > 2) alerts.push({ type:'warning', icon:'⚠️', title:'ACOS Increasing', desc:`ACOS worsened by ${acosChg.toFixed(1)}% week-over-week.` });
-  if(impressionsChg < -5) alerts.push({ type:'warning', icon:'👁️', title:'Visibility Drop', desc:`Impressions dropped ${Math.abs(impressionsChg).toFixed(1)}% — check bid strategy and budget allocation.` });
-  if(cpcChg > 3) alerts.push({ type:'warning', icon:'💸', title:'CPC Spike', desc:`Cost per click increased ${cpcChg.toFixed(1)}% to ₹${curr.cpc.toFixed(2)}.` });
-  if(convChg < -3) alerts.push({ type:'warning', icon:'🔄', title:'Conversion Drop', desc:`Conversion rate declined — check product listing quality and pricing.` });
-  if(roasChg > 5) alerts.push({ type:'success', icon:'🚀', title:'ROAS Improvement', desc:`ROAS improved by ${roasChg.toFixed(1)}% — advertising efficiency is increasing.` });
-
-  // Overall ACOS trend improvement
-  const acosW23 = WEEKS[0].acos, acosW26 = getSelectedWeek().acos;
-  if(acosW26 < acosW23) alerts.push({ type:'success', icon:'✅', title:'ACOS 4-Week Improvement', desc:`ACOS improved from ${acosW23}% to ${acosW26}% over 4 weeks — a ${(acosW23-acosW26).toFixed(2)}pp improvement.` });
-
-  const spendChg = pctChange(curr.spend, prev.spend);
-  if(spendChg < -3) alerts.push({ type:'info', icon:'💰', title:'Spend Reduction', desc:`Advertising spend decreased by ${Math.abs(spendChg).toFixed(1)}% — verify this is intentional.` });
-
-  // ASIN specific alerts
-  const decliningASINs = ASIN_DATA.filter(a => a.growth < -10);
-  if(decliningASINs.length > 0) alerts.push({ type:'critical', icon:'📦', title:'Declining ASINs Detected', desc:`${decliningASINs.length} ASIN(s) showing >10% decline: ${decliningASINs.map(a=>a.name.replace('Playart ','')).join(', ')}.` });
-
-  const grid = document.getElementById('alertGrid');
-  grid.innerHTML = alerts.map(a => `
-    <div class="alert-card ${a.type}">
-      <div class="alert-icon">${a.icon}</div>
-      <div class="alert-content">
-        <div class="alert-title">${a.title}</div>
-        <div class="alert-desc">${a.desc}</div>
-      </div>
-    </div>
-  `).join('');
-}
-
-// ============================
-// LEADERBOARD
-// ============================
-function renderLeaderboard(){
-  const categories = [
-    { title:'🏆 Highest Sales', data:[...ASIN_DATA].sort((a,b)=>b.sales-a.sales).slice(0,5), fmt:a=>fmtCur(a.sales) },
-    { title:'📦 Most Orders', data:[...ASIN_DATA].sort((a,b)=>b.orders-a.orders).slice(0,5), fmt:a=>fmt(a.orders)+' orders' },
-    { title:'🎯 Best CTR', data:[...ASIN_DATA].sort((a,b)=>b.ctr-a.ctr).slice(0,5), fmt:a=>a.ctr+'%' },
-    { title:'💎 Best ROAS', data:[...ASIN_DATA].sort((a,b)=>b.roas-a.roas).slice(0,5), fmt:a=>a.roas+'x' },
-    { title:'🏅 Lowest ACOS', data:[...ASIN_DATA].sort((a,b)=>a.acos-b.acos).slice(0,5), fmt:a=>a.acos+'%' },
-    { title:'📈 Fastest Growing', data:[...ASIN_DATA].sort((a,b)=>b.growth-a.growth).slice(0,5), fmt:a=>(a.growth>=0?'+':'')+a.growth+'%' },
-    { title:'⚠️ Highest ACOS', data:[...ASIN_DATA].sort((a,b)=>b.acos-a.acos).slice(0,5), fmt:a=>a.acos+'%' },
-    { title:'📉 Most Declining', data:[...ASIN_DATA].sort((a,b)=>a.growth-b.growth).slice(0,5), fmt:a=>(a.growth>=0?'+':'')+a.growth+'%' },
-  ];
-
-  const grid = document.getElementById('leaderGrid');
-  grid.innerHTML = categories.map(cat => `
-    <div class="card">
-      <div class="section-title" style="font-size:.9rem;margin-bottom:12px">${cat.title}</div>
-      ${cat.data.map((a,i) => `
-        <div class="lb-row">
-          <div class="lb-rank ${i===0?'gold':i===1?'silver':i===2?'bronze':'normal'}">${i+1}</div>
-          <div class="lb-name">${a.name.replace('Playart ','')}</div>
-          <div class="lb-val">${cat.fmt(a)}</div>
-        </div>
-      `).join('')}
-    </div>
-  `).join('');
-}
-
-// ============================
-// CEO SUMMARY
-// ============================
-function renderCEOSummary(){
-  const curr = getSelectedWeek(), prev = getPrevWeek() || curr, w23 = WEEKS[0];
-  const salesChg = pctChange(curr.sales, prev.sales);
-  const spendChg = pctChange(curr.spend, prev.spend);
-  const ordersChg = pctChange(curr.orders, prev.orders);
-  const acosChg = pctChange(curr.acos, prev.acos);
-  const roasChg = pctChange(curr.roas, prev.roas);
-
-  const topASIN = [...ASIN_DATA].sort((a,b)=>b.sales-a.sales)[0];
-  const bestROAS = [...ASIN_DATA].sort((a,b)=>b.roas-a.roas)[0];
-  const fastGrow = [...ASIN_DATA].sort((a,b)=>b.growth-a.growth)[0];
-
-  const summary = document.getElementById('ceoSummary');
-  summary.innerHTML = `
+// ========= CEO SUMMARY =========
+function renderCEO(){
+  const salesChg=pctChange(W26.sales,W25.sales),spendChg=pctChange(W26.spend,W25.spend),ordChg=pctChange(W26.orders,W25.orders);
+  const stars=ASIN_SELL.filter(a=>a.sales>3000&&a.acos<24&&a.roas>=4).sort((a,b)=>b.sales-a.sales);
+  const top=[...ASIN_SELL].sort((a,b)=>b.sales-a.sales)[0];
+  const bestRoas=[...ASIN_SELL].sort((a,b)=>b.roas-a.roas)[0];
+  const topCat=CATEGORIES[0],topType=TYPES[0];
+  const watch=ASIN_SELL.filter(a=>a.sales>1500&&a.acos>30);
+  const zeroSpend=ASIN_ZERO.reduce((s,a)=>s+a.spend,0);
+  const recover=TERM_STATS_RAW.wasted_spend+zeroSpend;
+  const brand=KWTYPE_RAW.find(k=>k.name==='Brand'),gen=KWTYPE_RAW.find(k=>k.name==='Generic');
+  const topSearch=TERMS_TOP_RAW[0];
+  document.getElementById('ceoSummary').innerHTML=`
     <h2>📋 Executive Summary — Week 26, 2026</h2>
-    <p>Overall campaign performance shows mixed signals this week. While advertising cost efficiency continues its positive multi-week trend (ACOS improved from ${w23.acos}% to ${curr.acos}% over 4 weeks), top-line metrics show a pullback in Week 26.</p>
-
-    <h3>📊 Performance Snapshot</h3>
+    <p>Week 26 delivered <b>${fmtCur(W26.sales)}</b> in ad-attributed sales on <b>${fmtCur(W26.spend)}</b> spend — a ${W26.acos.toFixed(1)}% ACOS and ${W26.roas}x ROAS. Efficiency stayed strong, but volume pulled back: sales ${salesChg>=0?'rose':'fell'} ${Math.abs(salesChg).toFixed(1)}% and orders ${ordChg>=0?'rose':'fell'} ${Math.abs(ordChg).toFixed(1)}% versus W25, while spend fell ${Math.abs(spendChg).toFixed(1)}%.</p>
+    <h3>✅ What is performing well</h3>
     <ul>
-      <li>Total Sales: ${fmtCur(curr.sales)} (${salesChg>=0?'+':''}${salesChg.toFixed(1)}% WoW)</li>
-      <li>Total Spend: ${fmtCur(curr.spend)} (${spendChg>=0?'+':''}${spendChg.toFixed(1)}% WoW) — Spend reduced more than sales</li>
-      <li>ACOS: ${curr.acos}% — ${curr.acos < prev.acos ? 'Improved' : 'Worsened'} vs last week (${prev.acos}%)</li>
-      <li>ROAS: ${curr.roas}x — Healthy return on ad spend</li>
-      <li>Orders: ${curr.orders} (${ordersChg>=0?'+':''}${ordersChg.toFixed(1)}% WoW)</li>
+      <li>${stars.length} star ASINs (ROAS ≥ 4, ACOS < 24%) led by <b>${top.label}</b> — ${fmtCur(top.sales)} at ${top.acos.toFixed(1)}% ACOS</li>
+      <li>Top category <b>${topCat.category}</b> contributes ${topCat.revPct}% of revenue (${fmtCur(topCat.sales)}, ${topCat.acos}% ACOS)</li>
+      <li><b>${topType.type}</b> is the workhorse channel at ${topType.salesShare}% of sales and ${topType.roas}x ROAS</li>
+      <li>Brand search terms convert at just <b>${brand?brand.acos.toFixed(1):'—'}%</b> ACOS — the most profitable demand; "${topSearch?short(topSearch.term,28):'—'}" alone drove ${topSearch?fmtCur(topSearch.sales):'—'}</li>
     </ul>
-
-    <h3>🏆 Key Wins</h3>
+    <h3>👀 What needs to be seen</h3>
     <ul>
-      <li>4-week ACOS improvement trend: 27.64% → 23.69% (saving approximately ₹${fmt(Math.round(curr.sales * (w23.acos - curr.acos)/100))} per week in ad costs)</li>
-      <li>Highest Sales ASIN: ${topASIN.name} — ${fmtCur(topASIN.sales)} with ${topASIN.acos}% ACOS</li>
-      <li>Best ROAS Product: ${bestROAS.name} at ${bestROAS.roas}x return</li>
-      <li>Fastest Growing: ${fastGrow.name} at +${fastGrow.growth}% growth</li>
-      <li>Spend reduction of ${Math.abs(spendChg).toFixed(1)}% demonstrates improved budget discipline</li>
+      <li>${watch.length} selling ASINs run above 30% ACOS — real revenue but thin margin</li>
+      <li>Generic discovery terms cost <b>${gen?gen.acos.toFixed(1):'—'}%</b> ACOS vs brand's ${brand?brand.acos.toFixed(1):'—'}% — scale only the winners</li>
+      <li>Impressions and orders both softened WoW — watch share-of-voice before it compounds</li>
+      <li>Category spread: top 3 categories carry the portfolio; thin-selling categories need a decision</li>
     </ul>
-
-    <h3>⚠️ Key Risks</h3>
+    <h3>🔧 What needs action</h3>
     <ul>
-      <li>Revenue decline of ${Math.abs(salesChg).toFixed(1)}% needs monitoring — confirm if seasonal or structural</li>
-      <li>Impressions declining for 3 consecutive weeks — potential share of voice erosion</li>
-      <li>Orders down ${Math.abs(ordersChg).toFixed(1)}% — conversion funnel requires attention</li>
-      <li>CPC elevated at ₹${curr.cpc.toFixed(2)} — keyword competition intensifying</li>
+      <li><b>${fmtCur(recover)} is recoverable now:</b> ${fmtCur(TERM_STATS_RAW.wasted_spend)} on ${TERM_STATS_RAW.wasted_count} zero-order search terms + ${fmtCur(zeroSpend)} on ${ASIN_ZERO.length} zero-sale ASINs</li>
+      <li>Add top non-converting terms (e.g. "water color paint set") as negative keywords</li>
+      <li>Scale budget into ${bestRoas.label} (${bestRoas.roas}x) and other sub-22% ACOS winners</li>
+      <li>Re-bid or pause the ${TGT_STATS_RAW.wasted_count} non-converting targets (${fmtCur(TGT_STATS_RAW.wasted_spend)})</li>
     </ul>
-
-    <h3>🎯 Recommendations for Leadership</h3>
-    <ul>
-      <li><strong>Increase budget</strong> on high-ROAS ASINs (Finger Paint, Crayon) — these show strong efficiency</li>
-      <li><strong>Investigate impressions decline</strong> — review keyword bids, search term reports, and competitive landscape</li>
-      <li><strong>Optimize underperformers</strong> — Magic Paint Dust (-71.9%) and Colouring Page (-88.1%) need restructuring or pausing</li>
-      <li><strong>A/B test ad creatives</strong> — CTR improvement shows opportunity to further enhance click-through performance</li>
-      <li><strong>Review conversion path</strong> — declining orders despite reasonable CTR suggest listing quality, pricing, or inventory issues</li>
-      <li><strong>Set ACOS target</strong> of 22% for next quarter, building on the positive 4-week trend</li>
-    </ul>
-
     <h3>📈 Outlook</h3>
-    <p>The 4-week trajectory shows improving advertising efficiency despite softer volume metrics. If impression share can be stabilized through strategic bid adjustments and the conversion rate is addressed through listing optimization, Week 27–30 should see improved performance. The portfolio's ACOS trajectory is encouraging and suggests the advertising strategy is maturing.</p>
-  `;
+    <p>The efficiency story is healthy; the job for W27 is <b>volume recovery without losing ACOS discipline</b>. Cutting the ${fmtCur(recover)} of non-converting spend and redeploying it into proven brand and star-ASIN campaigns is the fastest lever. Stabilising impression share and trimming the high-ACOS tail should return the portfolio to growth.</p>`;
 }
 
-// ============================
-// INIT
-// ============================
+// ========= INIT =========
+function safe(fn){try{fn();}catch(e){console.error(fn.name+' failed:',e.message);}}
 function init(){
-  renderKPIs();
-  renderWoW();
-  renderWoWTrendChart();
-  renderWaterfallChart();
-  renderCampaignHealth();
-  renderASIN();
-  renderSalesSpend();
-  renderACOS();
-  renderFunnel();
-  renderInsights();
-  renderForecast();
-  renderAlerts();
-  renderLeaderboard();
-  renderCEOSummary();
+  [renderVerdict,renderKPIs,renderWell,renderWatch,renderAct,renderCategory,renderProducts,
+   renderSearch,renderWhere,renderASINTable,renderCampaigns,renderTrends,renderForecast,renderCEO].forEach(safe);
 }
-
-document.addEventListener('DOMContentLoaded', init);
+document.addEventListener('DOMContentLoaded',init);
 </script>
 </body>
 </html>
